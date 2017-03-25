@@ -1,9 +1,9 @@
-package Clase1OOP;
+package Clase1OOP.AbstractFactoryExample;
 
-public class DBConnectionFactory extends AbstractFactory {
+public class SQLFactory extends AbstractFactory {
 
 	@Override
-	DBConnection getDBConnection(String connection) {
+	SQLConnection getSQLConnection(String connection) {
 		if(connection == null){
 	         return null;
 	      }		
@@ -20,4 +20,10 @@ public class DBConnectionFactory extends AbstractFactory {
 	      
 	      return null;
 	   }
+
+	@Override
+	NoSQLConnection getNOSQLConnection(String connection) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

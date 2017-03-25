@@ -1,4 +1,4 @@
-package Clase1OOP;
+package Clase1OOP.ProxyExample;
 
 public class ProxyDemo {
 	public static void main(String[] args) {

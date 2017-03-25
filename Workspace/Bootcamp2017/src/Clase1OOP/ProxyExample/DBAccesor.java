@@ -1,4 +1,4 @@
-package Clase1OOP;
+package Clase1OOP.ProxyExample;
 import java.util.Date;
 
 public abstract class DBAccesor {

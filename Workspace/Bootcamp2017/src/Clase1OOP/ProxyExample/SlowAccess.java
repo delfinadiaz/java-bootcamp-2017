@@ -1,4 +1,4 @@
-package Clase1OOP;
+package Clase1OOP.ProxyExample;
 
 public class SlowAccess extends DBAccesor {
 	public SlowAccess() {

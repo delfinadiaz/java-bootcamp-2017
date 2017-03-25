@@ -1,4 +1,4 @@
-package Clase1OOP;
+package Clase1OOP.SingletonExample;
 
 public class DBSingletonExample {
 	private static DBSingletonExample singletonExample = null;
