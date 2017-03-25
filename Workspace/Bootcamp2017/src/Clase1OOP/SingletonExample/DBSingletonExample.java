@@ -13,7 +13,7 @@ public class DBSingletonExample {
 		return singletonExample;
 	}
 
-	public void sayHello() {
-		System.out.println("Hello");
+	public void connect() {
+		System.out.println("Connecting to database..");
 	}
 }

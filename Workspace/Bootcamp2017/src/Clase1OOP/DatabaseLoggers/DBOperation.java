@@ -1,5 +1,6 @@
 package Clase1OOP.DatabaseLoggers;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public abstract class DBOperation {
@@ -19,9 +20,15 @@ public abstract class DBOperation {
 	      observers.add(loggerObserver);		
 	   }
 
-	public void notifyAllObservers(){
-	      for (LoggerObserver observer : observers) {
-	         observer.update();
-	      }
+	public void doNotify(){
+	    /*  for (LoggerObserver observer : observers) {
+	         observer.doUpdate(query);
+	      }*/
+		
+		Iterator<LoggerObserver> it = observers.iterator();
+		while (it.hasNext()) {
+			LoggerObserver weatherObserver = it.next();
+			weatherObserver.doUpdate(query);
+		}
 	   } 
 }

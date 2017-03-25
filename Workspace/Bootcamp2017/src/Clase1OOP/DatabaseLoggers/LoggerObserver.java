@@ -1,31 +1,37 @@
 package Clase1OOP.DatabaseLoggers;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.Calendar;
 
+//This class represents the Observer class from the Observer Pattern and the Context class from the Strategy Pattern
 public class LoggerObserver {
-	private Logger logger;
-	private DBOperation subject;
+	LoggerLanguage language;
 	
 	public LoggerObserver() {
-		logger = Logger.getLogger(LoggerObserver.class.getName());
 	}
 
 	public void observe(DBOperation aDBOperation){
 		aDBOperation.attach(this);
-		setSubject(aDBOperation);
 	}
+
+	public void doUpdate(String query) {
+
+		Calendar currentDate = Calendar.getInstance();
+		int currentHour = currentDate.get(Calendar.HOUR);
+	    if (currentHour < 12) {
+			language = new LoggerEnglish();
+			language.logQuery(query);
+		}
+		else if (currentHour > 12 && currentHour < 21){
+			language = new LoggerSpanish();
+			language.logQuery(query);
+		}
+		else {
+			language = new LoggerFrench();
+			language.logQuery(query);
+		}
+		
+	}
+
+
 	
-	public void update(){
-		String aQuery = subject.getQuery();
-		logger.log(Level.INFO, aQuery);
-	}
-
-	public DBOperation getSubject() {
-		return subject;
-	}
-
-	public void setSubject(DBOperation subject) {
-		this.subject = subject;
-	}
 }

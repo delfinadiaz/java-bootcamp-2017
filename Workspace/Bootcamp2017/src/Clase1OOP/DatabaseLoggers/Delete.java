@@ -12,7 +12,7 @@ public class Delete extends DBOperation {
 		}
 		setQuery(sb.toString());
 		System.out.println("Executing the query: " + this.getQuery());
-		notifyAllObservers();
+		doNotify();
 	}
 
 }
