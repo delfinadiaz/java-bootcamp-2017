@@ -184,6 +184,7 @@ Note that you don't need to create real database connections, [just mock it](htt
 3. Create a proxy example for database accesor clases.
 4. Create a builder example for database connection.
 
+
 ##### Key Points: #####
 
 3
@@ -191,6 +192,13 @@ Note that you don't need to create real database connections, [just mock it](htt
 ##### Commit: #####
 
 Commit your practice code.
+
+##### Challenges!! #####
+
+1. Refactor your abstract factory example knowing that now you may have both SQL and NoSQL databases.
+2. You have a database with different kinds of operations (SELECT, UPDATE, DELETE, etc), and after the execution of each one of these, several Loggers which log this action in detail. Which design pattern would you use and why? Implement it.
+3. Suppose now that each Logger may serve for different languages, according to the time of the day. How would you change each Logger behaviour every now and then? Choose the most suitable design pattern for this. Implement it too!
+
 
 → [index](#index)
 
