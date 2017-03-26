@@ -3,7 +3,7 @@ package Clase1OOP.DatabaseLoggers;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-//This class represents the Strategy class from the Strategy Pattern and the AbstractClass from the Template Method Pattern
+//This class represents the State class from the State Pattern and the AbstractClass from the Template Method Pattern
 public abstract class LoggerLanguage {
 	private Logger logger;
 	
@@ -15,7 +15,7 @@ public abstract class LoggerLanguage {
 	void executeLog(String aQuery){
 		logger.log(Level.INFO, aQuery);	
 	}
-	void logQuery(String aQuery){
+	void log(String aQuery){
 		setLanguage();
 		executeLog(aQuery);
 	}

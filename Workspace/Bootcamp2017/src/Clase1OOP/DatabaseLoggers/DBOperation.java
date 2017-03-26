@@ -3,6 +3,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+//This class represents the Subject class from the Observer Pattern
 public abstract class DBOperation {
 	
 	private String query;
@@ -16,19 +17,19 @@ public abstract class DBOperation {
 	public void setQuery(String query) {
 		this.query = query;
 	}
+	
 	public void attach(LoggerObserver loggerObserver){
 	      observers.add(loggerObserver);		
 	   }
-
+	
+	public void detach(LoggerObserver loggerObserver){
+	      observers.remove(loggerObserver);		
+	   }
 	public void doNotify(){
-	    /*  for (LoggerObserver observer : observers) {
-	         observer.doUpdate(query);
-	      }*/
-		
-		Iterator<LoggerObserver> it = observers.iterator();
+	    Iterator<LoggerObserver> it = observers.iterator();
 		while (it.hasNext()) {
-			LoggerObserver weatherObserver = it.next();
-			weatherObserver.doUpdate(query);
+			LoggerObserver loggerObserver = it.next();
+			loggerObserver.log(query);
 		}
 	   } 
 }

@@ -1,5 +1,6 @@
 package Clase1OOP.DatabaseLoggers;
 
+//This class represents the ConcreteSubject from the Observer Pattern
 public class Select extends DBOperation {
 	
 	@Override
