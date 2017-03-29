@@ -2,50 +2,48 @@ package Clase3TDD.BlogSoftware;
 
 import static org.junit.Assert.*;
 
-import java.util.LinkedList;
-import java.util.List;
-
 import org.junit.Before;
 import org.junit.Test;
+import org.mockito.Mock;
 import org.mockito.Mockito;
+import org.mockito.MockitoAnnotations;
 
 import Clase3TDD.RecentFileList.RecentGenericList;
 
+
 public class BlogTest {
+	@Mock
+	RecentGenericList<Entry> mockedEntries;
+	Entry mockedEntry;
+	
 	private Blog blog;
 	
 	@Before
 	public void init() {
 		blog = new Blog();
+		MockitoAnnotations.initMocks(this);
 	}
 	
 	@Test
 	public void whenPostNewEntryThenNewEntryIsAddedToTheBlog(){
-		Entry mockedEntry = Mockito.mock(Entry.class);
 		blog.postEntry(mockedEntry);
 		assertTrue(blog.getEntries().contains(mockedEntry));
 	}
 	
 	@Test
 	public void whenDeleteExistingEntryThenTheEntryIsRemovedFromTheBlogAndReturnsTrue(){
-		Entry mockedEntry = Mockito.mock(Entry.class);
-		blog.postEntry(mockedEntry);
 		Entry mockedEntry2 = Mockito.mock(Entry.class);
+		blog.postEntry(mockedEntry);
 		blog.postEntry(mockedEntry2);
 		assertTrue(blog.removeEntry(mockedEntry));
 		assertFalse(blog.getEntries().contains(mockedEntry));
 	}
 	
+	
 	@Test
 	public void whenShow10MostRecentEntriesThenThe10LastPostedEntriesAreReturned(){
 		
-		RecentGenericList<Entry> mockedEntries = Mockito.mock(RecentGenericList.class);
-		Mockito.when(mockedEntries.getSize()).thenReturn(10);
-		
-		Entry mockedEntry1 = Mockito.mock(Entry.class);
-		Mockito.when(mockedEntry1.getTitle()).thenReturn("title1");
-	    Mockito.when(mockedEntry1.getContent()).thenReturn("content1");
-		blog.postEntry(mockedEntry1);
+		blog.postEntry(mockedEntry);
 		
 		Entry mockedEntry2 = Mockito.mock(Entry.class);
 		Mockito.when(mockedEntry2.getTitle()).thenReturn("title2");
@@ -66,7 +64,7 @@ public class BlogTest {
 		Mockito.when(mockedEntry5.getTitle()).thenReturn("title5");
 	    Mockito.when(mockedEntry5.getContent()).thenReturn("content5");
 		blog.postEntry(mockedEntry5);
-		
+	
 		Entry mockedEntry6 = Mockito.mock(Entry.class);
 		Mockito.when(mockedEntry6.getTitle()).thenReturn("title6");
 	    Mockito.when(mockedEntry6.getContent()).thenReturn("content6");
@@ -96,8 +94,8 @@ public class BlogTest {
 		Mockito.when(mockedEntry11.getTitle()).thenReturn("title11");
 	    Mockito.when(mockedEntry11.getContent()).thenReturn("content11");
 		blog.postEntry(mockedEntry11);
-		
-		assertEquals(mockedEntries,blog.show10MostRecentEntries());
+	
+		assertFalse(blog.show10MostRecentEntries().contains(mockedEntry));
 	
 	}
 	
@@ -109,14 +107,12 @@ public class BlogTest {
 	
 	@Test
 	public void whenShow10MostRecentEntriesButThereAreLessEntriesThenReturnsExistingEntries(){
+		Mockito.when(mockedEntries.getSize()).thenReturn(2);
+		blog.postEntry(mockedEntry);
+		Entry mockedEntry2 = Mockito.mock(Entry.class);
+		blog.postEntry(mockedEntry2);
+		assertEquals(mockedEntries.getSize(),blog.getEntries().size());
 		
      }
-	
-	@Test
-	public void whenShow10MostRecentEntriesAndThereAre10EntriesThenReturnsEntriesWithoutRemovingAny(){
-		
-     }
-	
-	
-	
+
 }
