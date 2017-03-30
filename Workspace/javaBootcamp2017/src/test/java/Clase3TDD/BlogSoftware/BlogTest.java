@@ -112,6 +112,26 @@ public class BlogTest {
 		Mockito.when(mockedEntries.getList()).thenReturn(list);
 		assertEquals(mockedEntries.getList(),blog.show10MostRecentEntries());
 		Mockito.verify(mockedEntries).getList();
+		Mockito.verify(mockedEntry2).getTitle();
+		Mockito.verify(mockedEntry2).getContent();
+		Mockito.verify(mockedEntry3).getTitle();
+		Mockito.verify(mockedEntry3).getContent();
+		Mockito.verify(mockedEntry4).getTitle();
+		Mockito.verify(mockedEntry4).getContent();
+		Mockito.verify(mockedEntry5).getTitle();
+		Mockito.verify(mockedEntry5).getContent();
+		Mockito.verify(mockedEntry6).getTitle();
+		Mockito.verify(mockedEntry6).getContent();
+		Mockito.verify(mockedEntry7).getTitle();
+		Mockito.verify(mockedEntry7).getContent();
+		Mockito.verify(mockedEntry8).getTitle();
+		Mockito.verify(mockedEntry8).getContent();
+		Mockito.verify(mockedEntry9).getTitle();
+		Mockito.verify(mockedEntry9).getContent();
+		Mockito.verify(mockedEntry10).getTitle();
+		Mockito.verify(mockedEntry10).getContent();
+		Mockito.verify(mockedEntry11).getTitle();
+		Mockito.verify(mockedEntry11).getContent();
 	
 	}
 	
