@@ -334,11 +334,9 @@ Commit your practice code.
 
      * A new transaction was made
 
-7. Audio Player: Modelate an application for listening music. You can play, stop and pause tracks.
-
 ##### Key Points: #####
 
-1,2,3,4,5,6,7
+1,2,3,4,5,6
 
 ##### Commit: #####
 
