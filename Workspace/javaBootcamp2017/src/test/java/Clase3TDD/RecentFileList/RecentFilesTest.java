@@ -119,6 +119,7 @@ public class RecentFilesTest {
 		recentFiles.openFile(mockedFile5);
 		
 		assertEquals(mockedFiles.getSize(),recentFiles.getRecentFiles().getSize());
+		Mockito.verify(mockedFiles).getSize();
 		
 	}
 	

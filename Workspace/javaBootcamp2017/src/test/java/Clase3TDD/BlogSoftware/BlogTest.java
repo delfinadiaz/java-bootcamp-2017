@@ -109,7 +109,9 @@ public class BlogTest {
 		blog.postEntry(mockedEntry11);
 		list.addFirst(mockedEntry11);
 	
-		assertEquals(list,blog.show10MostRecentEntries());
+		Mockito.when(mockedEntries.getList()).thenReturn(list);
+		assertEquals(mockedEntries.getList(),blog.show10MostRecentEntries());
+		Mockito.verify(mockedEntries).getList();
 	
 	}
 	
@@ -126,7 +128,10 @@ public class BlogTest {
 		Entry mockedEntry2 = Mockito.mock(Entry.class);
 		blog.postEntry(mockedEntry2);
 		assertEquals(mockedEntries.getSize(),blog.getEntries().size());
+		Mockito.verify(mockedEntries).getSize();
 		
      }
+	
+
 
 }
