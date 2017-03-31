@@ -5,9 +5,20 @@ import java.util.List;
 
 public class CreditCardPayment implements Payment {
 
+	private static int paymentID;
 	private String name;
 	private int creditNumber; 
 	private double amount;
+	
+	
+	public CreditCardPayment(){
+		paymentID = new Counter().generateUniqueID();
+	}
+	@Override
+	public int getPaymentID() {
+		// TODO Auto-generated method stub
+		return paymentID;
+	}
 	
 	@Override
 	public boolean buy(User user, List<Item> cart, double totalPrice) {
@@ -15,7 +26,7 @@ public class CreditCardPayment implements Payment {
 			setName(user.getName());
 			setCreditNumber(user.getCreditNumber());
 			applyDiscount(totalPrice);
-			System.out.printf( "Amount paid by Credit Card: $%f %n",amount);
+			System.out.printf( "Transaction Number %d - Amount paid by Credit Card: $%f %n",paymentID,amount);
 			return true;
 		}
 		catch (PaymentException e) {
@@ -49,6 +60,7 @@ public class CreditCardPayment implements Payment {
 
 	public void setAmount(double amount) {
 		this.amount = amount;
-	}	
+	}
+	
 
 }

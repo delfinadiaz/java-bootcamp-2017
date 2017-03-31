@@ -20,6 +20,7 @@ public class ShoppingCartImpTest {
 	@Mock
 	User user;
 	
+	
 	ShoppingCartImp shoppingCart; 
 	
 	@Before
@@ -102,7 +103,7 @@ public class ShoppingCartImpTest {
 	}
 	
 	@Test
-	public void whenBuyCreditCardThenThe10PercentIsDiscounted(){
+	public void whenBuyByCreditCardThenThe10PercentIsDiscounted(){
 		//delta is the difference allowed in the comparison
 		double delta= 0.001;
 		Mockito.when(item.getPrice()).thenReturn((double)40);
@@ -122,5 +123,30 @@ public class ShoppingCartImpTest {
 		shoppingCart.addItem(item2);
 		list.add(item2);
 		assertEquals(list.size(),shoppingCart.getItems().size());
+	}
+	
+	@Test
+	public void whenShowItemsThenTheItemsAreDisplayedNextToTheirPrices(){
+		
+		Mockito.when(item.getPrice()).thenReturn((double)10);
+		Mockito.when(item.getName()).thenReturn("A name");
+		shoppingCart.addItem(item);
+		Mockito.when(item2.getPrice()).thenReturn((double)20);
+		Mockito.when(item2.getName()).thenReturn("Another name");
+		shoppingCart.addItem(item2);
+		
+		StringBuilder sb = new StringBuilder("Item: ");
+		sb.append(item.getName());
+		sb.append(" .....$");
+		sb.append(item.getPrice());
+		sb.append(System.getProperty("line.separator"));
+		sb.append("Item: ");
+		sb.append(item2.getName());
+		sb.append(" .....$");
+		sb.append(item2.getPrice());
+		sb.append(System.getProperty("line.separator"));
+		String message = sb.toString();
+		System.out.println(shoppingCart.showItems());
+		assertEquals(message, shoppingCart.showItems());
 	}
 }

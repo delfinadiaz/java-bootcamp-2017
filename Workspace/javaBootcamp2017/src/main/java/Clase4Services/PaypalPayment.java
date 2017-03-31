@@ -4,10 +4,21 @@ import java.util.Iterator;
 import java.util.List;
 
 public class PaypalPayment implements Payment{
-
+	
+	private static int paymentID;
 	private String email;
 	private String password;
 	private double amount;
+	
+	public PaypalPayment(){
+		paymentID = new Counter().generateUniqueID();
+	}
+	
+	@Override
+	public int getPaymentID() {
+		// TODO Auto-generated method stub
+		return paymentID;
+	}
 	
 	@Override
 	public boolean buy(User user, List<Item> cart, double totalPrice) {
@@ -16,7 +27,7 @@ public class PaypalPayment implements Payment{
 			setEmail(user.getEmail());
 			setPassword(user.getPassword());
 			applyDiscount(totalPrice, cart);
-			System.out.printf( "Amount paid by Paypal: $%f %n",amount);
+			System.out.printf( "Transaction Number %d - Amount paid by Paypal: $%f %n",paymentID,amount);
 			return true;
 		}
 		catch (PaymentException e) {
@@ -28,12 +39,17 @@ public class PaypalPayment implements Payment{
 	public void applyDiscount(double totalPrice, List<Item> cart) {
 		double total;
 		double cheapestItemPrice;
-		cheapestItemPrice = getPriceCheapestItem(cart);
+		if (cart.size() > 1 ){
+			cheapestItemPrice = getPriceCheapestItem(cart);
+		}
+		else {
+			cheapestItemPrice = cart.get(0).getPrice();
+		}
 		total = (totalPrice - cheapestItemPrice);
 		setAmount(total);	
 	}
 
-	private double getPriceCheapestItem(List<Item> cart) {
+	protected double getPriceCheapestItem(List<Item> cart) {
 		// TODO Auto-generated method stub
 		double minPrice = cart.get(0).getPrice();
 		Iterator<Item> it = cart.listIterator();
@@ -52,7 +68,7 @@ public class PaypalPayment implements Payment{
 		return amount;
 	}
 
-	public void setAmount(Double amount) {
+	public void setAmount(double amount) {
 		this.amount = amount;
 	}
 	
@@ -71,5 +87,6 @@ public class PaypalPayment implements Payment{
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
 
 }

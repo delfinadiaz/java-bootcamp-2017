@@ -77,19 +77,21 @@ public class ShoppingCartImp implements ShoppingCartAPI {
 	}	
 	
 	@Override
-	public void showItem() {
+	public String showItems() {
 		// TODO Auto-generated method stub
 		Iterator<Item> it = cart.listIterator();
-		String message;
+		String message = null;
+		StringBuilder sb = new StringBuilder();
 		while (it.hasNext()) {
 			Item item = it.next();
-			StringBuilder sb = new StringBuilder("Item: ");
+			sb.append("Item: ");
 			sb.append(item.getName());
 			sb.append(" .....$");
 			sb.append(item.getPrice());
-			message = sb.toString();
-			System.out.println(message);
+			sb.append(System.getProperty("line.separator"));
 		}
+		message = sb.toString();
+		return message;
 		
 	}
 	

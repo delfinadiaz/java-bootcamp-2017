@@ -21,7 +21,7 @@ public interface ShoppingCartAPI {
 	//Returns all the items in the cart
 	public List<Item> getItems();
 	
-	/*
+	/*Receives a payment option and call its buy() method
 	 and after calls the method emptyCart() to remove all the items that were bought */
 	public void buy(Payment aPaymentOption);
 	
@@ -29,5 +29,5 @@ public interface ShoppingCartAPI {
 	public void emptyCart();
 
 	//Shows all the items in the cart next to their price
-	void showItem();
+	public String showItems();
 }

@@ -5,18 +5,26 @@ import java.util.List;
 
 public class CashPayment implements Payment{
 
+	private static int paymentID;
     private double amount;
     
     public CashPayment(){
-    	
+    	paymentID = new Counter().generateUniqueID();
     }
+    
+    
+    @Override
+	public int getPaymentID() {
+		// TODO Auto-generated method stub
+		return paymentID;
+	}
     
 	@Override
 	public boolean buy(User user, List<Item> cart, double totalPrice) {
 		// TODO Auto-generated method stub
 		try { 
 			applyDiscount(totalPrice, cart);
-			System.out.printf( "Amount paid in cash: $%f %n",amount);
+			System.out.printf( "Transaction Number %d - Amount paid in cash: $%f %n",paymentID,amount);
 			return true;
 		}
 		catch (PaymentException e) {
