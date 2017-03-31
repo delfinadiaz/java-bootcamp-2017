@@ -7,10 +7,19 @@ import java.util.List;
 
 
 public class ShoppingCartImp implements ShoppingCartAPI {
+	
+	private User user;
 	private List<Item> cart;
 	
 	protected ShoppingCartImp(){
 		cart = new ArrayList<Item>();
+	}
+	
+
+	@Override
+	public void initialize(User anUser) {
+		this.user = anUser;
+		
 	}
 
 	@Override
@@ -38,9 +47,9 @@ public class ShoppingCartImp implements ShoppingCartAPI {
 	}
 
 	@Override
-	public int getTotalPrice(){
+	public double getTotalPrice(){
 		// TODO Auto-generated method stub
-		int sumPrice=0;
+		double sumPrice=0;
 		Iterator<Item> it = getItems().listIterator();
 		while (it.hasNext()) {
 			Item item = it.next();
@@ -50,19 +59,39 @@ public class ShoppingCartImp implements ShoppingCartAPI {
 	}
 	
 	@Override
-	public void buy() {
+	public void buy(Payment aPaymentOption) {
 		// TODO Auto-generated method stub
-		int amount = getTotalPrice();
-		System.out.println("The amount to pay is " + amount);
-		emptyCart();
-		
+		double totalPrice = getTotalPrice();
+		boolean purchaseMade = aPaymentOption.buy(user,cart,totalPrice);
+		if (purchaseMade){
+			emptyCart();
+		}
+		else {
+			throw new PaymentException();
+		}	
 	}
 
 	@Override
 	public void emptyCart() {
 		cart.clear();
-		
 	}	
+	
+	@Override
+	public void showItem() {
+		// TODO Auto-generated method stub
+		Iterator<Item> it = cart.listIterator();
+		String message;
+		while (it.hasNext()) {
+			Item item = it.next();
+			StringBuilder sb = new StringBuilder("Item: ");
+			sb.append(item.getName());
+			sb.append(" .....$");
+			sb.append(item.getPrice());
+			message = sb.toString();
+			System.out.println(message);
+		}
+		
+	}
 	
 
 }

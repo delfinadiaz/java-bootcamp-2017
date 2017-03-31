@@ -17,6 +17,8 @@ public class ShoppingCartImpTest {
 	Item item;
 	@Mock
 	Item item2;
+	@Mock
+	User user;
 	
 	ShoppingCartImp shoppingCart; 
 	
@@ -24,6 +26,7 @@ public class ShoppingCartImpTest {
 	public void init() {
 		shoppingCart = ShoppingCartFactory.getLocalShoppingCart();
 		MockitoAnnotations.initMocks(this);
+		shoppingCart.initialize(user);
 	}
 	
 	@Test
@@ -51,12 +54,14 @@ public class ShoppingCartImpTest {
 	
 	@Test
 	public void whenGetTotalPriceThenTheAdditionOfAllTheItemsInTheCartIsReturned(){
-		
-		Mockito.when(item.getPrice()).thenReturn(40);
-		Mockito.when(item2.getPrice()).thenReturn(20);
+		//delta is the difference allowed in the comparison
+		double delta= 0.001;
+		Mockito.when(item.getPrice()).thenReturn((double) 40);
+		Mockito.when(item2.getPrice()).thenReturn((double)20);
 		shoppingCart.addItem(item);
 		shoppingCart.addItem(item2);
-		assertEquals(60,shoppingCart.getTotalPrice());
+		double price= shoppingCart.getTotalPrice();
+		assertEquals((double)60, price,delta);
 		Mockito.verify(item).getPrice();
 		Mockito.verify(item2).getPrice();
 		
@@ -64,12 +69,49 @@ public class ShoppingCartImpTest {
 	
 	@Test
 	public void whenBuyThenTheCartGetsEmptyAndMessageIsReturned(){
-		Mockito.when(item.getPrice()).thenReturn(40);
+		Mockito.when(item.getPrice()).thenReturn((double)40);
 		shoppingCart.addItem(item);
-		shoppingCart.buy();
+		shoppingCart.buy(new CashPayment());
 		assertTrue(shoppingCart.getItems().isEmpty());
-		Mockito.verify(item).getPrice();
-		
+	}
+	
+	@Test
+	public void whenBuyByCashThenThe90PercentOfTheMostExpensiveItemIsFree(){
+		//delta is the difference allowed in the comparison
+		double delta= 0.001;
+		Mockito.when(item.getPrice()).thenReturn((double)40);
+		Mockito.when(item2.getPrice()).thenReturn((double)10);
+		shoppingCart.addItem(item);
+		shoppingCart.addItem(item2);
+		CashPayment cashPayment =new CashPayment();
+		shoppingCart.buy(cashPayment);
+		assertEquals((double)14,cashPayment.getAmount(),delta);
+	}
+	
+	@Test
+	public void whenBuyByPayPalThenTheCheapestItemIsFree(){
+		//delta is the difference allowed in the comparison
+		double delta= 0.001;
+		Mockito.when(item.getPrice()).thenReturn((double)40);
+		Mockito.when(item2.getPrice()).thenReturn((double)10);
+		shoppingCart.addItem(item);
+		shoppingCart.addItem(item2);
+		PaypalPayment paypalPayment =new PaypalPayment();
+		shoppingCart.buy(paypalPayment);
+		assertEquals((double)40,paypalPayment.getAmount(),delta);
+	}
+	
+	@Test
+	public void whenBuyCreditCardThenThe10PercentIsDiscounted(){
+		//delta is the difference allowed in the comparison
+		double delta= 0.001;
+		Mockito.when(item.getPrice()).thenReturn((double)40);
+		Mockito.when(item2.getPrice()).thenReturn((double)10);
+		shoppingCart.addItem(item);
+		shoppingCart.addItem(item2);
+		CreditCardPayment creditCardPayment =new CreditCardPayment();
+		shoppingCart.buy(creditCardPayment);
+		assertEquals((double)45,creditCardPayment.getAmount(),delta);
 	}
 	
 	@Test

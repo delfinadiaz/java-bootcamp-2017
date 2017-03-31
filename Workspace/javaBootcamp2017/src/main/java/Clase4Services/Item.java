@@ -2,7 +2,7 @@ package Clase4Services;
 
 public class Item {
 	private String name;
-	private int price;
+	private double price;
 	
 	public Item(String aName, int aPrice){
 		this.name= aName;
@@ -14,10 +14,10 @@ public class Item {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public int getPrice() {
+	public double getPrice() {
 		return price;
 	}
-	public void setPrice(int price) {
+	public void setPrice(double price) {
 		this.price = price;
 	}
 }

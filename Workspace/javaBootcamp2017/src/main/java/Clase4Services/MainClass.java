@@ -7,6 +7,9 @@ public class MainClass {
 	        
 	        ShoppingCartImp shoppingCart = ShoppingCartFactory.getLocalShoppingCart();
 	        
+	        User user = new User("an username", "a password","anEmail");
+	        shoppingCart.initialize(user);
+	        
 	        Item item = new Item("a name", 40);
 	        Item item2= new Item("another name", 100);
 	        Item item3= new Item("name 3", 20);
@@ -18,7 +21,7 @@ public class MainClass {
 	        shoppingCart.removeItem(item2);
 	        
 	        shoppingCart.getTotalPrice();
-	        shoppingCart.buy();  
+	        shoppingCart.buy(new CashPayment());  
 	          
 	    }  
 
