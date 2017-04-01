@@ -21,7 +21,7 @@ public class CreditCardPayment implements Payment {
 	}
 	
 	@Override
-	public boolean buy(User user, List<Item> cart, double totalPrice) {
+	public boolean buy(User user, List<IndividualItem> cart, double totalPrice) {
 		try { 
 			setName(user.getName());
 			setCreditNumber(user.getCreditNumber());

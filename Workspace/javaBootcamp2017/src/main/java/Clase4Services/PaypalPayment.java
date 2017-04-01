@@ -21,7 +21,7 @@ public class PaypalPayment implements Payment{
 	}
 	
 	@Override
-	public boolean buy(User user, List<Item> cart, double totalPrice) {
+	public boolean buy(User user, List<IndividualItem> cart, double totalPrice) {
 		// TODO Auto-generated method stub
 		try {
 			setEmail(user.getEmail());
@@ -36,7 +36,7 @@ public class PaypalPayment implements Payment{
         }
 	}
 	
-	public void applyDiscount(double totalPrice, List<Item> cart) {
+	public void applyDiscount(double totalPrice, List<IndividualItem> cart) {
 		double total;
 		double cheapestItemPrice;
 		if (cart.size() > 1 ){
@@ -49,12 +49,12 @@ public class PaypalPayment implements Payment{
 		setAmount(total);	
 	}
 
-	protected double getPriceCheapestItem(List<Item> cart) {
+	protected double getPriceCheapestItem(List<IndividualItem> cart) {
 		// TODO Auto-generated method stub
 		double minPrice = cart.get(0).getPrice();
-		Iterator<Item> it = cart.listIterator();
+		Iterator<IndividualItem> it = cart.listIterator();
 		while (it.hasNext()) {
-			Item item = it.next();
+			IndividualItem item = it.next();
 		   if (item.getPrice() < minPrice){
 			   minPrice = item.getPrice();
 		   }

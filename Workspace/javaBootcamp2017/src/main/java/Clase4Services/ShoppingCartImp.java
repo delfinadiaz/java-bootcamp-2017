@@ -9,10 +9,10 @@ import java.util.List;
 public class ShoppingCartImp implements ShoppingCartAPI {
 	
 	private User user;
-	private List<Item> cart;
+	private List<IndividualItem> cart;
 	
 	protected ShoppingCartImp(){
-		cart = new ArrayList<Item>();
+		cart = new ArrayList<IndividualItem>();
 	}
 	
 
@@ -23,13 +23,13 @@ public class ShoppingCartImp implements ShoppingCartAPI {
 	}
 
 	@Override
-	public void addItem(Item anItem) {
+	public void addItem(IndividualItem anItem) {
 		// TODO Auto-generated method stub
 		cart.add(anItem);
 	}
 
 	@Override
-	public boolean removeItem(Item anItem) {
+	public boolean removeItem(IndividualItem anItem) {
 		// TODO Auto-generated method stub
 		if (cart.contains(anItem)){
 			cart.remove(anItem);
@@ -41,7 +41,7 @@ public class ShoppingCartImp implements ShoppingCartAPI {
 	}
 
 	@Override
-	public List<Item> getItems() {
+	public List<IndividualItem> getItems() {
 		// TODO Auto-generated method stub
 		return cart;
 	}
@@ -50,9 +50,9 @@ public class ShoppingCartImp implements ShoppingCartAPI {
 	public double getTotalPrice(){
 		// TODO Auto-generated method stub
 		double sumPrice=0;
-		Iterator<Item> it = getItems().listIterator();
+		Iterator<IndividualItem> it = getItems().listIterator();
 		while (it.hasNext()) {
-			Item item = it.next();
+			IndividualItem item = it.next();
 			sumPrice+=item.getPrice();
 		}
 		return sumPrice;
@@ -79,12 +79,12 @@ public class ShoppingCartImp implements ShoppingCartAPI {
 	@Override
 	public String showItems() {
 		// TODO Auto-generated method stub
-		Iterator<Item> it = cart.listIterator();
+		Iterator<IndividualItem> it = cart.listIterator();
 		String message = null;
 		StringBuilder sb = new StringBuilder();
 		while (it.hasNext()) {
-			Item item = it.next();
-			sb.append("Item: ");
+			IndividualItem item = it.next();
+			sb.append("-");
 			sb.append(item.getName());
 			sb.append(" .....$");
 			sb.append(item.getPrice());

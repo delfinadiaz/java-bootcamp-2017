@@ -20,7 +20,7 @@ public class CashPayment implements Payment{
 	}
     
 	@Override
-	public boolean buy(User user, List<Item> cart, double totalPrice) {
+	public boolean buy(User user, List<IndividualItem> cart, double totalPrice) {
 		// TODO Auto-generated method stub
 		try { 
 			applyDiscount(totalPrice, cart);
@@ -33,7 +33,7 @@ public class CashPayment implements Payment{
         }
 	}
 
-	private void applyDiscount(double totalPrice, List<Item> cart) {
+	private void applyDiscount(double totalPrice, List<IndividualItem> cart) {
 		// TODO Auto-generated method stub
 		double total;
 		double mostExpensiveItemPrice;
@@ -47,12 +47,12 @@ public class CashPayment implements Payment{
 		setAmount(total);	
 	}
 
-	private double getPriceMostExpensiveItem(List<Item> cart) {
+	private double getPriceMostExpensiveItem(List<IndividualItem> cart) {
 		// TODO Auto-generated method stub
 		double maxPrice = cart.get(0).getPrice();
-		Iterator<Item> it = cart.listIterator();
+		Iterator<IndividualItem> it = cart.listIterator();
 		while (it.hasNext()) {
-			Item item = it.next();
+			IndividualItem item = it.next();
 		   if (item.getPrice() > maxPrice){
 			   maxPrice = item.getPrice();
 		   }

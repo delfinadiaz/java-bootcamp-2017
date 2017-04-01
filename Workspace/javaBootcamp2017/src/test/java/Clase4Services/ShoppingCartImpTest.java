@@ -14,11 +14,13 @@ import org.mockito.MockitoAnnotations;
 public class ShoppingCartImpTest {
 	
 	@Mock
-	Item item;
+	IndividualItem item;
 	@Mock
-	Item item2;
+	IndividualItem item2;
 	@Mock
 	User user;
+	@Mock
+	Offer offer2;
 	
 	
 	ShoppingCartImp shoppingCart; 
@@ -117,7 +119,7 @@ public class ShoppingCartImpTest {
 	
 	@Test
 	public void whenGetItemsThenAllTheItemsInTheCartAreReturned(){
-		List<Item> list = new ArrayList<Item>();
+		List<IndividualItem> list = new ArrayList<IndividualItem>();
 		shoppingCart.addItem(item);
 		list.add(item);
 		shoppingCart.addItem(item2);
@@ -135,18 +137,18 @@ public class ShoppingCartImpTest {
 		Mockito.when(item2.getName()).thenReturn("Another name");
 		shoppingCart.addItem(item2);
 		
-		StringBuilder sb = new StringBuilder("Item: ");
+		StringBuilder sb = new StringBuilder();
+		sb.append("-");
 		sb.append(item.getName());
 		sb.append(" .....$");
 		sb.append(item.getPrice());
 		sb.append(System.getProperty("line.separator"));
-		sb.append("Item: ");
+		sb.append("-");
 		sb.append(item2.getName());
 		sb.append(" .....$");
 		sb.append(item2.getPrice());
 		sb.append(System.getProperty("line.separator"));
 		String message = sb.toString();
-		System.out.println(shoppingCart.showItems());
 		assertEquals(message, shoppingCart.showItems());
 	}
 }
