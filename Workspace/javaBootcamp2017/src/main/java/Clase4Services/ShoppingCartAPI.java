@@ -16,7 +16,7 @@ public interface ShoppingCartAPI {
 	public boolean removeItem(IndividualItem anItem);
 	
 	//Returns the addition of all the prices of the items in the cart
-	public double getTotalPrice();
+	public double getPartialPrice();
 	
 	//Returns all the items in the cart
 	public List<IndividualItem> getItems();

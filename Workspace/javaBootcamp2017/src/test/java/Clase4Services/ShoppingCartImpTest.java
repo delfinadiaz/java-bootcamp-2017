@@ -20,7 +20,9 @@ public class ShoppingCartImpTest {
 	@Mock
 	User user;
 	@Mock
-	Offer offer2;
+	Market market;
+	@Mock
+	Offer offer;
 	
 	
 	ShoppingCartImp shoppingCart; 
@@ -63,7 +65,7 @@ public class ShoppingCartImpTest {
 		Mockito.when(item2.getPrice()).thenReturn((double)20);
 		shoppingCart.addItem(item);
 		shoppingCart.addItem(item2);
-		double price= shoppingCart.getTotalPrice();
+		double price= shoppingCart.getPartialPrice();
 		assertEquals((double)60, price,delta);
 		Mockito.verify(item).getPrice();
 		Mockito.verify(item2).getPrice();
@@ -72,16 +74,19 @@ public class ShoppingCartImpTest {
 	
 	@Test
 	public void whenBuyThenTheCartGetsEmptyAndMessageIsReturned(){
+		Mockito.when(user.getMarket()).thenReturn(market);
 		Mockito.when(item.getPrice()).thenReturn((double)40);
 		shoppingCart.addItem(item);
 		shoppingCart.buy(new CashPayment());
 		assertTrue(shoppingCart.getItems().isEmpty());
+		Mockito.verify(user).getMarket();
 	}
 	
 	@Test
 	public void whenBuyByCashThenThe90PercentOfTheMostExpensiveItemIsFree(){
 		//delta is the difference allowed in the comparison
 		double delta= 0.001;
+		Mockito.when(user.getMarket()).thenReturn(market);
 		Mockito.when(item.getPrice()).thenReturn((double)40);
 		Mockito.when(item2.getPrice()).thenReturn((double)10);
 		shoppingCart.addItem(item);
@@ -95,6 +100,7 @@ public class ShoppingCartImpTest {
 	public void whenBuyByPayPalThenTheCheapestItemIsFree(){
 		//delta is the difference allowed in the comparison
 		double delta= 0.001;
+		Mockito.when(user.getMarket()).thenReturn(market);
 		Mockito.when(item.getPrice()).thenReturn((double)40);
 		Mockito.when(item2.getPrice()).thenReturn((double)10);
 		shoppingCart.addItem(item);
@@ -108,6 +114,7 @@ public class ShoppingCartImpTest {
 	public void whenBuyByCreditCardThenThe10PercentIsDiscounted(){
 		//delta is the difference allowed in the comparison
 		double delta= 0.001;
+		Mockito.when(user.getMarket()).thenReturn(market);
 		Mockito.when(item.getPrice()).thenReturn((double)40);
 		Mockito.when(item2.getPrice()).thenReturn((double)10);
 		shoppingCart.addItem(item);
@@ -151,4 +158,90 @@ public class ShoppingCartImpTest {
 		String message = sb.toString();
 		assertEquals(message, shoppingCart.showItems());
 	}
+	
+	@Test
+	public void whenMarketIsCreatedThenListOfUsersIsEmpty(){
+		assertTrue(market.getUsers().isEmpty());
+	}
+	
+	@Test
+	public void whenMarketIsCreatedThenMailingListIsEmpty(){
+		assertTrue(market.getMailingList().isEmpty());
+	}
+	
+	@Test
+	public void whenMarketIsCreatedThenListOfItemsAndOffersIsEmpty(){
+		assertTrue(market.getItemsAndOffers().isEmpty());
+	}
+	
+	@Test
+	public void whenMarketIsCreatedThenListOfPaymentTransactionsIsEmpty(){
+		assertTrue(market.getPaymentTransactions().isEmpty());
+	}
+	
+	@Test
+	public void whenAnItemIsAddedThenTheMarketManagerIsNotified(){
+		Market market2 = new Market("a name");
+        market2.addUser(user);
+        MarketManager marketManager = new MarketManager("a name", "an email");
+        market2.addPersonToMailingList(marketManager);
+        market2.addAnItemOrOffer(item);
+        String message = "A new Item has been added";
+        assertEquals(message, marketManager.getMessage());
+	}
+	
+	@Test
+	public void whenAnOfferIsAddedThenTheMarketManagerIsNotified(){
+		Market market2 = new Market("a name");
+        market2.addUser(user);
+        MarketManager marketManager = new MarketManager("a name", "an email");
+        market2.addPersonToMailingList(marketManager);
+        market2.addAnItemOrOffer(offer);
+        String message = "A new Offer has been added";
+        assertEquals(message, marketManager.getMessage());
+	}
+	
+	@Test
+	public void whenanItemPriceHasChangedThenTheMarketManagerIsNotified(){
+		Market market2 = new Market("a name");
+        market2.addUser(user);
+        MarketManager marketManager = new MarketManager("a name", "an email");
+        market2.addPersonToMailingList(marketManager);
+        Mockito.when(item.getName()).thenReturn("name item");
+        Mockito.when(item.getPrice()).thenReturn((double)40);
+        market2.addAnItemOrOffer(item);
+        market2.changePriceItemOrOffer(item, (double)50);
+        String message = "The Price of the item: name item has changed";
+        assertEquals(message, marketManager.getMessage());
+	}
+	
+	@Test
+	public void whenanOfferPriceHasChangedThenTheMarketManagerIsNotified(){
+		Market market2 = new Market("a name");
+        market2.addUser(user);
+        MarketManager marketManager = new MarketManager("a name", "an email");
+        market2.addPersonToMailingList(marketManager);
+        Mockito.when(offer.getName()).thenReturn("name offer");
+        Mockito.when(offer.getPrice()).thenReturn((double)40);
+        market2.addAnItemOrOffer(offer);
+        market2.changePriceItemOrOffer(offer, (double)50);
+        String message = "The Price of the offer: name offer has changed";
+        assertEquals(message, marketManager.getMessage());
+	}
+	
+	@Test
+	public void whenAPaymentTransactionIsMadeThenTheMarketManagerIsNotified(){
+		Market market2 = new Market("a name");
+        market2.addUser(user);
+        Mockito.when(user.getMarket()).thenReturn(market2);
+        MarketManager marketManager = new MarketManager("a name", "an email");
+        market2.addPersonToMailingList(marketManager);
+        IndividualItem item = new IndividualItem("a name", (double)40);
+		shoppingCart.addItem(item);
+		shoppingCart.buy(new CreditCardPayment());
+        String message = "A new Transaction has been made";
+        System.out.println(marketManager.getMessage());
+        assertEquals(message, marketManager.getMessage());
+	}
+
 }

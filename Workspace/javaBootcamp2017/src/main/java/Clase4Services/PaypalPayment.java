@@ -21,13 +21,15 @@ public class PaypalPayment implements Payment{
 	}
 	
 	@Override
-	public boolean buy(User user, List<IndividualItem> cart, double totalPrice) {
+	public boolean buy(User user, List<IndividualItem> cart, double partialPrice) {
 		// TODO Auto-generated method stub
 		try {
 			setEmail(user.getEmail());
 			setPassword(user.getPassword());
-			applyDiscount(totalPrice, cart);
-			System.out.printf( "Transaction Number %d - Amount paid by Paypal: $%f %n",paymentID,amount);
+			applyDiscount(partialPrice, cart);
+			PaymentTransaction aPaymentTransaction= new PaymentTransaction(paymentID, amount,"Paypal");
+			savePaymentTransaction(aPaymentTransaction,user.getMarket());
+			System.out.printf( "Transaction Number %d - Amount paid by Paypal: $%f %n", paymentID,amount);
 			return true;
 		}
 		catch (PaymentException e) {
@@ -36,7 +38,7 @@ public class PaypalPayment implements Payment{
         }
 	}
 	
-	public void applyDiscount(double totalPrice, List<IndividualItem> cart) {
+	public void applyDiscount(double partialPrice, List<IndividualItem> cart) {
 		double total;
 		double cheapestItemPrice;
 		if (cart.size() > 1 ){
@@ -45,7 +47,7 @@ public class PaypalPayment implements Payment{
 		else {
 			cheapestItemPrice = cart.get(0).getPrice();
 		}
-		total = (totalPrice - cheapestItemPrice);
+		total = (partialPrice - cheapestItemPrice);
 		setAmount(total);	
 	}
 
@@ -86,6 +88,13 @@ public class PaypalPayment implements Payment{
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	@Override
+	public void savePaymentTransaction(PaymentTransaction paymentTransaction, Market market) {
+		// TODO Auto-generated method stub
+		market.addPaymentTransaction(paymentTransaction);
+		
 	}
 
 

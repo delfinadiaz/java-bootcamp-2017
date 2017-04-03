@@ -47,7 +47,7 @@ public class ShoppingCartImp implements ShoppingCartAPI {
 	}
 
 	@Override
-	public double getTotalPrice(){
+	public double getPartialPrice(){
 		// TODO Auto-generated method stub
 		double sumPrice=0;
 		Iterator<IndividualItem> it = getItems().listIterator();
@@ -61,8 +61,8 @@ public class ShoppingCartImp implements ShoppingCartAPI {
 	@Override
 	public void buy(Payment aPaymentOption) {
 		// TODO Auto-generated method stub
-		double totalPrice = getTotalPrice();
-		boolean purchaseMade = aPaymentOption.buy(user,cart,totalPrice);
+		double partialPrice = getPartialPrice();
+		boolean purchaseMade = aPaymentOption.buy(user,cart,partialPrice);
 		if (purchaseMade){
 			emptyCart();
 		}

@@ -21,11 +21,13 @@ public class CreditCardPayment implements Payment {
 	}
 	
 	@Override
-	public boolean buy(User user, List<IndividualItem> cart, double totalPrice) {
+	public boolean buy(User user, List<IndividualItem> cart, double partialPrice) {
 		try { 
 			setName(user.getName());
 			setCreditNumber(user.getCreditNumber());
-			applyDiscount(totalPrice);
+			applyDiscount(partialPrice);
+			PaymentTransaction aPaymentTransaction= new PaymentTransaction(paymentID, amount,"Credit Card");
+			savePaymentTransaction(aPaymentTransaction,user.getMarket());
 			System.out.printf( "Transaction Number %d - Amount paid by Credit Card: $%f %n",paymentID,amount);
 			return true;
 		}
@@ -35,8 +37,8 @@ public class CreditCardPayment implements Payment {
         }
 	}
 
-	public void applyDiscount(double totalPrice) {
-		double total = (totalPrice - (0.10 * totalPrice));
+	public void applyDiscount(double partialPrice) {
+		double total = (partialPrice - (0.10 * partialPrice));
 		setAmount(total);	
 	}
 	
@@ -60,6 +62,11 @@ public class CreditCardPayment implements Payment {
 
 	public void setAmount(double amount) {
 		this.amount = amount;
+	}
+	@Override
+	public void savePaymentTransaction(PaymentTransaction paymentTransaction, Market market) {
+		// TODO Auto-generated method stub
+		market.addPaymentTransaction(paymentTransaction);
 	}
 	
 

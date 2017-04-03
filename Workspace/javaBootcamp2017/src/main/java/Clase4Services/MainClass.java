@@ -6,13 +6,19 @@ public class MainClass {
 		 
 	        
 	        ShoppingCartImp shoppingCart = ShoppingCartFactory.getLocalShoppingCart();
+	        Market market = new Market("a name");
+	        User user = new User("an username", "a password","anEmail",market);
+	        market.addUser(user);
+	        MarketManager marketManager = new MarketManager("a name", "an email");
+	        market.addPersonToMailingList(marketManager);
 	        
-	        User user = new User("an username", "a password","anEmail");
+	      //Trying the shopping cart functionality
+	        
 	        shoppingCart.initialize(user);
-	        
-	        IndividualItem item = new IndividualItem("a name", 40);
-	        IndividualItem item2= new IndividualItem("another name", 100);
-	        IndividualItem item3= new IndividualItem("name 3", 20);
+	     
+	        IndividualItem item = new IndividualItem("a name", (double)40);
+	        IndividualItem item2= new IndividualItem("another name", (double)100);
+	        IndividualItem item3= new IndividualItem("name 3", (double)20);
 	        
 	        shoppingCart.addItem(item);
 	        shoppingCart.addItem(item2);
@@ -20,8 +26,22 @@ public class MainClass {
 	        
 	        shoppingCart.removeItem(item2);
 	        
-	        shoppingCart.getTotalPrice();
-	        shoppingCart.buy(new CashPayment());  
+	        System.out.println(shoppingCart.getPartialPrice());
+	        shoppingCart.buy(new CashPayment()); 
+	        
+	        
+	        shoppingCart.addItem(item2);
+	        shoppingCart.addItem(item3);
+	        System.out.println(shoppingCart.getPartialPrice());
+	        shoppingCart.buy(new PaypalPayment()); 
+	        
+	        shoppingCart.addItem(item);
+	        shoppingCart.addItem(item);
+	        System.out.println(shoppingCart.getPartialPrice());
+	        shoppingCart.buy(new CreditCardPayment()); 
+	        
+	        
+	        //Trying the functionality to display items and offers
 	        
 	        Offer offer= new Offer("Offer Name",(double)40);
 	        offer.add(item);
@@ -32,7 +52,26 @@ public class MainClass {
 	        offer.add(item3);
 	        
 	        offer.displayOffers();
+	        
+	        //Trying the mailing list functionality
 	          
+	        market.addAnItemOrOffer(item);
+	        System.out.println(marketManager.getMessage());
+	        
+	        market.addAnItemOrOffer(offer);
+	        System.out.println(marketManager.getMessage());
+	        
+	        market.changePriceItemOrOffer(item, (double)50);
+	        System.out.println(marketManager.getMessage());
+	       
+	        market.changePriceItemOrOffer(offer, (double)50);
+	        System.out.println(marketManager.getMessage());
+	        
+	        shoppingCart.addItem(item);
+	        shoppingCart.buy(new CreditCardPayment());
+	        System.out.println(marketManager.getMessage());
+	        
+	        
 	    }  
 
 }

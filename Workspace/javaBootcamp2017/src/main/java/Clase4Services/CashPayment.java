@@ -20,10 +20,12 @@ public class CashPayment implements Payment{
 	}
     
 	@Override
-	public boolean buy(User user, List<IndividualItem> cart, double totalPrice) {
+	public boolean buy(User user, List<IndividualItem> cart, double partialPrice) {
 		// TODO Auto-generated method stub
 		try { 
-			applyDiscount(totalPrice, cart);
+			applyDiscount(partialPrice, cart);
+			PaymentTransaction aPaymentTransaction= new PaymentTransaction(paymentID, amount,"Cash");
+			savePaymentTransaction(aPaymentTransaction,user.getMarket());
 			System.out.printf( "Transaction Number %d - Amount paid in cash: $%f %n",paymentID,amount);
 			return true;
 		}
@@ -33,7 +35,7 @@ public class CashPayment implements Payment{
         }
 	}
 
-	private void applyDiscount(double totalPrice, List<IndividualItem> cart) {
+	private void applyDiscount(double partialPrice, List<IndividualItem> cart) {
 		// TODO Auto-generated method stub
 		double total;
 		double mostExpensiveItemPrice;
@@ -43,7 +45,7 @@ public class CashPayment implements Payment{
 		else {
 			mostExpensiveItemPrice = cart.get(0).getPrice();
 		}
-		total = (totalPrice - (mostExpensiveItemPrice * 0.90));
+		total = (partialPrice - (mostExpensiveItemPrice * 0.90));
 		setAmount(total);	
 	}
 
@@ -68,6 +70,13 @@ public class CashPayment implements Payment{
 
 	public void setAmount(double amount) {
 		this.amount = amount;
+	}
+
+
+	@Override
+	public void savePaymentTransaction(PaymentTransaction paymentTransaction, Market market) {
+		market.addPaymentTransaction(paymentTransaction);
+		
 	}
 
 }

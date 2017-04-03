@@ -4,7 +4,7 @@ public class IndividualItem implements Item {
 	private String name;
 	private double price;
 	
-	public IndividualItem(String aName, int aPrice){
+	public IndividualItem(String aName, double aPrice){
 		this.name= aName;
 		this.price= aPrice;
 	}
