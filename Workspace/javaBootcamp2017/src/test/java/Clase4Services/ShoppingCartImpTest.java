@@ -11,6 +11,16 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 
+import Clase4Services.ServiceImp.ShoppingCartImp;
+import Clase4Services.ServiceImp.User;
+import Clase4Services.ServiceImp.ItemOfferImp.IndividualItem;
+import Clase4Services.ServiceImp.ItemOfferImp.Offer;
+import Clase4Services.ServiceImp.MarketImp.Market;
+import Clase4Services.ServiceImp.MarketImp.MarketManager;
+import Clase4Services.ServiceImp.PaymentImp.CashPayment;
+import Clase4Services.ServiceImp.PaymentImp.CreditCardPayment;
+import Clase4Services.ServiceImp.PaymentImp.PaypalPayment;
+
 public class ShoppingCartImpTest {
 	
 	@Mock
@@ -58,7 +68,7 @@ public class ShoppingCartImpTest {
 	}
 	
 	@Test
-	public void whenGetTotalPriceThenTheAdditionOfAllTheItemsInTheCartIsReturned(){
+	public void whenGetPartialPriceThenTheAdditionOfAllTheItemsInTheCartIsReturned(){
 		//delta is the difference allowed in the comparison
 		double delta= 0.001;
 		Mockito.when(item.getPrice()).thenReturn((double) 40);
@@ -236,12 +246,34 @@ public class ShoppingCartImpTest {
         Mockito.when(user.getMarket()).thenReturn(market2);
         MarketManager marketManager = new MarketManager("a name", "an email");
         market2.addPersonToMailingList(marketManager);
-        IndividualItem item = new IndividualItem("a name", (double)40);
+        IndividualItem item = new IndividualItem("a name", (double)50);
 		shoppingCart.addItem(item);
 		shoppingCart.buy(new CreditCardPayment());
         String message = "A new Transaction has been made";
         System.out.println(marketManager.getMessage());
         assertEquals(message, marketManager.getMessage());
 	}
+	
+	@Test
+	public void whenAPaymentTransactionIsMadeThenAnUniqueSequentialIDIsGenerated(){
+		Market market2 = new Market("a name");
+        market2.addUser(user);
+        Mockito.when(user.getMarket()).thenReturn(market2);
+        MarketManager marketManager = new MarketManager("a name", "an email");
+        market2.addPersonToMailingList(marketManager);
+        
+        IndividualItem item = new IndividualItem("a name", (double)40);
+		shoppingCart.addItem(item);
+		CreditCardPayment creditCardPayment = new CreditCardPayment();
+		shoppingCart.buy(creditCardPayment);
+		
+		CashPayment cashPayment = new CashPayment();
+		IndividualItem item2 = new IndividualItem("another name", (double)20);
+		shoppingCart.addItem(item2);
+		shoppingCart.buy(cashPayment);
+		assertEquals(creditCardPayment.getPaymentID(), cashPayment.getPaymentID()-1);
+		
+	}
+	
 
 }

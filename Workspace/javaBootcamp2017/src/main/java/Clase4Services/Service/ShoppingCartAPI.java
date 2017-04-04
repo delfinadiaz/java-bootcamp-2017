@@ -1,6 +1,9 @@
-package Clase4Services;
+package Clase4Services.Service;
 
 import java.util.List;
+
+import Clase4Services.ServiceImp.User;
+import Clase4Services.ServiceImp.ItemOfferImp.IndividualItem;
 
 public interface ShoppingCartAPI {
 	

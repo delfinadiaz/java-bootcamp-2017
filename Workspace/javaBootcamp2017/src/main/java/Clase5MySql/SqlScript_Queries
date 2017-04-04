@@ -1,0 +1,33 @@
+
+//List students and teachers for a given course.
+
+SELECT `c`.name AS Course , 
+	CONCAT(`t`.first_name, ' ', `t`.last_name) AS Teacher, 
+	CONCAT(`s`.first_name, ' ', `s`.last_name) AS Student 
+FROM `course` AS `c` 
+	INNER JOIN `teacher` AS `t` ON (`c`.teacher_assigned = `t`.idteacher) 
+	INNER JOIN `student-course` AS `sc` ON (`c`.idcourse = `sc`.course) 
+	INNER JOIN `student` AS `s` ON (`sc`.student = `s`.idstudent) 
+ORDER BY `s`.last_name ASC
+
+
+
+
+//Percentage of students that passed a given course.
+
+SELECT CONCAT( ROUND (
+	         (SUM(IF (sc.final_note > 6,1,0 ) )/COUNT(sc.idstudent_course))*100), '%')
+	        AS 'Percentage of Students that Passed the course'
+ FROM `student-course` AS sc INNER JOIN `course` AS c ON (sc.course =c.idcourse)
+ WHERE c.name = 'Services'
+
+
+
+//Percentage of students that failed a given course.
+
+SELECT CONCAT( ROUND (
+             (SUM(IF (sc.final_note < 7,1,0 ) )/COUNT(sc.idstudent_course))*100), '%')
+            AS 'Percentage of Students that Failed the course'
+FROM `student-course` AS sc INNER JOIN `course` AS c ON (sc.course =c.idcourse) 
+
+WHERE c.name = 'Services'

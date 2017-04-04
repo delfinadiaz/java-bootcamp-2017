@@ -1,4 +1,4 @@
-package Clase4Services;
+package Clase4Services.ServiceImp.PaymentImp;
 
 @SuppressWarnings("serial")
 public class PaymentException extends RuntimeException {

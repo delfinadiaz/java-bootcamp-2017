@@ -1,5 +1,15 @@
 package Clase4Services;
 
+import Clase4Services.ServiceImp.ShoppingCartImp;
+import Clase4Services.ServiceImp.User;
+import Clase4Services.ServiceImp.ItemOfferImp.IndividualItem;
+import Clase4Services.ServiceImp.ItemOfferImp.Offer;
+import Clase4Services.ServiceImp.MarketImp.Market;
+import Clase4Services.ServiceImp.MarketImp.MarketManager;
+import Clase4Services.ServiceImp.PaymentImp.CashPayment;
+import Clase4Services.ServiceImp.PaymentImp.CreditCardPayment;
+import Clase4Services.ServiceImp.PaymentImp.PaypalPayment;
+
 public class MainClass {
 	
 	 public static void main(String[] args) {  
@@ -70,6 +80,8 @@ public class MainClass {
 	        shoppingCart.addItem(item);
 	        shoppingCart.buy(new CreditCardPayment());
 	        System.out.println(marketManager.getMessage());
+	        
+	        System.out.println(market.getPaymentTransactions());
 	        
 	        
 	    }  

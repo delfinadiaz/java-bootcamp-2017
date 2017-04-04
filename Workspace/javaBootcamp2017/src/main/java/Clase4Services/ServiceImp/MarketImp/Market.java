@@ -1,8 +1,14 @@
-package Clase4Services;
+package Clase4Services.ServiceImp.MarketImp;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+
+import Clase4Services.Service.Item;
+import Clase4Services.Service.MailingListReceiver;
+import Clase4Services.ServiceImp.User;
+import Clase4Services.ServiceImp.ItemOfferImp.Offer;
+import Clase4Services.ServiceImp.PaymentImp.PaymentTransaction;
 
 public class Market {
 	
@@ -15,10 +21,10 @@ public class Market {
 	
 	public Market(String marketName){
 		this.marketName = marketName;
-		setMailingList(new ArrayList<MailingListReceiver>());
-		setItemsAndOffers(new ArrayList<Item>());
-		setPaymentTransactions(new ArrayList<PaymentTransaction>());
-		setUsers(new ArrayList<User>());
+		this.mailingList = new ArrayList<MailingListReceiver>();
+		this.itemsAndOffers= new ArrayList<Item>();
+		this.paymentTransactions= new ArrayList<PaymentTransaction>();
+		this.users =new ArrayList<User>();
 	}
 	
 	public void addPaymentTransaction(PaymentTransaction paymentTransaction) {
@@ -99,33 +105,20 @@ public class Market {
 		return users;
 	}
 
-	public void setUsers(List<User> users) {
-		this.users = users;
-	}
 
 	public List<PaymentTransaction> getPaymentTransactions() {
 		return paymentTransactions;
-	}
-
-	public void setPaymentTransactions(List<PaymentTransaction> paymentTransactions) {
-		this.paymentTransactions = paymentTransactions;
 	}
 
 	public List<Item> getItemsAndOffers() {
 		return itemsAndOffers;
 	}
 
-	public void setItemsAndOffers(List<Item> itemsAndOffers) {
-		this.itemsAndOffers = itemsAndOffers;
-	}
 
 	public List<MailingListReceiver> getMailingList() {
 		return mailingList;
 	}
 
-	public void setMailingList(List<MailingListReceiver> mailingList) {
-		this.mailingList = mailingList;
-	}
 	
 
 }

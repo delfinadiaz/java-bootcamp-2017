@@ -1,4 +1,4 @@
-package Clase4Services;
+package Clase4Services.Service;
 
 public interface MailingListReceiver {
 	

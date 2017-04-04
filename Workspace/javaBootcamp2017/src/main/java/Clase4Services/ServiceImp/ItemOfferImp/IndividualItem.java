@@ -1,4 +1,6 @@
-package Clase4Services;
+package Clase4Services.ServiceImp.ItemOfferImp;
+
+import Clase4Services.Service.Item;
 
 public class IndividualItem implements Item {
 	private String name;

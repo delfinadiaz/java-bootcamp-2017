@@ -1,8 +1,13 @@
-package Clase4Services;
+package Clase4Services.ServiceImp;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+
+import Clase4Services.Service.Payment;
+import Clase4Services.Service.ShoppingCartAPI;
+import Clase4Services.ServiceImp.ItemOfferImp.IndividualItem;
+import Clase4Services.ServiceImp.PaymentImp.PaymentException;
 
 
 
@@ -11,7 +16,7 @@ public class ShoppingCartImp implements ShoppingCartAPI {
 	private User user;
 	private List<IndividualItem> cart;
 	
-	protected ShoppingCartImp(){
+	public ShoppingCartImp(){
 		cart = new ArrayList<IndividualItem>();
 	}
 	

@@ -1,6 +1,11 @@
-package Clase4Services;
+package Clase4Services.ServiceImp.PaymentImp;
 
 import java.util.List;
+
+import Clase4Services.Service.Payment;
+import Clase4Services.ServiceImp.User;
+import Clase4Services.ServiceImp.ItemOfferImp.IndividualItem;
+import Clase4Services.ServiceImp.MarketImp.Market;
 
 
 public class CreditCardPayment implements Payment {

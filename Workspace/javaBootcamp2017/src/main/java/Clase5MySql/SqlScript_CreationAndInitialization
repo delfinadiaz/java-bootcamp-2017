@@ -1,0 +1,256 @@
+-- phpMyAdmin SQL Dump
+-- version 4.5.1
+-- http://www.phpmyadmin.net
+
+-- Base de datos: `high-school`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `course`
+--
+
+CREATE TABLE `course` (
+  `idcourse` int(11) NOT NULL,
+  `name` varchar(45) NOT NULL,
+  `teacher_assigned` int(11) NOT NULL,
+  `hours_byweek` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `course`
+--
+
+INSERT INTO `course` (`idcourse`, `name`, `teacher_assigned`, `hours_byweek`) VALUES
+(1, 'Java', 1, 4),
+(2, 'Services', 2, 4),
+(3, 'Mysql', 3, 4);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `schedule_time`
+--
+
+CREATE TABLE `schedule_time` (
+  `idschedule_time` int(11) NOT NULL,
+  `day` varchar(45) NOT NULL,
+  `from_hour` varchar(45) NOT NULL,
+  `to_hour` varchar(45) NOT NULL,
+  `course` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `schedule_time`
+--
+
+INSERT INTO `schedule_time` (`idschedule_time`, `day`, `from_hour`, `to_hour`, `course`) VALUES
+(1, 'Monday', '09:00', '11:00', 1),
+(2, 'Thursday', '09:00', '11:00', 1),
+(3, 'Wednesday', '10:00', '12:00', 2),
+(4, 'Friday', '08:00', '10:00', 2),
+(5, 'Tuesday', '08:00', '10:00', 3),
+(6, 'Tuesday', '10:00', '12:00', 3);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `student`
+--
+
+CREATE TABLE `student` (
+  `idstudent` int(11) NOT NULL,
+  `first_name` varchar(45) NOT NULL,
+  `last_name` varchar(45) NOT NULL,
+  `registration_number` int(11) NOT NULL,
+  `birth_date` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `student`
+--
+
+INSERT INTO `student` (`idstudent`, `first_name`, `last_name`, `registration_number`, `birth_date`) VALUES
+(1, 'Dan', 'Reynolds', 1, '2017-04-02'),
+(2, 'Nathan', 'Sykes', 2, '2017-04-06'),
+(3, 'Tom', 'Fletcher', 3, '2017-04-02'),
+(4, 'Ellie', 'Goulding', 4, '2017-04-06'),
+(5, 'Ed', 'Sheeran', 5, '2017-04-02'),
+(6, 'Max', 'George', 6, '2017-04-02'),
+(7, 'Jay', 'Mcguiness', 7, '2017-04-02'),
+(8, 'Kristen', 'Grint', 8, '2017-04-02'),
+(9, 'Rupert', 'Somerhalder', 9, '2017-04-02'),
+(10, 'Max', 'Carver', 10, '2017-04-02');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `student-course`
+--
+
+CREATE TABLE `student-course` (
+  `idstudent_course` int(11) NOT NULL,
+  `student` int(11) NOT NULL,
+  `course` int(11) NOT NULL,
+  `1stpartial_note` int(11) DEFAULT NULL,
+  `2ndpartial_note` int(11) DEFAULT NULL,
+  `3rdpartial_note` int(11) DEFAULT NULL,
+  `final_note` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `student-course`
+--
+
+INSERT INTO `student-course` (`idstudent_course`, `student`, `course`, `1stpartial_note`, `2ndpartial_note`, `3rdpartial_note`, `final_note`) VALUES
+(1, 1, 1, 7, 8, 9, 8),
+(2, 1, 2, 7, 6, 5, 6),
+(3, 1, 3, 7, 8, 9, 8),
+(4, 2, 1, 6, 5, 4, 5),
+(5, 2, 2, 7, 6, 5, 6),
+(6, 2, 3, 5, 6, 7, 6),
+(7, 3, 1, 7, 8, 9, 8),
+(8, 3, 2, 7, 6, 5, 6),
+(9, 3, 3, 7, 8, 9, 8),
+(10, 4, 1, 6, 5, 4, 5),
+(11, 4, 2, 7, 6, 5, 6),
+(12, 4, 3, 5, 6, 7, 6),
+(13, 5, 1, 7, 8, 9, 8),
+(14, 5, 2, 10, 9, 8, 9),
+(15, 5, 3, 7, 8, 9, 8),
+(16, 6, 1, 6, 5, 4, 5),
+(17, 6, 2, 7, 9, 8, 8),
+(18, 6, 3, 5, 6, 7, 6),
+(19, 7, 1, 7, 8, 9, 8),
+(20, 7, 2, 7, 8, 9, 8),
+(21, 7, 3, 7, 8, 9, 8),
+(22, 8, 1, 6, 5, 4, 5),
+(23, 8, 2, 7, 6, 5, 6),
+(24, 8, 3, 5, 6, 7, 6),
+(25, 9, 1, 4, 3, 2, 3),
+(26, 9, 2, 8, 6, 7, 7),
+(27, 9, 3, 2, 4, 3, 3),
+(28, 10, 1, 5, 4, 3, 4),
+(29, 10, 2, 7, 6, 5, 6),
+(30, 10, 3, 5, 6, 7, 6);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `teacher`
+--
+
+CREATE TABLE `teacher` (
+  `idteacher` int(11) NOT NULL,
+  `first_name` varchar(45) NOT NULL,
+  `last_name` varchar(45) NOT NULL,
+  `birth_date` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `teacher`
+--
+
+INSERT INTO `teacher` (`idteacher`, `first_name`, `last_name`, `birth_date`) VALUES
+(1, 'Ryan', 'Fletcher', '2017-04-19'),
+(2, 'Halsey', 'Stewart', '2017-04-02'),
+(3, 'Tom', 'Parker', '2017-03-06');
+
+
+
+
+
+
+
+
+--
+-- Índices para tablas volcadas
+--
+
+--
+-- Indices de la tabla `course`
+--
+ALTER TABLE `course`
+  ADD PRIMARY KEY (`idcourse`),
+  ADD KEY `teacher_assigned` (`teacher_assigned`);
+
+--
+-- Indices de la tabla `schedule_time`
+--
+ALTER TABLE `schedule_time`
+  ADD PRIMARY KEY (`idschedule_time`),
+  ADD KEY `fk_course` (`course`);
+
+--
+-- Indices de la tabla `student`
+--
+ALTER TABLE `student`
+  ADD PRIMARY KEY (`idstudent`);
+
+--
+-- Indices de la tabla `student-course`
+--
+ALTER TABLE `student-course`
+  ADD PRIMARY KEY (`idstudent_course`),
+  ADD KEY `student` (`student`,`course`),
+  ADD KEY `fk_idcourse` (`course`);
+
+--
+-- Indices de la tabla `teacher`
+--
+ALTER TABLE `teacher`
+  ADD PRIMARY KEY (`idteacher`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `course`
+--
+ALTER TABLE `course`
+  MODIFY `idcourse` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT de la tabla `schedule_time`
+--
+ALTER TABLE `schedule_time`
+  MODIFY `idschedule_time` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+--
+-- AUTO_INCREMENT de la tabla `student`
+--
+ALTER TABLE `student`
+  MODIFY `idstudent` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+--
+-- AUTO_INCREMENT de la tabla `student-course`
+--
+ALTER TABLE `student-course`
+  MODIFY `idstudent_course` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+--
+-- AUTO_INCREMENT de la tabla `teacher`
+--
+ALTER TABLE `teacher`
+  MODIFY `idteacher` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
+-- Restricciones para tablas volcadas
+--
+
+--
+-- Filtros para la tabla `course`
+--
+ALTER TABLE `course`
+  ADD CONSTRAINT `fk_teacher_assigned` FOREIGN KEY (`teacher_assigned`) REFERENCES `teacher` (`idteacher`);
+
+--
+-- Filtros para la tabla `schedule_time`
+--
+ALTER TABLE `schedule_time`
+  ADD CONSTRAINT `fk_course` FOREIGN KEY (`course`) REFERENCES `course` (`idcourse`);
+
+--
+-- Filtros para la tabla `student-course`
+--
+ALTER TABLE `student-course`
+  ADD CONSTRAINT `fk_idcourse` FOREIGN KEY (`course`) REFERENCES `course` (`idcourse`),
+  ADD CONSTRAINT `fk_student` FOREIGN KEY (`student`) REFERENCES `student` (`idstudent`);
+
