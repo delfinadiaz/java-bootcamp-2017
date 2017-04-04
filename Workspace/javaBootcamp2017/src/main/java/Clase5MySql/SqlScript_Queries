@@ -31,3 +31,16 @@ SELECT CONCAT( ROUND (
 FROM `student-course` AS sc INNER JOIN `course` AS c ON (sc.course =c.idcourse) 
 
 WHERE c.name = 'Services'
+
+
+
+//For a given teacher, list the timeline for each course that he is assigned to (ordered by date), and the course name. 
+
+SELECT 
+	CONCAT(`t`.first_name, ' ', `t`.last_name) AS Teacher, 
+	CONCAT(`st`.day, ' ', `st`.from_hour,' - ',`st`.to_hour, ': ',`c`.name) AS Schedule 
+FROM `course` AS `c` 
+	INNER JOIN `teacher` AS `t` ON (`c`.teacher_assigned = `t`.idteacher) 
+	INNER JOIN `schedule_time` AS `st` ON (`c`.idcourse = `st`.course) 
+WHERE (`t`.last_name = 'Stewart') 
+ORDER BY `st`.from_hour ASC
