@@ -1,6 +1,6 @@
-package Clase4Services.ServiceImp.MarketImp;
+package Clase4Services.Model.MarketModel;
 
-import Clase4Services.Service.MailingListReceiver;
+import Clase4Services.Model.MailingListReceiver;
 
 public class MarketManager implements MailingListReceiver{
 	

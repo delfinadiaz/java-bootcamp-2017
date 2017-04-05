@@ -4,10 +4,11 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import Clase4Services.Service.Payment;
+import Clase4Services.Model.Payment;
+import Clase4Services.Model.ItemOffer.IndividualItem;
+import Clase4Services.Model.MarketModel.User;
+import Clase4Services.Model.PaymentModel.PaymentException;
 import Clase4Services.Service.ShoppingCartAPI;
-import Clase4Services.ServiceImp.ItemOfferImp.IndividualItem;
-import Clase4Services.ServiceImp.PaymentImp.PaymentException;
 
 
 

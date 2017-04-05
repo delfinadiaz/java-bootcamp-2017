@@ -1,11 +1,11 @@
-package Clase4Services.Service;
+package Clase4Services.Model;
 
 import java.util.List;
 
-import Clase4Services.ServiceImp.User;
-import Clase4Services.ServiceImp.ItemOfferImp.IndividualItem;
-import Clase4Services.ServiceImp.MarketImp.Market;
-import Clase4Services.ServiceImp.PaymentImp.PaymentTransaction;
+import Clase4Services.Model.ItemOffer.IndividualItem;
+import Clase4Services.Model.MarketModel.Market;
+import Clase4Services.Model.MarketModel.User;
+import Clase4Services.Model.PaymentModel.PaymentTransaction;
 
 public interface Payment {
 

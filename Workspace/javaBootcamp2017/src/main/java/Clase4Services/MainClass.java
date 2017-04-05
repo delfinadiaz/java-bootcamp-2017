@@ -1,14 +1,14 @@
 package Clase4Services;
 
+import Clase4Services.Model.ItemOffer.IndividualItem;
+import Clase4Services.Model.ItemOffer.Offer;
+import Clase4Services.Model.MarketModel.Market;
+import Clase4Services.Model.MarketModel.MarketManager;
+import Clase4Services.Model.MarketModel.User;
+import Clase4Services.Model.PaymentModel.CashPayment;
+import Clase4Services.Model.PaymentModel.CreditCardPayment;
+import Clase4Services.Model.PaymentModel.PaypalPayment;
 import Clase4Services.ServiceImp.ShoppingCartImp;
-import Clase4Services.ServiceImp.User;
-import Clase4Services.ServiceImp.ItemOfferImp.IndividualItem;
-import Clase4Services.ServiceImp.ItemOfferImp.Offer;
-import Clase4Services.ServiceImp.MarketImp.Market;
-import Clase4Services.ServiceImp.MarketImp.MarketManager;
-import Clase4Services.ServiceImp.PaymentImp.CashPayment;
-import Clase4Services.ServiceImp.PaymentImp.CreditCardPayment;
-import Clase4Services.ServiceImp.PaymentImp.PaypalPayment;
 
 public class MainClass {
 	

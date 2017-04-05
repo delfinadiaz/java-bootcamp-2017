@@ -1,6 +1,4 @@
-package Clase4Services.ServiceImp;
-
-import Clase4Services.ServiceImp.MarketImp.Market;
+package Clase4Services.Model.MarketModel;
 
 public class User{
 	
@@ -54,5 +52,6 @@ public class User{
 		public void setMarket(Market market) {
 			this.market = market;
 		}
+		
 		
 }

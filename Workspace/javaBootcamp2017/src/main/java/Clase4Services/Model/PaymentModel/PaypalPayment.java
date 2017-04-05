@@ -1,12 +1,12 @@
-package Clase4Services.ServiceImp.PaymentImp;
+package Clase4Services.Model.PaymentModel;
 
 import java.util.Iterator;
 import java.util.List;
 
-import Clase4Services.Service.Payment;
-import Clase4Services.ServiceImp.User;
-import Clase4Services.ServiceImp.ItemOfferImp.IndividualItem;
-import Clase4Services.ServiceImp.MarketImp.Market;
+import Clase4Services.Model.Payment;
+import Clase4Services.Model.ItemOffer.IndividualItem;
+import Clase4Services.Model.MarketModel.Market;
+import Clase4Services.Model.MarketModel.User;
 
 public class PaypalPayment implements Payment{
 	

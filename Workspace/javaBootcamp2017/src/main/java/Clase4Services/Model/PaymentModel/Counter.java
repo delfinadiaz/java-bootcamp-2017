@@ -1,4 +1,4 @@
-package Clase4Services.ServiceImp.PaymentImp;
+package Clase4Services.Model.PaymentModel;
 
 public class Counter {
 

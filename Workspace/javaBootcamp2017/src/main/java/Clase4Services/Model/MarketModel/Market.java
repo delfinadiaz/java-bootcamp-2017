@@ -1,14 +1,13 @@
-package Clase4Services.ServiceImp.MarketImp;
+package Clase4Services.Model.MarketModel;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import Clase4Services.Service.Item;
-import Clase4Services.Service.MailingListReceiver;
-import Clase4Services.ServiceImp.User;
-import Clase4Services.ServiceImp.ItemOfferImp.Offer;
-import Clase4Services.ServiceImp.PaymentImp.PaymentTransaction;
+import Clase4Services.Model.Item;
+import Clase4Services.Model.MailingListReceiver;
+import Clase4Services.Model.ItemOffer.Offer;
+import Clase4Services.Model.PaymentModel.PaymentTransaction;
 
 public class Market {
 	
@@ -119,6 +118,16 @@ public class Market {
 		return mailingList;
 	}
 
+	public User getUser(String anUsername){
+		String username= getUsers().get(0).getUsername();
+		Iterator<User> user = getUsers().iterator();
+		User anUser = getUsers().get(0);
+		while (user.hasNext()&& (username != anUsername)) {
+			anUser = user.next();
+			username = anUser.getUsername();
+		}
+		return anUser;
+	}
 	
 
 }

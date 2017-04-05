@@ -1,9 +1,9 @@
-package Clase4Services.ServiceImp.ItemOfferImp;
+package Clase4Services.Model.ItemOffer;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import Clase4Services.Service.Item;
+import Clase4Services.Model.Item;
 
 public class Offer implements Item{
 
