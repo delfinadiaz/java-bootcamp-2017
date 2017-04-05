@@ -46,8 +46,10 @@ exercises**
     * [Topic 4: SQL - MySql](#topic-4-sql---mysql-2-days)
 
     * [Topic 5: NoSQL - MongoDB](#topic-5-nosql---mongodb-2-days)
+
+    * [Topic 6: Hibernate - JPA (2 days)](#topic-6-hibernate---jpa-2-days)
     
-    * [Topic 6: Spring Core & REST](#topic-5-spring-core--rest-3-days)
+    * [Topic 7: Spring Core & REST](#topic-5-spring-core--rest-3-days)
 
 10. [Your First Project Starts Now!](#your-first-project-starts-now)
 
@@ -360,7 +362,7 @@ Commit your practice code.
 
 ##### Extra documentation: #####
 
-1. [Optimizaciones en MySql](http://www.arsys.info/programacion/bases-de-datos/como-optimizar-bases-de-datos-mysql/)
+1. [Optimizaciones en MySql](https://blog.arsys.es/como-optimizar-bases-de-datos-mysql/)
 
 
 ##### Practice: #####
@@ -368,8 +370,8 @@ Do not solve the practice using JDBC, please just send us the sql scripts.
 
 1. Create a database named 'high-school' and modelate:
  
-   - Student: first name, last name, registration number, date of birth)
-   - Teacher: first name, last name, date of birth)
+   - Student: first name, last name, registration number, date of birth
+   - Teacher: first name, last name, date of birth
    - Course: name, assigned teacher, hours by week, schedule time (they can be dictated several times during the week)
 
    Notes:
@@ -437,7 +439,23 @@ Commit your practice code.
 
 → [index](#index)
 
-#### Topic 6: Spring Core & REST (3 days) ####
+#### Topic 6: Hibernate - JPA (2 days) ####
+
+##### Reading: #####
+1. [Dao Layer (JDBC, Hibernate, JPA)](https://github.com/ilanrosenfeld7/java-bootcamp-2017/tree/master/Extra%20Material)
+
+
+##### Practice: #####
+
+##### Key Points: #####
+
+##### Commit: #####
+
+Commit your practice code.
+
+→ [index](#index)
+
+#### Topic 7: Spring Core & REST (3 days) ####
 
 ##### Reading: #####
 1. [Introduction to REST](https://www.youtube.com/watch?v=YCcAE2SCQ6k)
