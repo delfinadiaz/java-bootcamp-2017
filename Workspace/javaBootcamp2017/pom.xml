@@ -40,6 +40,11 @@
             <artifactId>hibernate-core</artifactId>
             <version>5.2.6.Final</version>
         </dependency>
+        <dependency>
+            <groupId>org.mariadb.jdbc</groupId>
+            <artifactId>mariadb-java-client</artifactId>
+            <version>1.5.9</version>
+        </dependency>
   </dependencies>
   <properties>
   	<maven.test.skip>false</maven.test.skip>

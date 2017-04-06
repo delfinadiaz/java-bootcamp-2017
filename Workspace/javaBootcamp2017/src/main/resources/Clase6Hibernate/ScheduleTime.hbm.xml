@@ -19,7 +19,7 @@
             <column name="to_hour" not-null="true"/>
         </property>
         <many-to-one name="course" class="Clase6Hibernate.Entities.Course" fetch="select">
-            <column name="course" not-null="true" />
+            <column name="idCourse" not-null="true" />
         </many-to-one>
     </class>
 </hibernate-mapping>

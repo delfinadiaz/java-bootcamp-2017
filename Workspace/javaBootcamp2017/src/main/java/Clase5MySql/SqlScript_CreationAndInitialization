@@ -239,18 +239,18 @@ ALTER TABLE `teacher`
 -- Filtros para la tabla `course`
 --
 ALTER TABLE `course`
-  ADD CONSTRAINT `fk_teacher_assigned` FOREIGN KEY (`teacher_assigned`) REFERENCES `teacher` (`idteacher`);
+  ADD CONSTRAINT `fk_teacher_assigned` FOREIGN KEY (`teacher_assigned`) REFERENCES `teacher` (`idteacher`)ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `schedule_time`
 --
 ALTER TABLE `schedule_time`
-  ADD CONSTRAINT `fk_course` FOREIGN KEY (`course`) REFERENCES `course` (`idcourse`);
+  ADD CONSTRAINT `fk_course` FOREIGN KEY (`course`) REFERENCES `course` (`idcourse`)ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `student-course`
 --
 ALTER TABLE `student-course`
-  ADD CONSTRAINT `fk_idcourse` FOREIGN KEY (`course`) REFERENCES `course` (`idcourse`),
-  ADD CONSTRAINT `fk_student` FOREIGN KEY (`student`) REFERENCES `student` (`idstudent`);
+  ADD CONSTRAINT `fk_idcourse` FOREIGN KEY (`course`) REFERENCES `course` (`idcourse`)ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_student` FOREIGN KEY (`student`) REFERENCES `student` (`idstudent`)ON DELETE CASCADE ON UPDATE CASCADE;
 

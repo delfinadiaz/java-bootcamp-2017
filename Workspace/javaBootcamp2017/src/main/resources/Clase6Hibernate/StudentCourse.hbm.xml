@@ -8,10 +8,10 @@
             <generator class="identity" />
         </id>
        <many-to-one name="student" class="Clase6Hibernate.Entities.Student" fetch="select">
-            <column name="student" not-null="true" />
+            <column name="idStudent" not-null="true" />
         </many-to-one>
         <many-to-one name="course" class="Clase6Hibernate.Entities.Course" fetch="select">
-            <column name="course" not-null="true" />
+            <column name="idCourse" not-null="true" />
         </many-to-one>
         <property name="firstPartialNote" type="java.lang.Integer">
             <column name="1stpartial_note" length="11" not-null="false" />
