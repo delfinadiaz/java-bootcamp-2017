@@ -444,10 +444,17 @@ Commit your practice code.
 ##### Reading: #####
 1. [Dao Layer (JDBC, Hibernate, JPA)](https://github.com/ilanrosenfeld7/java-bootcamp-2017/tree/master/Extra%20Material)
 
+1. [JPA and Hibernate With Examples](https://github.com/ilanrosenfeld7/java-bootcamp-2017/tree/master/Extra%20Material)
 
 ##### Practice: #####
 
+1. Using Hibernate, develop the topic 4 models in Java. Use XML configuration for these.
+2. Provide CRUD operations for at least 2 of the mentioned classes.
+3. Add Hibernate annotations to your ShoppingCartApi classes.
+
 ##### Key Points: #####
+
+1,2
 
 ##### Commit: #####
 
