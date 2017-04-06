@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-configuration SYSTEM
+    "classpath://org/hibernate/hibernate-configuration-3.0.dtd">
+<hibernate-mapping>
+    <class name="Clase6Hibernate.Entities.ScheduleTime" table="schedule_time">
+        <id name="idScheduleTime" type="java.lang.Integer">
+            <column name="idschedule_time" />
+            <generator class="identity" />
+        </id>
+        <property name="day" column="day" not-null="true">
+		    <type name="org.hibernate.type.EnumType">
+		        <param name="enumClass">Clase6Hibernate.Day</param>  
+		    </type>
+		</property>
+		<property name="fromHour" type="time" >
+            <column name="from_hour" not-null="true"/>
+        </property>
+        <property name="toHour" type="time" >
+            <column name="to_hour" not-null="true"/>
+        </property>
+        <many-to-one name="course" class="Clase6Hibernate.Entities.Course" fetch="select">
+            <column name="course" not-null="true" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

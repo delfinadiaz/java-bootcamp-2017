@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-configuration SYSTEM
+    "classpath://org/hibernate/hibernate-configuration-3.0.dtd">
+<hibernate-mapping>
+    <class name="Clase6Hibernate.Entities.StudentCourse" table="student-course" >
+        <id name="idStudentCourse" type="java.lang.Integer">
+            <column name="idstudent_course" />
+            <generator class="identity" />
+        </id>
+       <many-to-one name="student" class="Clase6Hibernate.Entities.Student" fetch="select">
+            <column name="student" not-null="true" />
+        </many-to-one>
+        <many-to-one name="course" class="Clase6Hibernate.Entities.Course" fetch="select">
+            <column name="course" not-null="true" />
+        </many-to-one>
+        <property name="firstPartialNote" type="java.lang.Integer">
+            <column name="1stpartial_note" length="11" not-null="false" />
+        </property>
+        <property name="secondPartialNote" type="java.lang.Integer">
+            <column name="2ndpartial_note" length="11" not-null="false" />
+        </property>
+        <property name="thirdPartialNote" type="java.lang.Integer">
+            <column name="3rdpartial_note" length="11" not-null="false" />
+        </property>
+         <property name="finalNote" type="java.lang.Integer">
+            <column name="final_note" length="11" not-null="false" />
+        </property>
+        
+    </class>
+</hibernate-mapping>

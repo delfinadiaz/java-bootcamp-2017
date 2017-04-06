@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-configuration SYSTEM
+    "classpath://org/hibernate/hibernate-configuration-3.0.dtd">
+<hibernate-mapping>
+    <class name="Clase6Hibernate.Entities.Teacher" table="teacher" >
+        <id name="idTeacher" type="java.lang.Integer">
+            <column name="idteacher" />
+            <generator class="identity" />
+        </id>
+        <property name="firstName" type="string">
+            <column name="first_name" length="45" not-null="true" />
+        </property>
+        <property name="lastName" type="string">
+            <column name="last_name" length="45" not-null="true" />
+        </property>
+        <property name="birthDate" type="date">
+            <column name="birth_date" not-null="true" />
+        </property>
+        <set name="courses" table="course"
+				inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="teacher_assigned" not-null="true" />
+            </key>
+            <one-to-many class="Clase6Hibernate.Entities.Course" />
+        </set>
+    </class>
+</hibernate-mapping>

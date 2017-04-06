@@ -1,0 +1,347 @@
+2017-04-05 20:55:33 [main] INFO  Version:45 - HHH000412: Hibernate Core {5.2.6.Final}
+2017-04-05 20:55:33 [main] INFO  Environment:213 - HHH000206: hibernate.properties not found
+2017-04-05 20:55:33 [main] INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2017-04-05 20:55:33 [main] WARN  deprecation:75 - HHH90000012: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/hibernate-mapping. Use namespace http://www.hibernate.org/dtd/hibernate-mapping instead.  Support for obsolete DTD/XSD namespaces may be removed at any time.
+2017-04-05 20:55:35 [main] WARN  deprecation:75 - HHH90000012: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/hibernate-mapping. Use namespace http://www.hibernate.org/dtd/hibernate-mapping instead.  Support for obsolete DTD/XSD namespaces may be removed at any time.
+2017-04-05 20:55:36 [main] WARN  deprecation:75 - HHH90000012: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/hibernate-mapping. Use namespace http://www.hibernate.org/dtd/hibernate-mapping instead.  Support for obsolete DTD/XSD namespaces may be removed at any time.
+2017-04-05 20:55:36 [main] WARN  deprecation:75 - HHH90000012: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/hibernate-mapping. Use namespace http://www.hibernate.org/dtd/hibernate-mapping instead.  Support for obsolete DTD/XSD namespaces may be removed at any time.
+2017-04-05 20:55:36 [main] WARN  deprecation:75 - HHH90000012: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/hibernate-mapping. Use namespace http://www.hibernate.org/dtd/hibernate-mapping instead.  Support for obsolete DTD/XSD namespaces may be removed at any time.
+2017-04-05 20:55:36 [main] WARN  pooling:70 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2017-04-05 20:55:36 [main] INFO  pooling:126 - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/high-school]
+2017-04-05 20:55:36 [main] INFO  pooling:135 - HHH10001001: Connection properties: {user=root, password=****}
+2017-04-05 20:55:36 [main] INFO  pooling:140 - HHH10001003: Autocommit mode: false
+2017-04-05 20:55:36 [main] INFO  DriverManagerConnectionProviderImpl:41 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2017-04-05 20:55:37 [main] INFO  Dialect:157 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2017-04-05 20:55:38 [main] INFO  pooling:230 - HHH10001008: Cleaning up connection pool [jdbc:mysql://localhost:3306/high-school]
+2017-04-05 21:01:00 [main] INFO  Version:45 - HHH000412: Hibernate Core {5.2.6.Final}
+2017-04-05 21:01:00 [main] INFO  Environment:213 - HHH000206: hibernate.properties not found
+2017-04-05 21:01:01 [main] INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2017-04-05 21:01:01 [main] WARN  deprecation:75 - HHH90000012: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/hibernate-mapping. Use namespace http://www.hibernate.org/dtd/hibernate-mapping instead.  Support for obsolete DTD/XSD namespaces may be removed at any time.
+2017-04-05 21:01:03 [main] WARN  deprecation:75 - HHH90000012: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/hibernate-mapping. Use namespace http://www.hibernate.org/dtd/hibernate-mapping instead.  Support for obsolete DTD/XSD namespaces may be removed at any time.
+2017-04-05 21:01:03 [main] WARN  deprecation:75 - HHH90000012: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/hibernate-mapping. Use namespace http://www.hibernate.org/dtd/hibernate-mapping instead.  Support for obsolete DTD/XSD namespaces may be removed at any time.
+2017-04-05 21:01:03 [main] WARN  deprecation:75 - HHH90000012: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/hibernate-mapping. Use namespace http://www.hibernate.org/dtd/hibernate-mapping instead.  Support for obsolete DTD/XSD namespaces may be removed at any time.
+2017-04-05 21:01:03 [main] WARN  deprecation:75 - HHH90000012: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/hibernate-mapping. Use namespace http://www.hibernate.org/dtd/hibernate-mapping instead.  Support for obsolete DTD/XSD namespaces may be removed at any time.
+2017-04-05 21:01:03 [main] WARN  pooling:70 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2017-04-05 21:01:03 [main] INFO  pooling:126 - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/high-school]
+2017-04-05 21:01:03 [main] INFO  pooling:135 - HHH10001001: Connection properties: {user=root, password=****}
+2017-04-05 21:01:03 [main] INFO  pooling:140 - HHH10001003: Autocommit mode: false
+2017-04-05 21:01:03 [main] INFO  DriverManagerConnectionProviderImpl:41 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2017-04-05 21:01:04 [main] INFO  Dialect:157 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2017-04-05 21:01:05 [main] INFO  pooling:230 - HHH10001008: Cleaning up connection pool [jdbc:mysql://localhost:3306/high-school]
+2017-04-05 21:10:21 [main] INFO  Version:45 - HHH000412: Hibernate Core {5.2.6.Final}
+2017-04-05 21:10:21 [main] INFO  Environment:213 - HHH000206: hibernate.properties not found
+2017-04-05 21:10:22 [main] INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2017-04-05 21:10:22 [main] WARN  deprecation:75 - HHH90000012: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/hibernate-mapping. Use namespace http://www.hibernate.org/dtd/hibernate-mapping instead.  Support for obsolete DTD/XSD namespaces may be removed at any time.
+2017-04-05 21:10:24 [main] WARN  deprecation:75 - HHH90000012: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/hibernate-mapping. Use namespace http://www.hibernate.org/dtd/hibernate-mapping instead.  Support for obsolete DTD/XSD namespaces may be removed at any time.
+2017-04-05 21:10:24 [main] WARN  deprecation:75 - HHH90000012: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/hibernate-mapping. Use namespace http://www.hibernate.org/dtd/hibernate-mapping instead.  Support for obsolete DTD/XSD namespaces may be removed at any time.
+2017-04-05 21:10:24 [main] WARN  deprecation:75 - HHH90000012: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/hibernate-mapping. Use namespace http://www.hibernate.org/dtd/hibernate-mapping instead.  Support for obsolete DTD/XSD namespaces may be removed at any time.
+2017-04-05 21:10:24 [main] WARN  deprecation:75 - HHH90000012: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/hibernate-mapping. Use namespace http://www.hibernate.org/dtd/hibernate-mapping instead.  Support for obsolete DTD/XSD namespaces may be removed at any time.
+2017-04-05 21:10:24 [main] WARN  pooling:70 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2017-04-05 21:10:24 [main] INFO  pooling:126 - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/high-school]
+2017-04-05 21:10:24 [main] INFO  pooling:135 - HHH10001001: Connection properties: {user=root, password=****}
+2017-04-05 21:10:24 [main] INFO  pooling:140 - HHH10001003: Autocommit mode: false
+2017-04-05 21:10:24 [main] INFO  DriverManagerConnectionProviderImpl:41 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2017-04-05 21:10:25 [main] INFO  Dialect:157 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2017-04-05 21:10:26 [main] INFO  pooling:230 - HHH10001008: Cleaning up connection pool [jdbc:mysql://localhost:3306/high-school]
+2017-04-05 21:15:08 [main] INFO  Version:45 - HHH000412: Hibernate Core {5.2.6.Final}
+2017-04-05 21:15:08 [main] INFO  Environment:213 - HHH000206: hibernate.properties not found
+2017-04-05 21:15:09 [main] INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2017-04-05 21:15:09 [main] WARN  deprecation:75 - HHH90000012: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/hibernate-mapping. Use namespace http://www.hibernate.org/dtd/hibernate-mapping instead.  Support for obsolete DTD/XSD namespaces may be removed at any time.
+2017-04-05 21:15:11 [main] WARN  deprecation:75 - HHH90000012: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/hibernate-mapping. Use namespace http://www.hibernate.org/dtd/hibernate-mapping instead.  Support for obsolete DTD/XSD namespaces may be removed at any time.
+2017-04-05 21:15:11 [main] WARN  deprecation:75 - HHH90000012: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/hibernate-mapping. Use namespace http://www.hibernate.org/dtd/hibernate-mapping instead.  Support for obsolete DTD/XSD namespaces may be removed at any time.
+2017-04-05 21:15:11 [main] WARN  deprecation:75 - HHH90000012: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/hibernate-mapping. Use namespace http://www.hibernate.org/dtd/hibernate-mapping instead.  Support for obsolete DTD/XSD namespaces may be removed at any time.
+2017-04-05 21:15:11 [main] WARN  deprecation:75 - HHH90000012: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/hibernate-mapping. Use namespace http://www.hibernate.org/dtd/hibernate-mapping instead.  Support for obsolete DTD/XSD namespaces may be removed at any time.
+2017-04-05 21:15:12 [main] WARN  pooling:70 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2017-04-05 21:15:12 [main] INFO  pooling:126 - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/high-school]
+2017-04-05 21:15:12 [main] INFO  pooling:135 - HHH10001001: Connection properties: {user=root, password=****}
+2017-04-05 21:15:12 [main] INFO  pooling:140 - HHH10001003: Autocommit mode: false
+2017-04-05 21:15:12 [main] INFO  DriverManagerConnectionProviderImpl:41 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2017-04-05 21:15:12 [main] INFO  Dialect:157 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2017-04-05 21:15:14 [main] INFO  PojoInstantiator:47 - HHH000182: No default (no-argument) constructor for class: Clase6Hibernate.Teacher (class must be instantiated by Interceptor)
+2017-04-05 21:15:14 [main] INFO  pooling:230 - HHH10001008: Cleaning up connection pool [jdbc:mysql://localhost:3306/high-school]
+2017-04-05 21:18:07 [main] INFO  Version:45 - HHH000412: Hibernate Core {5.2.6.Final}
+2017-04-05 21:18:07 [main] INFO  Environment:213 - HHH000206: hibernate.properties not found
+2017-04-05 21:18:08 [main] INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2017-04-05 21:18:08 [main] WARN  deprecation:75 - HHH90000012: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/hibernate-mapping. Use namespace http://www.hibernate.org/dtd/hibernate-mapping instead.  Support for obsolete DTD/XSD namespaces may be removed at any time.
+2017-04-05 21:18:10 [main] WARN  deprecation:75 - HHH90000012: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/hibernate-mapping. Use namespace http://www.hibernate.org/dtd/hibernate-mapping instead.  Support for obsolete DTD/XSD namespaces may be removed at any time.
+2017-04-05 21:18:10 [main] WARN  deprecation:75 - HHH90000012: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/hibernate-mapping. Use namespace http://www.hibernate.org/dtd/hibernate-mapping instead.  Support for obsolete DTD/XSD namespaces may be removed at any time.
+2017-04-05 21:18:10 [main] WARN  deprecation:75 - HHH90000012: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/hibernate-mapping. Use namespace http://www.hibernate.org/dtd/hibernate-mapping instead.  Support for obsolete DTD/XSD namespaces may be removed at any time.
+2017-04-05 21:18:10 [main] WARN  deprecation:75 - HHH90000012: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/hibernate-mapping. Use namespace http://www.hibernate.org/dtd/hibernate-mapping instead.  Support for obsolete DTD/XSD namespaces may be removed at any time.
+2017-04-05 21:18:11 [main] WARN  pooling:70 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2017-04-05 21:18:11 [main] INFO  pooling:126 - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/high-school]
+2017-04-05 21:18:11 [main] INFO  pooling:135 - HHH10001001: Connection properties: {user=root, password=****}
+2017-04-05 21:18:11 [main] INFO  pooling:140 - HHH10001003: Autocommit mode: false
+2017-04-05 21:18:11 [main] INFO  DriverManagerConnectionProviderImpl:41 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2017-04-05 21:18:11 [main] INFO  Dialect:157 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2017-04-05 21:18:13 [main] INFO  PojoInstantiator:47 - HHH000182: No default (no-argument) constructor for class: Clase6Hibernate.Teacher (class must be instantiated by Interceptor)
+2017-04-05 21:18:13 [main] INFO  PojoInstantiator:47 - HHH000182: No default (no-argument) constructor for class: Clase6Hibernate.Course (class must be instantiated by Interceptor)
+2017-04-05 21:18:13 [main] INFO  PojoInstantiator:47 - HHH000182: No default (no-argument) constructor for class: Clase6Hibernate.Student (class must be instantiated by Interceptor)
+2017-04-05 21:18:13 [main] INFO  PojoInstantiator:47 - HHH000182: No default (no-argument) constructor for class: Clase6Hibernate.StudentCourse (class must be instantiated by Interceptor)
+2017-04-05 21:18:14 [main] INFO  pooling:230 - HHH10001008: Cleaning up connection pool [jdbc:mysql://localhost:3306/high-school]
+2017-04-05 21:26:17 [main] INFO  Version:45 - HHH000412: Hibernate Core {5.2.6.Final}
+2017-04-05 21:26:17 [main] INFO  Environment:213 - HHH000206: hibernate.properties not found
+2017-04-05 21:26:18 [main] INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2017-04-05 21:26:18 [main] WARN  deprecation:75 - HHH90000012: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/hibernate-mapping. Use namespace http://www.hibernate.org/dtd/hibernate-mapping instead.  Support for obsolete DTD/XSD namespaces may be removed at any time.
+2017-04-05 21:26:20 [main] WARN  deprecation:75 - HHH90000012: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/hibernate-mapping. Use namespace http://www.hibernate.org/dtd/hibernate-mapping instead.  Support for obsolete DTD/XSD namespaces may be removed at any time.
+2017-04-05 21:26:20 [main] WARN  deprecation:75 - HHH90000012: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/hibernate-mapping. Use namespace http://www.hibernate.org/dtd/hibernate-mapping instead.  Support for obsolete DTD/XSD namespaces may be removed at any time.
+2017-04-05 21:26:20 [main] WARN  deprecation:75 - HHH90000012: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/hibernate-mapping. Use namespace http://www.hibernate.org/dtd/hibernate-mapping instead.  Support for obsolete DTD/XSD namespaces may be removed at any time.
+2017-04-05 21:26:20 [main] WARN  deprecation:75 - HHH90000012: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/hibernate-mapping. Use namespace http://www.hibernate.org/dtd/hibernate-mapping instead.  Support for obsolete DTD/XSD namespaces may be removed at any time.
+2017-04-05 21:26:21 [main] WARN  pooling:70 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2017-04-05 21:26:21 [main] INFO  pooling:126 - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/high-school]
+2017-04-05 21:26:21 [main] INFO  pooling:135 - HHH10001001: Connection properties: {user=root, password=****}
+2017-04-05 21:26:21 [main] INFO  pooling:140 - HHH10001003: Autocommit mode: false
+2017-04-05 21:26:21 [main] INFO  DriverManagerConnectionProviderImpl:41 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2017-04-05 21:26:21 [main] INFO  Dialect:157 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2017-04-05 21:26:23 [main] INFO  PojoInstantiator:47 - HHH000182: No default (no-argument) constructor for class: Clase6Hibernate.Teacher (class must be instantiated by Interceptor)
+2017-04-05 21:26:23 [main] INFO  PojoInstantiator:47 - HHH000182: No default (no-argument) constructor for class: Clase6Hibernate.Course (class must be instantiated by Interceptor)
+2017-04-05 21:26:23 [main] INFO  PojoInstantiator:47 - HHH000182: No default (no-argument) constructor for class: Clase6Hibernate.Student (class must be instantiated by Interceptor)
+2017-04-05 21:26:23 [main] INFO  PojoInstantiator:47 - HHH000182: No default (no-argument) constructor for class: Clase6Hibernate.StudentCourse (class must be instantiated by Interceptor)
+2017-04-05 21:26:24 [main] INFO  pooling:230 - HHH10001008: Cleaning up connection pool [jdbc:mysql://localhost:3306/high-school]
+2017-04-05 21:52:09 [main] INFO  Version:45 - HHH000412: Hibernate Core {5.2.6.Final}
+2017-04-05 21:52:09 [main] INFO  Environment:213 - HHH000206: hibernate.properties not found
+2017-04-05 21:52:10 [main] INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2017-04-05 21:52:10 [main] WARN  deprecation:75 - HHH90000012: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/hibernate-mapping. Use namespace http://www.hibernate.org/dtd/hibernate-mapping instead.  Support for obsolete DTD/XSD namespaces may be removed at any time.
+2017-04-05 21:52:12 [main] WARN  deprecation:75 - HHH90000012: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/hibernate-mapping. Use namespace http://www.hibernate.org/dtd/hibernate-mapping instead.  Support for obsolete DTD/XSD namespaces may be removed at any time.
+2017-04-05 21:52:12 [main] WARN  deprecation:75 - HHH90000012: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/hibernate-mapping. Use namespace http://www.hibernate.org/dtd/hibernate-mapping instead.  Support for obsolete DTD/XSD namespaces may be removed at any time.
+2017-04-05 21:52:12 [main] WARN  deprecation:75 - HHH90000012: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/hibernate-mapping. Use namespace http://www.hibernate.org/dtd/hibernate-mapping instead.  Support for obsolete DTD/XSD namespaces may be removed at any time.
+2017-04-05 21:52:12 [main] WARN  deprecation:75 - HHH90000012: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/hibernate-mapping. Use namespace http://www.hibernate.org/dtd/hibernate-mapping instead.  Support for obsolete DTD/XSD namespaces may be removed at any time.
+2017-04-05 21:52:12 [main] WARN  pooling:70 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2017-04-05 21:52:12 [main] INFO  pooling:126 - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/high-school]
+2017-04-05 21:52:12 [main] INFO  pooling:135 - HHH10001001: Connection properties: {user=root, password=****}
+2017-04-05 21:52:12 [main] INFO  pooling:140 - HHH10001003: Autocommit mode: false
+2017-04-05 21:52:12 [main] INFO  DriverManagerConnectionProviderImpl:41 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2017-04-05 21:52:13 [main] INFO  Dialect:157 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2017-04-05 21:52:14 [main] INFO  PojoInstantiator:47 - HHH000182: No default (no-argument) constructor for class: Clase6Hibernate.Teacher (class must be instantiated by Interceptor)
+2017-04-05 21:52:14 [main] INFO  PojoInstantiator:47 - HHH000182: No default (no-argument) constructor for class: Clase6Hibernate.Course (class must be instantiated by Interceptor)
+2017-04-05 21:52:14 [main] INFO  PojoInstantiator:47 - HHH000182: No default (no-argument) constructor for class: Clase6Hibernate.Student (class must be instantiated by Interceptor)
+2017-04-05 21:52:14 [main] INFO  PojoInstantiator:47 - HHH000182: No default (no-argument) constructor for class: Clase6Hibernate.StudentCourse (class must be instantiated by Interceptor)
+2017-04-05 21:52:15 [main] INFO  pooling:230 - HHH10001008: Cleaning up connection pool [jdbc:mysql://localhost:3306/high-school]
+2017-04-05 21:56:07 [main] INFO  Version:45 - HHH000412: Hibernate Core {5.2.6.Final}
+2017-04-05 21:56:07 [main] INFO  Environment:213 - HHH000206: hibernate.properties not found
+2017-04-05 21:56:07 [main] INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2017-04-05 21:56:07 [main] WARN  deprecation:75 - HHH90000012: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/hibernate-mapping. Use namespace http://www.hibernate.org/dtd/hibernate-mapping instead.  Support for obsolete DTD/XSD namespaces may be removed at any time.
+2017-04-05 21:56:09 [main] WARN  deprecation:75 - HHH90000012: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/hibernate-mapping. Use namespace http://www.hibernate.org/dtd/hibernate-mapping instead.  Support for obsolete DTD/XSD namespaces may be removed at any time.
+2017-04-05 21:56:09 [main] WARN  deprecation:75 - HHH90000012: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/hibernate-mapping. Use namespace http://www.hibernate.org/dtd/hibernate-mapping instead.  Support for obsolete DTD/XSD namespaces may be removed at any time.
+2017-04-05 21:56:09 [main] WARN  deprecation:75 - HHH90000012: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/hibernate-mapping. Use namespace http://www.hibernate.org/dtd/hibernate-mapping instead.  Support for obsolete DTD/XSD namespaces may be removed at any time.
+2017-04-05 21:56:09 [main] WARN  deprecation:75 - HHH90000012: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/hibernate-mapping. Use namespace http://www.hibernate.org/dtd/hibernate-mapping instead.  Support for obsolete DTD/XSD namespaces may be removed at any time.
+2017-04-05 21:56:10 [main] WARN  pooling:70 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2017-04-05 21:56:10 [main] INFO  pooling:126 - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/high-school]
+2017-04-05 21:56:10 [main] INFO  pooling:135 - HHH10001001: Connection properties: {user=root, password=****}
+2017-04-05 21:56:10 [main] INFO  pooling:140 - HHH10001003: Autocommit mode: false
+2017-04-05 21:56:10 [main] INFO  DriverManagerConnectionProviderImpl:41 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2017-04-05 21:56:10 [main] INFO  Dialect:157 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2017-04-05 21:56:13 [main] INFO  pooling:230 - HHH10001008: Cleaning up connection pool [jdbc:mysql://localhost:3306/high-school]
+2017-04-05 22:00:13 [main] INFO  Version:45 - HHH000412: Hibernate Core {5.2.6.Final}
+2017-04-05 22:00:13 [main] INFO  Environment:213 - HHH000206: hibernate.properties not found
+2017-04-05 22:00:13 [main] INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2017-04-05 22:00:13 [main] WARN  deprecation:75 - HHH90000012: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/hibernate-mapping. Use namespace http://www.hibernate.org/dtd/hibernate-mapping instead.  Support for obsolete DTD/XSD namespaces may be removed at any time.
+2017-04-05 22:00:16 [main] WARN  deprecation:75 - HHH90000012: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/hibernate-mapping. Use namespace http://www.hibernate.org/dtd/hibernate-mapping instead.  Support for obsolete DTD/XSD namespaces may be removed at any time.
+2017-04-05 22:00:16 [main] WARN  deprecation:75 - HHH90000012: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/hibernate-mapping. Use namespace http://www.hibernate.org/dtd/hibernate-mapping instead.  Support for obsolete DTD/XSD namespaces may be removed at any time.
+2017-04-05 22:00:16 [main] WARN  deprecation:75 - HHH90000012: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/hibernate-mapping. Use namespace http://www.hibernate.org/dtd/hibernate-mapping instead.  Support for obsolete DTD/XSD namespaces may be removed at any time.
+2017-04-05 22:00:16 [main] WARN  pooling:70 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2017-04-05 22:00:16 [main] INFO  pooling:126 - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/high-school]
+2017-04-05 22:00:16 [main] INFO  pooling:135 - HHH10001001: Connection properties: {user=root, password=****}
+2017-04-05 22:00:16 [main] INFO  pooling:140 - HHH10001003: Autocommit mode: false
+2017-04-05 22:00:16 [main] INFO  DriverManagerConnectionProviderImpl:41 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2017-04-05 22:00:17 [main] INFO  Dialect:157 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2017-04-05 22:00:19 [main] INFO  pooling:230 - HHH10001008: Cleaning up connection pool [jdbc:mysql://localhost:3306/high-school]
+2017-04-05 22:02:51 [main] INFO  Version:45 - HHH000412: Hibernate Core {5.2.6.Final}
+2017-04-05 22:02:51 [main] INFO  Environment:213 - HHH000206: hibernate.properties not found
+2017-04-05 22:02:52 [main] INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2017-04-05 22:02:54 [main] WARN  pooling:70 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2017-04-05 22:02:54 [main] INFO  pooling:126 - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/high-school]
+2017-04-05 22:02:54 [main] INFO  pooling:135 - HHH10001001: Connection properties: {user=root, password=****}
+2017-04-05 22:02:54 [main] INFO  pooling:140 - HHH10001003: Autocommit mode: false
+2017-04-05 22:02:54 [main] INFO  DriverManagerConnectionProviderImpl:41 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2017-04-05 22:02:55 [main] INFO  Dialect:157 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2017-04-05 22:02:58 [main] INFO  pooling:230 - HHH10001008: Cleaning up connection pool [jdbc:mysql://localhost:3306/high-school]
+2017-04-05 22:29:22 [main] INFO  Version:45 - HHH000412: Hibernate Core {5.2.6.Final}
+2017-04-05 22:29:22 [main] INFO  Environment:213 - HHH000206: hibernate.properties not found
+2017-04-05 22:29:22 [main] INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2017-04-05 22:29:25 [main] WARN  pooling:70 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2017-04-05 22:29:25 [main] INFO  pooling:126 - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/high-school]
+2017-04-05 22:29:25 [main] INFO  pooling:135 - HHH10001001: Connection properties: {user=root, password=****}
+2017-04-05 22:29:25 [main] INFO  pooling:140 - HHH10001003: Autocommit mode: false
+2017-04-05 22:29:25 [main] INFO  DriverManagerConnectionProviderImpl:41 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2017-04-05 22:29:25 [main] INFO  Dialect:157 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2017-04-05 22:29:27 [main] INFO  pooling:230 - HHH10001008: Cleaning up connection pool [jdbc:mysql://localhost:3306/high-school]
+2017-04-05 22:30:55 [main] INFO  Version:45 - HHH000412: Hibernate Core {5.2.6.Final}
+2017-04-05 22:30:55 [main] INFO  Environment:213 - HHH000206: hibernate.properties not found
+2017-04-05 22:30:55 [main] INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2017-04-05 22:30:57 [main] WARN  pooling:70 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2017-04-05 22:30:57 [main] INFO  pooling:126 - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/high-school]
+2017-04-05 22:30:57 [main] INFO  pooling:135 - HHH10001001: Connection properties: {user=root, password=****}
+2017-04-05 22:30:57 [main] INFO  pooling:140 - HHH10001003: Autocommit mode: false
+2017-04-05 22:30:57 [main] INFO  DriverManagerConnectionProviderImpl:41 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2017-04-05 22:30:58 [main] INFO  Dialect:157 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2017-04-05 22:31:00 [main] INFO  pooling:230 - HHH10001008: Cleaning up connection pool [jdbc:mysql://localhost:3306/high-school]
+2017-04-05 22:49:01 [main] INFO  Version:45 - HHH000412: Hibernate Core {5.2.6.Final}
+2017-04-05 22:49:01 [main] INFO  Environment:213 - HHH000206: hibernate.properties not found
+2017-04-05 22:49:01 [main] INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2017-04-05 22:49:04 [main] WARN  pooling:70 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2017-04-05 22:49:04 [main] INFO  pooling:126 - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/high-school]
+2017-04-05 22:49:04 [main] INFO  pooling:135 - HHH10001001: Connection properties: {user=root, password=****}
+2017-04-05 22:49:04 [main] INFO  pooling:140 - HHH10001003: Autocommit mode: false
+2017-04-05 22:49:04 [main] INFO  DriverManagerConnectionProviderImpl:41 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2017-04-05 22:49:04 [main] INFO  Dialect:157 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2017-04-05 22:49:06 [main] INFO  pooling:230 - HHH10001008: Cleaning up connection pool [jdbc:mysql://localhost:3306/high-school]
+2017-04-05 22:52:56 [main] INFO  Version:45 - HHH000412: Hibernate Core {5.2.6.Final}
+2017-04-05 22:52:56 [main] INFO  Environment:213 - HHH000206: hibernate.properties not found
+2017-04-05 22:52:57 [main] INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2017-04-05 22:53:00 [main] WARN  pooling:70 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2017-04-05 22:53:00 [main] INFO  pooling:126 - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/high-school]
+2017-04-05 22:53:00 [main] INFO  pooling:135 - HHH10001001: Connection properties: {user=root, password=****}
+2017-04-05 22:53:00 [main] INFO  pooling:140 - HHH10001003: Autocommit mode: false
+2017-04-05 22:53:00 [main] INFO  DriverManagerConnectionProviderImpl:41 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2017-04-05 22:53:01 [main] INFO  Dialect:157 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2017-04-05 22:53:02 [main] INFO  pooling:230 - HHH10001008: Cleaning up connection pool [jdbc:mysql://localhost:3306/high-school]
+2017-04-05 22:55:30 [main] INFO  Version:45 - HHH000412: Hibernate Core {5.2.6.Final}
+2017-04-05 22:55:30 [main] INFO  Environment:213 - HHH000206: hibernate.properties not found
+2017-04-05 22:55:31 [main] INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2017-04-05 22:55:34 [main] WARN  pooling:70 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2017-04-05 22:55:34 [main] INFO  pooling:126 - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/high-school]
+2017-04-05 22:55:34 [main] INFO  pooling:135 - HHH10001001: Connection properties: {user=root, password=****}
+2017-04-05 22:55:34 [main] INFO  pooling:140 - HHH10001003: Autocommit mode: false
+2017-04-05 22:55:34 [main] INFO  DriverManagerConnectionProviderImpl:41 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2017-04-05 22:55:35 [main] INFO  Dialect:157 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2017-04-05 22:55:38 [main] INFO  pooling:230 - HHH10001008: Cleaning up connection pool [jdbc:mysql://localhost:3306/high-school]
+2017-04-05 22:57:06 [main] INFO  Version:45 - HHH000412: Hibernate Core {5.2.6.Final}
+2017-04-05 22:57:06 [main] INFO  Environment:213 - HHH000206: hibernate.properties not found
+2017-04-05 22:57:06 [main] INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2017-04-05 22:57:09 [main] WARN  pooling:70 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2017-04-05 22:57:09 [main] INFO  pooling:126 - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/high-school]
+2017-04-05 22:57:09 [main] INFO  pooling:135 - HHH10001001: Connection properties: {user=root, password=****}
+2017-04-05 22:57:09 [main] INFO  pooling:140 - HHH10001003: Autocommit mode: false
+2017-04-05 22:57:09 [main] INFO  DriverManagerConnectionProviderImpl:41 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2017-04-05 22:57:10 [main] INFO  Dialect:157 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2017-04-05 22:57:13 [main] INFO  pooling:230 - HHH10001008: Cleaning up connection pool [jdbc:mysql://localhost:3306/high-school]
+2017-04-05 23:03:43 [main] INFO  Version:45 - HHH000412: Hibernate Core {5.2.6.Final}
+2017-04-05 23:03:43 [main] INFO  Environment:213 - HHH000206: hibernate.properties not found
+2017-04-05 23:03:43 [main] INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2017-04-05 23:03:45 [main] WARN  pooling:70 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2017-04-05 23:03:45 [main] INFO  pooling:126 - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/high-school]
+2017-04-05 23:03:45 [main] INFO  pooling:135 - HHH10001001: Connection properties: {user=root, password=****}
+2017-04-05 23:03:45 [main] INFO  pooling:140 - HHH10001003: Autocommit mode: false
+2017-04-05 23:03:45 [main] INFO  DriverManagerConnectionProviderImpl:41 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2017-04-05 23:03:46 [main] INFO  Dialect:157 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2017-04-05 23:03:48 [main] INFO  pooling:230 - HHH10001008: Cleaning up connection pool [jdbc:mysql://localhost:3306/high-school]
+2017-04-05 23:16:15 [main] INFO  Version:45 - HHH000412: Hibernate Core {5.2.6.Final}
+2017-04-05 23:16:15 [main] INFO  Environment:213 - HHH000206: hibernate.properties not found
+2017-04-05 23:16:15 [main] INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2017-04-05 23:16:18 [main] WARN  pooling:70 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2017-04-05 23:16:18 [main] INFO  pooling:126 - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/high-school]
+2017-04-05 23:16:18 [main] INFO  pooling:135 - HHH10001001: Connection properties: {user=root, password=****}
+2017-04-05 23:16:18 [main] INFO  pooling:140 - HHH10001003: Autocommit mode: false
+2017-04-05 23:16:18 [main] INFO  DriverManagerConnectionProviderImpl:41 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2017-04-05 23:16:18 [main] INFO  Dialect:157 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2017-04-05 23:16:21 [main] INFO  pooling:230 - HHH10001008: Cleaning up connection pool [jdbc:mysql://localhost:3306/high-school]
+2017-04-05 23:17:29 [main] INFO  Version:45 - HHH000412: Hibernate Core {5.2.6.Final}
+2017-04-05 23:17:29 [main] INFO  Environment:213 - HHH000206: hibernate.properties not found
+2017-04-05 23:17:30 [main] INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2017-04-05 23:17:32 [main] WARN  pooling:70 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2017-04-05 23:17:32 [main] INFO  pooling:126 - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/high-school]
+2017-04-05 23:17:32 [main] INFO  pooling:135 - HHH10001001: Connection properties: {user=root, password=****}
+2017-04-05 23:17:32 [main] INFO  pooling:140 - HHH10001003: Autocommit mode: false
+2017-04-05 23:17:32 [main] INFO  DriverManagerConnectionProviderImpl:41 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2017-04-05 23:17:33 [main] INFO  Dialect:157 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2017-04-05 23:17:35 [main] INFO  pooling:230 - HHH10001008: Cleaning up connection pool [jdbc:mysql://localhost:3306/high-school]
+2017-04-05 23:21:57 [main] INFO  Version:45 - HHH000412: Hibernate Core {5.2.6.Final}
+2017-04-05 23:21:57 [main] INFO  Environment:213 - HHH000206: hibernate.properties not found
+2017-04-05 23:21:57 [main] INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2017-04-05 23:21:59 [main] WARN  pooling:70 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2017-04-05 23:21:59 [main] INFO  pooling:126 - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/high-school]
+2017-04-05 23:21:59 [main] INFO  pooling:135 - HHH10001001: Connection properties: {user=root, password=****}
+2017-04-05 23:21:59 [main] INFO  pooling:140 - HHH10001003: Autocommit mode: false
+2017-04-05 23:21:59 [main] INFO  DriverManagerConnectionProviderImpl:41 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2017-04-05 23:22:00 [main] INFO  Dialect:157 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2017-04-05 23:22:02 [main] INFO  pooling:230 - HHH10001008: Cleaning up connection pool [jdbc:mysql://localhost:3306/high-school]
+2017-04-05 23:26:49 [main] INFO  Version:45 - HHH000412: Hibernate Core {5.2.6.Final}
+2017-04-05 23:26:49 [main] INFO  Environment:213 - HHH000206: hibernate.properties not found
+2017-04-05 23:26:50 [main] INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2017-04-05 23:26:52 [main] WARN  pooling:70 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2017-04-05 23:26:52 [main] INFO  pooling:126 - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/high-school]
+2017-04-05 23:26:52 [main] INFO  pooling:135 - HHH10001001: Connection properties: {user=root, password=****}
+2017-04-05 23:26:52 [main] INFO  pooling:140 - HHH10001003: Autocommit mode: false
+2017-04-05 23:26:52 [main] INFO  DriverManagerConnectionProviderImpl:41 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2017-04-05 23:26:53 [main] INFO  Dialect:157 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2017-04-05 23:26:55 [main] INFO  pooling:230 - HHH10001008: Cleaning up connection pool [jdbc:mysql://localhost:3306/high-school]
+2017-04-05 23:28:10 [main] INFO  Version:45 - HHH000412: Hibernate Core {5.2.6.Final}
+2017-04-05 23:28:10 [main] INFO  Environment:213 - HHH000206: hibernate.properties not found
+2017-04-05 23:28:11 [main] INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2017-04-05 23:28:13 [main] WARN  pooling:70 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2017-04-05 23:28:13 [main] INFO  pooling:126 - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/high-school]
+2017-04-05 23:28:13 [main] INFO  pooling:135 - HHH10001001: Connection properties: {user=root, password=****}
+2017-04-05 23:28:13 [main] INFO  pooling:140 - HHH10001003: Autocommit mode: false
+2017-04-05 23:28:13 [main] INFO  DriverManagerConnectionProviderImpl:41 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2017-04-05 23:28:14 [main] INFO  Dialect:157 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2017-04-05 23:28:16 [main] INFO  pooling:230 - HHH10001008: Cleaning up connection pool [jdbc:mysql://localhost:3306/high-school]
+2017-04-05 23:30:18 [main] INFO  Version:45 - HHH000412: Hibernate Core {5.2.6.Final}
+2017-04-05 23:30:18 [main] INFO  Environment:213 - HHH000206: hibernate.properties not found
+2017-04-05 23:30:19 [main] INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2017-04-05 23:30:21 [main] WARN  pooling:70 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2017-04-05 23:30:21 [main] INFO  pooling:126 - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/high-school]
+2017-04-05 23:30:21 [main] INFO  pooling:135 - HHH10001001: Connection properties: {user=root, password=****}
+2017-04-05 23:30:21 [main] INFO  pooling:140 - HHH10001003: Autocommit mode: false
+2017-04-05 23:30:21 [main] INFO  DriverManagerConnectionProviderImpl:41 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2017-04-05 23:30:22 [main] INFO  Dialect:157 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2017-04-05 23:30:24 [main] INFO  pooling:230 - HHH10001008: Cleaning up connection pool [jdbc:mysql://localhost:3306/high-school]
+2017-04-05 23:36:47 [main] INFO  Version:45 - HHH000412: Hibernate Core {5.2.6.Final}
+2017-04-05 23:36:47 [main] INFO  Environment:213 - HHH000206: hibernate.properties not found
+2017-04-05 23:36:48 [main] INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2017-04-05 23:36:50 [main] WARN  pooling:70 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2017-04-05 23:36:50 [main] INFO  pooling:126 - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/high-school]
+2017-04-05 23:36:50 [main] INFO  pooling:135 - HHH10001001: Connection properties: {user=root, password=****}
+2017-04-05 23:36:50 [main] INFO  pooling:140 - HHH10001003: Autocommit mode: false
+2017-04-05 23:36:50 [main] INFO  DriverManagerConnectionProviderImpl:41 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2017-04-05 23:36:51 [main] INFO  Dialect:157 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2017-04-05 23:36:53 [main] INFO  pooling:230 - HHH10001008: Cleaning up connection pool [jdbc:mysql://localhost:3306/high-school]
+2017-04-05 23:40:25 [main] INFO  Version:45 - HHH000412: Hibernate Core {5.2.6.Final}
+2017-04-05 23:40:25 [main] INFO  Environment:213 - HHH000206: hibernate.properties not found
+2017-04-05 23:40:25 [main] INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2017-04-05 23:40:27 [main] WARN  pooling:70 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2017-04-05 23:40:27 [main] INFO  pooling:126 - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/high-school]
+2017-04-05 23:40:27 [main] INFO  pooling:135 - HHH10001001: Connection properties: {user=root, password=****}
+2017-04-05 23:40:27 [main] INFO  pooling:140 - HHH10001003: Autocommit mode: false
+2017-04-05 23:40:27 [main] INFO  DriverManagerConnectionProviderImpl:41 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2017-04-05 23:40:28 [main] INFO  Dialect:157 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2017-04-05 23:40:30 [main] INFO  pooling:230 - HHH10001008: Cleaning up connection pool [jdbc:mysql://localhost:3306/high-school]
+2017-04-05 23:42:52 [main] INFO  Version:45 - HHH000412: Hibernate Core {5.2.6.Final}
+2017-04-05 23:42:52 [main] INFO  Environment:213 - HHH000206: hibernate.properties not found
+2017-04-05 23:42:52 [main] INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2017-04-05 23:42:55 [main] WARN  pooling:70 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2017-04-05 23:42:55 [main] INFO  pooling:126 - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/high-school]
+2017-04-05 23:42:55 [main] INFO  pooling:135 - HHH10001001: Connection properties: {user=root, password=****}
+2017-04-05 23:42:55 [main] INFO  pooling:140 - HHH10001003: Autocommit mode: false
+2017-04-05 23:42:55 [main] INFO  DriverManagerConnectionProviderImpl:41 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2017-04-05 23:42:55 [main] INFO  Dialect:157 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2017-04-05 23:42:58 [main] INFO  pooling:230 - HHH10001008: Cleaning up connection pool [jdbc:mysql://localhost:3306/high-school]
+2017-04-05 23:43:27 [main] INFO  Version:45 - HHH000412: Hibernate Core {5.2.6.Final}
+2017-04-05 23:43:27 [main] INFO  Environment:213 - HHH000206: hibernate.properties not found
+2017-04-05 23:43:27 [main] INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2017-04-05 23:43:30 [main] WARN  pooling:70 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2017-04-05 23:43:30 [main] INFO  pooling:126 - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/high-school]
+2017-04-05 23:43:30 [main] INFO  pooling:135 - HHH10001001: Connection properties: {user=root, password=****}
+2017-04-05 23:43:30 [main] INFO  pooling:140 - HHH10001003: Autocommit mode: false
+2017-04-05 23:43:30 [main] INFO  DriverManagerConnectionProviderImpl:41 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2017-04-05 23:43:30 [main] INFO  Dialect:157 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2017-04-05 23:43:33 [main] INFO  pooling:230 - HHH10001008: Cleaning up connection pool [jdbc:mysql://localhost:3306/high-school]
+2017-04-05 23:45:01 [main] INFO  Version:45 - HHH000412: Hibernate Core {5.2.6.Final}
+2017-04-05 23:45:01 [main] INFO  Environment:213 - HHH000206: hibernate.properties not found
+2017-04-05 23:45:02 [main] INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2017-04-05 23:45:04 [main] WARN  pooling:70 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2017-04-05 23:45:04 [main] INFO  pooling:126 - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/high-school]
+2017-04-05 23:45:04 [main] INFO  pooling:135 - HHH10001001: Connection properties: {user=root, password=****}
+2017-04-05 23:45:04 [main] INFO  pooling:140 - HHH10001003: Autocommit mode: false
+2017-04-05 23:45:04 [main] INFO  DriverManagerConnectionProviderImpl:41 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2017-04-05 23:45:05 [main] INFO  Dialect:157 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2017-04-05 23:45:07 [main] INFO  pooling:230 - HHH10001008: Cleaning up connection pool [jdbc:mysql://localhost:3306/high-school]
+2017-04-05 23:49:44 [main] INFO  Version:45 - HHH000412: Hibernate Core {5.2.6.Final}
+2017-04-05 23:49:44 [main] INFO  Environment:213 - HHH000206: hibernate.properties not found
+2017-04-05 23:49:44 [main] INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2017-04-05 23:49:47 [main] WARN  pooling:70 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2017-04-05 23:49:47 [main] INFO  pooling:126 - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/high-school]
+2017-04-05 23:49:47 [main] INFO  pooling:135 - HHH10001001: Connection properties: {user=root, password=****}
+2017-04-05 23:49:47 [main] INFO  pooling:140 - HHH10001003: Autocommit mode: false
+2017-04-05 23:49:47 [main] INFO  DriverManagerConnectionProviderImpl:41 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2017-04-05 23:49:47 [main] INFO  Dialect:157 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2017-04-05 23:49:49 [main] INFO  pooling:230 - HHH10001008: Cleaning up connection pool [jdbc:mysql://localhost:3306/high-school]

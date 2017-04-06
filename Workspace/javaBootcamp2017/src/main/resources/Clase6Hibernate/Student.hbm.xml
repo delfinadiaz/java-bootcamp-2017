@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-configuration SYSTEM
+    "classpath://org/hibernate/hibernate-configuration-3.0.dtd">
+<hibernate-mapping>
+    <class name="Clase6Hibernate.Entities.Student" table="student" >
+        <id name="idStudent" type="java.lang.Integer">
+            <column name="idstudent" />
+            <generator class="identity" />
+        </id>
+        <property name="firstName" type="string">
+            <column name="first_name" length="45" not-null="true" />
+        </property>
+        <property name="lastName" type="string">
+            <column name="last_name" length="45" not-null="true" />
+        </property>
+        <property name="registrationNumber" type="java.lang.Integer">
+            <column name="registration_number" length="11" not-null="true" />
+        </property>
+        <property name="birthDate" type="date">
+            <column name="birth_date" not-null="true" />
+        </property>
+         <set name="studentCourses" table="student-course"
+        	inverse="true" lazy="true" fetch="select" cascade="all" >
+            <key>
+                <column name="student" not-null="true" />
+            </key>
+            <one-to-many class="Clase6Hibernate.Entities.StudentCourse" />
+        </set>
+    </class>
+</hibernate-mapping>
