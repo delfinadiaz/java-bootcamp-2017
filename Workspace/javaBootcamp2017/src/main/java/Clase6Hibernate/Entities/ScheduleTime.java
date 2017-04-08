@@ -18,7 +18,6 @@ public class ScheduleTime implements java.io.Serializable{
 	}
 
 	public ScheduleTime(Day day, Time fromHour, Time toHour, Course course) {
-		super();
 		this.day = day;
 		this.fromHour = fromHour;
 		this.toHour = toHour;

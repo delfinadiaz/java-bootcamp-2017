@@ -3,12 +3,33 @@ package Clase4Services.Model.ItemOffer;
 import java.util.ArrayList;
 import java.util.List;
 
-import Clase4Services.Model.Item;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
+import Clase4Services.Model.Item;
+import Clase4Services.Model.MarketModel.Market;
+
+@Entity
+@Table(name = "item_offer")
 public class Offer implements Item{
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "iditem_offer")
+	private int idOffer;
+	
 	private String name;
 	private double price;
+	
+	@ManyToOne
+	@JoinColumn(name="market",nullable=false)
+	private Market market;
 	
 
 	List<Item> components = new ArrayList<Item>();
@@ -68,6 +89,18 @@ public class Offer implements Item{
 		String message = sb.toString();
 		System.out.println(message);
 		return message;
+	}
+	public int getIdOffer() {
+		return idOffer;
+	}
+	public void setIdOffer(int idOffer) {
+		this.idOffer = idOffer;
+	}
+	public Market getMarket() {
+		return market;
+	}
+	public void setMarket(Market market) {
+		this.market = market;
 	}
 	
 }

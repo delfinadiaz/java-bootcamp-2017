@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
-<!DOCTYPE hibernate-configuration SYSTEM
-    "classpath://org/hibernate/hibernate-configuration-3.0.dtd">
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
     <class name="Clase6Hibernate.Entities.Student" table="student" >
         <id name="idStudent" type="java.lang.Integer">
@@ -19,8 +19,8 @@
         <property name="birthDate" type="date">
             <column name="birth_date" not-null="true" />
         </property>
-         <set name="studentCourses" table="student-course"
-        	inverse="true" lazy="true" fetch="select" cascade="all" >
+         <set name="studentCourses" table="student_course"
+        	inverse="true" lazy="true" fetch="select"  >
             <key>
                 <column name="student" not-null="true" />
             </key>

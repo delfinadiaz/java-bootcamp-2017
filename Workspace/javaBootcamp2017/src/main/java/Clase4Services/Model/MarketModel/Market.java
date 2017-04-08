@@ -4,18 +4,46 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.persistence.Transient;
+
 import Clase4Services.Model.Item;
 import Clase4Services.Model.MailingListReceiver;
 import Clase4Services.Model.ItemOffer.Offer;
 import Clase4Services.Model.PaymentModel.PaymentTransaction;
 
+@Entity
+@Table(name = "market")
 public class Market {
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "idmarket")
+	private int idMarket;
+	
+	@Column(name= "market_name")
 	private String marketName;
+	
+	@OneToMany(fetch = FetchType.LAZY, mappedBy="market")
 	private List<MailingListReceiver> mailingList;
+	
+	@OneToMany(fetch = FetchType.LAZY, mappedBy="market")
 	private List<Item> itemsAndOffers;
+	
+	@OneToMany(fetch = FetchType.LAZY, mappedBy="market")
 	private List<PaymentTransaction> paymentTransactions;
+	
+	@OneToMany(fetch = FetchType.LAZY,mappedBy="market")
 	private List<User> users;
+	
+	@Transient
 	private String message;
 	
 	public Market(String marketName){
@@ -127,6 +155,14 @@ public class Market {
 			username = anUser.getUsername();
 		}
 		return anUser;
+	}
+
+	public int getIdMarket() {
+		return idMarket;
+	}
+
+	public void setIdMarket(int idMarket) {
+		this.idMarket = idMarket;
 	}
 	
 

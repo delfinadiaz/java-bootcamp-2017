@@ -18,7 +18,6 @@ import Clase6Hibernate.util.HibernateUtil;
 public class StudentDaoImp implements StudentDao {
 	
 	public StudentDaoImp(){
-		
 	}
 
 	public int createStudent( String aFirstName, String aLastName, int aRegNumber,Date aDate) {
@@ -39,46 +38,29 @@ public class StudentDaoImp implements StudentDao {
         return idStudent;
 	  }
 	
-	public int getIdStudent(String firstName, String lastName,Date birthDate){
+	public Student getStudent(int idStudent){
 		Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction transaction = null;
-        Student student=null;
-        try {
-        	transaction = session.beginTransaction();
-			TypedQuery<Student> query = session.createQuery("FROM Student WHERE firstName = :firstName AND lastName = :lastName AND birthDate = :birthDate",Student.class );
-        	query.setParameter("firstName",firstName);
-        	query.setParameter("lastName",lastName);
-        	query.setParameter("birthDate",birthDate);
-        	student = query.getSingleResult();
-        	transaction.commit();
-        } catch (HibernateException e) {
-            transaction.rollback();
-            e.printStackTrace();
-        } finally {
-            session.close();
-        }
-		return student.getIdStudent();
-      }
-	
-	public void getStudent(int idStudent){
-		Session session = HibernateUtil.getSessionFactory().openSession();
-        Transaction transaction = null;
+        Student student =null;
         try {
               
             transaction = session.beginTransaction();
-			Student student = (Student) session.get(Student.class, new Integer(idStudent));
+			student = (Student) session.get(Student.class, new Integer(idStudent));
 			if (student == null) {
 			    System.out.println("There is no Student with id " + idStudent);
+			    return null;
 			} else {
 			    System.out.println("Student name: " + student.getFirstName()+ " " + student.getLastName());
 			}
 			transaction.commit();
+			return student;
         } catch (HibernateException e) {
             transaction.rollback();
             e.printStackTrace();
         } finally {
             session.close();
         }
+        return student;
     }
 	
 	
@@ -129,20 +111,21 @@ public class StudentDaoImp implements StudentDao {
 }
 
 	@Override
-	public void deleteStudent(int idStudent) {
+	public void deleteStudent(Student student) {
 		Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction transaction = null;
         try {
             transaction = session.beginTransaction();
-            /*TypedQuery<StudentCourse> query = session.createQuery("FROM StudentCourse WHERE student = :student",StudentCourse.class );
-            query.setParameter("student", idStudent);
+            int idStudent = student.getIdStudent();
+            TypedQuery<StudentCourse> query = session.createQuery("FROM StudentCourse WHERE student = :student",StudentCourse.class );
+            query.setParameter("student", student);
             List<StudentCourse> result = query.getResultList();
-            if (result.isEmpty()){
+            if (!(result.isEmpty())){
             	String hqlStudentCourse = "DELETE FROM StudentCourse WHERE student = :student";
-            	session.createQuery(hqlStudentCourse).setParameter("student", idStudent).executeUpdate();
-            }*/
-        	String hqlStudent ="DELETE FROM Student WHERE idStudent = :student";
-        	session.createQuery(hqlStudent).setParameter("student", idStudent).executeUpdate();
+            	session.createQuery(hqlStudentCourse).setParameter("student", student).executeUpdate();
+            }
+        	String hqlStudent ="DELETE FROM Student WHERE idStudent = :idstudent";
+        	session.createQuery(hqlStudent).setParameter("idstudent", idStudent).executeUpdate();
         	transaction.commit();
             System.out.println("Student with id " +idStudent + " was deleted successfully");
 		    

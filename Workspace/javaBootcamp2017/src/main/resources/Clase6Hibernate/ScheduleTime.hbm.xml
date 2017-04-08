@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
-<!DOCTYPE hibernate-configuration SYSTEM
-    "classpath://org/hibernate/hibernate-configuration-3.0.dtd">
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
     <class name="Clase6Hibernate.Entities.ScheduleTime" table="schedule_time">
         <id name="idScheduleTime" type="java.lang.Integer">
@@ -10,6 +10,8 @@
         <property name="day" column="day" not-null="true">
 		    <type name="org.hibernate.type.EnumType">
 		        <param name="enumClass">Clase6Hibernate.Day</param>  
+		        <!-- This is because 12 is equivalent to java.sql.Types.VARCHAR -->
+		        <param name="type">12</param>
 		    </type>
 		</property>
 		<property name="fromHour" type="time" >
@@ -19,7 +21,7 @@
             <column name="to_hour" not-null="true"/>
         </property>
         <many-to-one name="course" class="Clase6Hibernate.Entities.Course" fetch="select">
-            <column name="idCourse" not-null="true" />
+            <column name="course" not-null="true" />
         </many-to-one>
     </class>
 </hibernate-mapping>

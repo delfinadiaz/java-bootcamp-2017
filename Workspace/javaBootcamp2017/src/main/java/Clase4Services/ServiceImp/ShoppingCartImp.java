@@ -4,6 +4,16 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.Table;
+
 import Clase4Services.Model.Payment;
 import Clase4Services.Model.ItemOffer.IndividualItem;
 import Clase4Services.Model.MarketModel.User;
@@ -11,10 +21,19 @@ import Clase4Services.Model.PaymentModel.PaymentException;
 import Clase4Services.Service.ShoppingCartAPI;
 
 
-
+@Entity
+@Table(name = "shopping_cart")
 public class ShoppingCartImp implements ShoppingCartAPI {
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "idshopping_cart")
+	private int idShoppingCart;
+	
+	@OneToOne(fetch = FetchType.LAZY)
+	@PrimaryKeyJoinColumn
 	private User user;
+	
 	private List<IndividualItem> cart;
 	
 	public ShoppingCartImp(){
@@ -99,6 +118,16 @@ public class ShoppingCartImp implements ShoppingCartAPI {
 		message = sb.toString();
 		return message;
 		
+	}
+
+
+	public int getIdShoppingCart() {
+		return idShoppingCart;
+	}
+
+
+	public void setIdShoppingCart(int idShoppingCart) {
+		this.idShoppingCart = idShoppingCart;
 	}
 	
 
