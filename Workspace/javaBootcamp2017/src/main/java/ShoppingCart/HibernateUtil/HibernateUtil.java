@@ -1,4 +1,4 @@
-package Clase6Hibernate.util;
+package ShoppingCart.HibernateUtil;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.Metadata;
@@ -15,7 +15,7 @@ public class HibernateUtil {
 	      try {
 	        // Create registry
 	        registry = new StandardServiceRegistryBuilder()
-	            .configure("clasehibernate.cfg.xml")
+	            .configure("hibernate.cfg.xml")
 	            .build();
 
 	        // Create MetadataSources

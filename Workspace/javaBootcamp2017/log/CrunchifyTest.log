@@ -2031,3 +2031,14 @@
 2017-04-07 21:20:32 [main] INFO  Dialect:157 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
 2017-04-07 21:20:34 [main] INFO  QueryTranslatorFactoryInitiator:47 - HHH000397: Using ASTQueryTranslatorFactory
 2017-04-07 21:20:36 [main] INFO  pooling:230 - HHH10001008: Cleaning up connection pool [jdbc:mysql://localhost:3306/high-school]
+2017-04-10 15:36:59 [main] INFO  Version:45 - HHH000412: Hibernate Core {5.2.6.Final}
+2017-04-10 15:36:59 [main] INFO  Environment:213 - HHH000206: hibernate.properties not found
+2017-04-10 15:37:01 [main] INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2017-04-10 15:37:04 [main] WARN  pooling:70 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2017-04-10 15:37:04 [main] INFO  pooling:126 - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/high-school]
+2017-04-10 15:37:04 [main] INFO  pooling:135 - HHH10001001: Connection properties: {user=root, password=****}
+2017-04-10 15:37:04 [main] INFO  pooling:140 - HHH10001003: Autocommit mode: false
+2017-04-10 15:37:04 [main] INFO  DriverManagerConnectionProviderImpl:41 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2017-04-10 15:37:04 [main] INFO  Dialect:157 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2017-04-10 15:37:08 [main] INFO  QueryTranslatorFactoryInitiator:47 - HHH000397: Using ASTQueryTranslatorFactory
+2017-04-10 15:37:10 [main] INFO  pooling:230 - HHH10001008: Cleaning up connection pool [jdbc:mysql://localhost:3306/high-school]
