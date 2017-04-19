@@ -476,14 +476,40 @@ Commit your practice code.
 5. [Spring boot - rest services guide](http://spring.io/guides/tutorials/bookmarks/)
 
 6. [REST API documentation](http://swagger.io/getting-started/)
+
+7. [Swagger and Spring Boot](http://kubecloud.io/guide-using-swagger-for-documenting-your-spring-boot-rest-api/)
   
 ##### Practice: #####
 
-1. Create the REST layer for your shopping cart REST API. Use JAX-RS for it.
-2. Use Spring DI to inject necessary dependencies in your classes. Test REST and Service layers.
+1. Create the REST layer for your shopping cart REST API.
+2. Test REST and Service layers.
 3. Expose the shopping cart created in the topic 3.
-4. Write the swagger file for point 1.
+4. Write the swagger file for point 1 
 5. Create and document with swagger a REST API to register users. The API must provide: add, delete, update and find by name and find by nickname operations. Note that the username must be unique.
+6. Suppose that the client wants to receive the list of products like this:
+
+{
+  "total": 4,
+  "categories":{
+      "food:" 2,
+      "drinks":1,
+      "bathroom":1
+  },
+  ... //the same with each of the product's attributes
+  ,
+  "data":
+  [
+  {
+     //product1 info
+    },
+    {
+      //product2 info
+    },
+    ...
+  ]
+}
+
+Adjust your REST layer in order to return the list of products with this format.
 
 ##### Key Points: #####
 
