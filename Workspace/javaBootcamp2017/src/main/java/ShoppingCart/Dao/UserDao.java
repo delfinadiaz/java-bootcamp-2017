@@ -2,8 +2,7 @@ package ShoppingCart.Dao;
 
 import java.util.List;
 
-
-import ShoppingCart.Entities.User;
+import ShoppingCart.Model.Entities.User;
 
 public interface UserDao {
 

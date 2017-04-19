@@ -14,9 +14,9 @@ import org.springframework.stereotype.Service;
 
 
 import ShoppingCart.Dao.UserDao;
-import ShoppingCart.Entities.User;
 import ShoppingCart.HibernateUtil.HibernateUtil;
 import ShoppingCart.Model.PaymentTransaction;
+import ShoppingCart.Model.Entities.User;
 
 @Service
 public class UserDaoImp implements UserDao {

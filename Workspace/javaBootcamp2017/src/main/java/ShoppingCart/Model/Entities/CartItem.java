@@ -1,4 +1,4 @@
-package ShoppingCart.Entities;
+package ShoppingCart.Model.Entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,6 +8,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "cart_item")
@@ -44,6 +46,8 @@ public class CartItem {
 	public void setIdCartItem(int idCartItem) {
 		this.idCartItem = idCartItem;
 	}
+	
+	
 	public ShoppingCartEntity getCart() {
 		return cart;
 	}

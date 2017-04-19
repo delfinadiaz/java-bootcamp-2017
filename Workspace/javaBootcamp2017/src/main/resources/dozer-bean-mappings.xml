@@ -5,7 +5,7 @@
  
       <mapping map-id="offer">
         <class-a>ShoppingCart.Dto.OfferDTO.OfferDTO</class-a>
-        <class-b>ShoppingCart.Entities.Offer</class-b>
+        <class-b>ShoppingCart.Model.Entities.Offer</class-b>
         <field>
             <a>name</a>
             <b>name</b>
@@ -18,7 +18,7 @@
     
      <mapping map-id="item">
         <class-a>ShoppingCart.Dto.ItemDTO.ItemDTO</class-a>
-        <class-b>ShoppingCart.Entities.IndividualItem</class-b>
+        <class-b>ShoppingCart.Model.Entities.IndividualItem</class-b>
         <field>
             <a>name</a>
             <b>name</b>
@@ -37,9 +37,26 @@
         </field>
     </mapping>
     
+      <mapping map-id="infoItem">
+        <class-a>ShoppingCart.Dto.ItemDTO.InfoItemDTO</class-a>
+        <class-b>ShoppingCart.Model.Entities.IndividualItem</class-b>
+        <field>
+            <a>name</a>
+            <b>name</b>
+        </field>
+        <field >
+            <a>price</a>
+            <b>price</b>
+        </field>
+        <field >
+            <a>category</a>
+            <b>category</b>
+        </field>
+    </mapping>
+    
     <mapping map-id="user">
         <class-a>ShoppingCart.Dto.UserDTO.UserDTO</class-a>
-        <class-b>ShoppingCart.Entities.User</class-b>
+        <class-b>ShoppingCart.Model.Entities.User</class-b>
         <field>
             <a>name</a>
             <b>name</b>
@@ -64,7 +81,7 @@
     
     <mapping map-id="payment">
         <class-a>ShoppingCart.Dto.PaymentDTO.StadisticPaymentDTO</class-a>
-        <class-b>ShoppingCart.Entities.Payment</class-b>
+        <class-b>ShoppingCart.Model.Entities.Payment</class-b>
         <field >
             <a>idPayment</a>
             <b>idPayment</b>
@@ -76,7 +93,7 @@
     </mapping>
     <mapping map-id="cartItem">
         <class-a>ShoppingCart.Dto.ItemDTO.ItemCartDTO</class-a>
-        <class-b>ShoppingCart.Entities.CartItem</class-b>
+        <class-b>ShoppingCart.Model.Entities.CartItem</class-b>
         <field>
             <a>quantity</a>
             <b>quantity</b>

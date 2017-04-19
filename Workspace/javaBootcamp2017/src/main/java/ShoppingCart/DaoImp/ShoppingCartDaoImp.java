@@ -15,12 +15,13 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import ShoppingCart.Dao.ShoppingCartDao;
-import ShoppingCart.Entities.CartItem;
-import ShoppingCart.Entities.IndividualItem;
-import ShoppingCart.Entities.Payment;
-import ShoppingCart.Entities.ShoppingCartEntity;
 import ShoppingCart.HibernateUtil.HibernateUtil;
 import ShoppingCart.Model.ShoppingCartStatus;
+import ShoppingCart.Model.Entities.CartItem;
+import ShoppingCart.Model.Entities.IndividualItem;
+import ShoppingCart.Model.Entities.Payment;
+import ShoppingCart.Model.Entities.ShoppingCartEntity;
+import ShoppingCart.Model.Entities.User;
 
 @Service
 public class ShoppingCartDaoImp implements ShoppingCartDao{
@@ -37,16 +38,7 @@ public class ShoppingCartDaoImp implements ShoppingCartDao{
 		Transaction transaction=null;
 		transaction = session.beginTransaction();
 		try {
-			//Saves the shopping cart
 			session.save(cart);
-			for (CartItem cartItem : cart.getCartItems()){
-				  //Updates the stock of each item
-				  IndividualItem item = cartItem.getItem();
-				  int oldStock = item.getStock();
-				  int newStock= oldStock - cartItem.getQuantity();
-				  item.setStock(newStock);
-				  session.update(item);
-				}
 			}
 		catch(HibernateException e){
 			return false;
@@ -247,6 +239,29 @@ public class ShoppingCartDaoImp implements ShoppingCartDao{
 			Root<Payment> paymentRoot = criteria.from(Payment.class);
 			criteria.select(paymentRoot);
 			criteria.where(builder.equal(paymentRoot.type(),paymentType));
+			List<Payment> cart = session.createQuery(criteria).getResultList();
+			transaction.commit();
+			session.close();
+			return cart;
+		}
+		 catch (NoResultException nre) {
+	         session.close();
+	         return null;
+	     }
+	}
+
+	@Override
+	public List<Payment> getPaymentsByUser(User anUser) {
+		// TODO Auto-generated method stub
+		Session session = HibernateUtil.getSessionFactory().openSession();
+        Transaction transaction = null;
+		try {
+			transaction=session.beginTransaction();
+	        CriteriaBuilder builder = session.getCriteriaBuilder();
+			CriteriaQuery<Payment> criteria = builder.createQuery(Payment.class);
+			Root<Payment> paymentRoot = criteria.from(Payment.class);
+			criteria.select(paymentRoot);
+			criteria.where(builder.equal(paymentRoot.get("user"),anUser));
 			List<Payment> cart = session.createQuery(criteria).getResultList();
 			transaction.commit();
 			session.close();

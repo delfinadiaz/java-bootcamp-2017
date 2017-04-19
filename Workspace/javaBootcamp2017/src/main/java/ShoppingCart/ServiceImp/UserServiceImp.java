@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import ShoppingCart.DaoImp.UserDaoImp;
-import ShoppingCart.Entities.User;
+import ShoppingCart.Model.Entities.User;
 import ShoppingCart.Service.UserService;
 
 @Service

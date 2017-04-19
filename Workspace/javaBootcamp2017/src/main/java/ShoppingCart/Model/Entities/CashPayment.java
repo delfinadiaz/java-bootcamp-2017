@@ -1,7 +1,8 @@
-package ShoppingCart.Entities;
+package ShoppingCart.Model.Entities;
 
 import java.io.Serializable;
 import java.util.Iterator;
+
 import java.util.List;
 
 import javax.persistence.DiscriminatorValue;
@@ -14,31 +15,29 @@ import ShoppingCart.Model.PaymentException;
 
 @SuppressWarnings("serial")
 @Entity
-@Table(name = "paypal_payment")
-@DiscriminatorValue("3")
-public class PaypalPayment extends Payment implements Serializable{
+@Table(name = "cash_payment")
+@DiscriminatorValue("1")
+public class CashPayment extends Payment implements Serializable{
 	
-	//@Transient
-	//private static int paymentID;
 
 	/*
-	public PaypalPayment(){
-		paymentID = new Counter().generateUniqueID();
-	}*/
-	
-	public PaypalPayment(){
-	}
-	
-/*	@Override
-	public int getPaymentID() {
-		// TODO Auto-generated method stub
-		return paymentID;
-	}*/
-	
-
+	 * @Transient private static int paymentID;
+	 * 
+	 * public CashPayment(){ paymentID = new Counter().generateUniqueID(); }
+	 */
+    
+	public CashPayment(){
+    }
+    
+	/*
+	 * @Override public int getPaymentID() { // TODO Auto-generated method stub
+	 * return paymentID; }
+	 */
+    
+	@Override
 	public boolean buy(User user, List<IndividualItem> cart, double partialPrice) {
 		// TODO Auto-generated method stub
-		try {
+		try { 
 			applyDiscount(partialPrice, cart);
 			setUser(user);
 			return true;
@@ -48,43 +47,41 @@ public class PaypalPayment extends Payment implements Serializable{
             return false;
         }
 	}
-	
-	public void applyDiscount(double partialPrice, List<IndividualItem> cart) {
+
+	private void applyDiscount(double partialPrice, List<IndividualItem> cart) {
+		// TODO Auto-generated method stub
 		double total;
-		double cheapestItemPrice;
+		double mostExpensiveItemPrice;
 		if (cart.size() > 1 ){
-			cheapestItemPrice = getPriceCheapestItem(cart);
+			mostExpensiveItemPrice = getPriceMostExpensiveItem(cart);
 		}
 		else {
-			cheapestItemPrice = cart.get(0).getPrice();
+			mostExpensiveItemPrice = cart.get(0).getPrice();
 		}
-		total = (partialPrice - cheapestItemPrice);
+		total = (partialPrice - (mostExpensiveItemPrice * 0.90));
 		setAmount(total);	
 	}
 
-	protected double getPriceCheapestItem(List<IndividualItem> cart) {
+	private double getPriceMostExpensiveItem(List<IndividualItem> cart) {
 		// TODO Auto-generated method stub
-		double minPrice = cart.get(0).getPrice();
+		double maxPrice = cart.get(0).getPrice();
 		Iterator<IndividualItem> it = cart.listIterator();
 		while (it.hasNext()) {
 			IndividualItem item = it.next();
-		   if (item.getPrice() < minPrice){
-			   minPrice = item.getPrice();
+		   if (item.getPrice() > maxPrice){
+			   maxPrice = item.getPrice();
 		   }
 		}
-		return minPrice;
+		return maxPrice;
 	}
 
 
-
-
-	/*@Override
+/*
+	@Override
 	public void savePaymentTransaction(PaymentTransaction paymentTransaction, Market market) {
-		// TODO Auto-generated method stub
 		market.addPaymentTransaction(paymentTransaction);
 		
 	}*/
-
 
 
 }

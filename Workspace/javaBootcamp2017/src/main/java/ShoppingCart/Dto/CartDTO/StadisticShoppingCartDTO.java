@@ -14,11 +14,9 @@ public class StadisticShoppingCartDTO {
 	private HashMap<Category,Integer> categories= new HashMap<Category,Integer>();
 	private List<InfoItemDTO> items;
 	
-	public StadisticShoppingCartDTO(String username, List<InfoItemDTO> items, String status){
-		this.user = username;
-		this.amountItems=items.size();
+	public StadisticShoppingCartDTO(List<InfoItemDTO> items){
+	    this.amountItems=items.size();
 		this.items=items;
-		this.setStatus(status);
 		generateCategories();
 	}
 	

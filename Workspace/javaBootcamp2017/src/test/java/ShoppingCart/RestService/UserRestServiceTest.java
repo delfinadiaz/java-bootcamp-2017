@@ -6,33 +6,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-import org.dozer.Mapper;
-import org.dozer.inject.Inject;
-import org.dozer.spring.DozerBeanMapperFactoryBean;
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
-import org.powermock.api.mockito.PowerMockito;
-import org.powermock.core.classloader.annotations.PrepareForTest;
-import org.powermock.modules.junit4.PowerMockRunner;
-import org.powermock.modules.junit4.PowerMockRunnerDelegate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 
-import static org.hamcrest.Matchers.containsString;
-import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.core.Is.is;
 import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
@@ -41,16 +28,9 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import ShoppingCart.RestService.UserRestService;
 import ShoppingCart.Service.UserService;
 import ShoppingCart.AppConfig;
-import ShoppingCart.Dto.UserDTO.ListUserDTO;
 import ShoppingCart.Dto.UserDTO.UserDTO;
-import ShoppingCart.Entities.User;
-import ShoppingCart.Mapper.UserMapper;
+import ShoppingCart.Model.Entities.User;
 
-
-@RunWith(PowerMockRunner.class)
-@ContextConfiguration(
-	    classes = { AppConfig.class })
-@PrepareForTest({UserService.class,User.class,UserDTO.class,UserMapper.class,ListUserDTO.class,UserRestService.class})
 public class UserRestServiceTest {
 	@Mock
 	UserService service;
@@ -60,18 +40,12 @@ public class UserRestServiceTest {
 	User anotherUser;
 	@Mock
 	UserDTO userDTO;
-	@Mock
-	ListUserDTO listUserDTO;
-	
+
 	
 	@InjectMocks
 	@Autowired
     private UserRestService userRestService;
 	
-	
-	@InjectMocks
-	@Inject
-	private DozerBeanMapperFactoryBean dozerBean;
 	
 	private MockMvc mockMvc;
 	
@@ -88,25 +62,20 @@ public class UserRestServiceTest {
                 .build();
 	}
 	
-	@After
-	public void checkMockito() {
-	  Mockito.validateMockitoUsage();
-	}
+
 	
 	@Test
 	public void whenGetAllUsersSuccessfullyThenReturnsStatus200() throws Exception {
 		List<User> list = new ArrayList<User>();
         list.add(user);
         list.add(anotherUser);
-		PowerMockito.mockStatic(UserMapper.class);
-		Mockito.when(UserMapper.convertToListDTO(list)).thenReturn(listUserDTO);
 		Mockito.when(service.getUsers()).thenReturn(list);
         mockMvc.perform(get("/user")).andExpect(status().isOk());
         verify(service, times(1)).getUsers();
 		verifyNoMoreInteractions(service);
 
 	}
-/*	
+	
 	@Test
 	public void whenGetAllUsersSuccessfullyThenReturnsDToListUserFields() throws Exception {
 		Mockito.when(anotherUser.getName()).thenReturn("rocio");
@@ -401,7 +370,7 @@ public class UserRestServiceTest {
 		verify(service, times(1)).updateUser(refEq(anUser));
 		verifyNoMoreInteractions(service);
 	}
-	*/
+	
     public static String asJsonString(final Object obj) {
         try {
             return new ObjectMapper().writeValueAsString(obj);

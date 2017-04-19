@@ -1,4 +1,4 @@
-package ShoppingCart.Entities;
+package ShoppingCart.Model.Entities;
 
 import java.io.Serializable;
 import java.util.HashSet;

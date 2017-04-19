@@ -21,9 +21,9 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 import ShoppingCart.Dto.ItemDTO.ItemDTO;
 import ShoppingCart.Dto.ItemDTO.ListItemDTO;
-import ShoppingCart.Entities.IndividualItem;
 import ShoppingCart.Mapper.ItemMapper;
 import ShoppingCart.Model.Category;
+import ShoppingCart.Model.Entities.IndividualItem;
 import ShoppingCart.Service.ItemService;
 
 @RestController

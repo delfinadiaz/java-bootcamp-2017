@@ -9,7 +9,6 @@ import javax.ws.rs.Consumes;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import org.dozer.spring.DozerBeanMapperFactoryBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -26,27 +25,23 @@ import ShoppingCart.Dto.ItemDTO.IdItemDTO;
 import ShoppingCart.Dto.ItemDTO.ListIdItemDTO;
 import ShoppingCart.Dto.OfferDTO.ListOfferDTO;
 import ShoppingCart.Dto.OfferDTO.OfferDTO;
-import ShoppingCart.Entities.IndividualItem;
-import ShoppingCart.Entities.Offer;
-import ShoppingCart.Entities.Payment;
 import ShoppingCart.Mapper.OfferMapper;
+import ShoppingCart.Model.Entities.IndividualItem;
+import ShoppingCart.Model.Entities.Offer;
 import ShoppingCart.Service.ItemService;
 import ShoppingCart.Service.OfferService;
-import ShoppingCart.ServiceImp.ShoppingCartImp;
 
 @RestController
 @RequestMapping("/offer")
 public class OfferRestService {
 
 	private OfferService offerService;
-	private ShoppingCartImp cartService;
 	private ItemService itemService;
 	
 	
 	@Autowired
-	public OfferRestService(OfferService offerService, ShoppingCartImp cartService, ItemService itemService) throws Exception{
+	public OfferRestService(OfferService offerService, ItemService itemService) throws Exception{
 		this.offerService = offerService;
-		this.cartService= cartService;
 		this.itemService = itemService;
 	}
 	
@@ -205,7 +200,7 @@ public class OfferRestService {
 	
     @Transactional
 	@SuppressWarnings({ "rawtypes", "unchecked" })
-	@RequestMapping(method = RequestMethod.PUT, value = "/removeItems/{idOffer}")
+	@RequestMapping(method = RequestMethod.PUT, value = "/{idOffer}/removeItems")
 	@Consumes(MediaType.APPLICATION_JSON)
 	public ResponseEntity removeItemsFromOffer(@PathVariable int idOffer, @RequestBody ListIdItemDTO itemsDTO) throws JsonProcessingException {
         

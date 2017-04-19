@@ -2,11 +2,12 @@ package ShoppingCart.Service;
 
 import java.util.List;
 
-import ShoppingCart.Entities.CartItem;
-import ShoppingCart.Entities.IndividualItem;
-import ShoppingCart.Entities.Payment;
-import ShoppingCart.Entities.ShoppingCartEntity;
 import ShoppingCart.Model.ShoppingCartStatus;
+import ShoppingCart.Model.Entities.CartItem;
+import ShoppingCart.Model.Entities.IndividualItem;
+import ShoppingCart.Model.Entities.Payment;
+import ShoppingCart.Model.Entities.ShoppingCartEntity;
+import ShoppingCart.Model.Entities.User;
 
 public interface ShoppingCartAPI {
 	
@@ -25,4 +26,5 @@ public interface ShoppingCartAPI {
 	   public Payment getPayment(int idPayment);
 	   public boolean createPayment(Payment aPayment);
 	   public List<Payment> getPaymentsByType(int paymentType);
+	   public List<Payment> getPaymentsByUser(User anUser);
 }

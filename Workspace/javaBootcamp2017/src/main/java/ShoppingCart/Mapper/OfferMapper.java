@@ -14,12 +14,11 @@ import ShoppingCart.AppConfig;
 import ShoppingCart.Dto.ItemDTO.IdItemDTO;
 import ShoppingCart.Dto.OfferDTO.ListOfferDTO;
 import ShoppingCart.Dto.OfferDTO.OfferDTO;
-import ShoppingCart.Entities.IndividualItem;
-import ShoppingCart.Entities.Offer;
-import ShoppingCart.Entities.Payment;
+import ShoppingCart.Model.Entities.IndividualItem;
+import ShoppingCart.Model.Entities.Offer;
+import ShoppingCart.Model.Entities.Payment;
 
-@ContextConfiguration(
-	    classes = { AppConfig.class })
+@ContextConfiguration(locations={"classpath*:dozer-bean-mappings.xml"})
 public class OfferMapper {
 	
 	

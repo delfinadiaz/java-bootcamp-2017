@@ -2,9 +2,8 @@ package ShoppingCart.Dao;
 
 import java.util.List;
 
-
-import ShoppingCart.Entities.Offer;
-import ShoppingCart.Entities.Payment;
+import ShoppingCart.Model.Entities.Offer;
+import ShoppingCart.Model.Entities.Payment;
 
 public interface OfferDao {
 

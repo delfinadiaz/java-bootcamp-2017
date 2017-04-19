@@ -10,12 +10,13 @@ import org.dozer.spring.DozerBeanMapperFactoryBean;
 import org.springframework.test.context.ContextConfiguration;
 
 import ShoppingCart.AppConfig;
+import ShoppingCart.Dto.CartDTO.StadisticShoppingCartDTO;
+import ShoppingCart.Dto.ItemDTO.InfoItemDTO;
 import ShoppingCart.Dto.ItemDTO.ItemDTO;
 import ShoppingCart.Dto.ItemDTO.ListItemDTO;
-import ShoppingCart.Entities.IndividualItem;
+import ShoppingCart.Model.Entities.IndividualItem;
 
-@ContextConfiguration(
-	    classes = { AppConfig.class })
+@ContextConfiguration(locations={"classpath*:dozer-bean-mappings.xml"})
 public class ItemMapper {
 	
 	private static Mapper  mapper;
@@ -62,6 +63,7 @@ public class ItemMapper {
 		mapper.map(itemDTO, item, "item");
 		return item;
 	}
+
 
 }
 	

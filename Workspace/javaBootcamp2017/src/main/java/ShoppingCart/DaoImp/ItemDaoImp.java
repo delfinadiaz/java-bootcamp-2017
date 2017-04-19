@@ -15,12 +15,12 @@ import org.hibernate.Transaction;
 import org.springframework.stereotype.Service;
 
 import ShoppingCart.Dao.ItemDao;
-import ShoppingCart.Entities.IndividualItem;
-import ShoppingCart.Entities.Offer;
-import ShoppingCart.Entities.ShoppingCartEntity;
-import ShoppingCart.Entities.CartItem;
 import ShoppingCart.HibernateUtil.HibernateUtil;
 import ShoppingCart.Model.Category;
+import ShoppingCart.Model.Entities.CartItem;
+import ShoppingCart.Model.Entities.IndividualItem;
+import ShoppingCart.Model.Entities.Offer;
+import ShoppingCart.Model.Entities.ShoppingCartEntity;
 
 @Service
 public class ItemDaoImp implements ItemDao {
@@ -153,9 +153,8 @@ public class ItemDaoImp implements ItemDao {
             transaction = session.beginTransaction();
 			TypedQuery<Offer> query = session.createQuery(
 					        "select  o " +
-							"from Offer o join o.items i " +
-					        "join o.payment p "+
-							"where i.id= :item and p.class = :paymentType",Offer.class )
+							"from Offer o join o.items i "+
+							"where i.id= :item and o.paymentType = :paymentType",Offer.class )
 					        .setParameter("item", idItem)
 			 				.setParameter("paymentType", paymentType);
             offer = query.getSingleResult();

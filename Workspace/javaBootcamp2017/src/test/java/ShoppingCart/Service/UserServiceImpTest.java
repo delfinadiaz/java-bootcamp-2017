@@ -20,7 +20,7 @@ import org.mockito.junit.MockitoJUnit;
 import org.mockito.junit.MockitoJUnitRunner;
 
 import ShoppingCart.DaoImp.UserDaoImp;
-import ShoppingCart.Entities.User;
+import ShoppingCart.Model.Entities.User;
 import ShoppingCart.ServiceImp.UserServiceImp;
 
 public class UserServiceImpTest {
@@ -40,10 +40,6 @@ public class UserServiceImpTest {
 		MockitoAnnotations.initMocks(this);
 	}
 	
-	@After
-	public void checkMockito() {
-	  Mockito.validateMockitoUsage();
-	}
 	
 	@Test
 	public void whenCreateUserSuccessfullyThenUserDaoIsCalledAndReturnsTrue() {

@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import ShoppingCart.DaoImp.OfferDaoImp;
-import ShoppingCart.Entities.Offer;
-import ShoppingCart.Entities.Payment;
+import ShoppingCart.Model.Entities.Offer;
+import ShoppingCart.Model.Entities.Payment;
 import ShoppingCart.Service.OfferService;
 
 @Service

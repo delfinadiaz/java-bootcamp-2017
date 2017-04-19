@@ -13,10 +13,10 @@ import org.hibernate.Transaction;
 import org.springframework.stereotype.Service;
 
 import ShoppingCart.Dao.OfferDao;
-import ShoppingCart.Entities.IndividualItem;
-import ShoppingCart.Entities.Offer;
-import ShoppingCart.Entities.Payment;
 import ShoppingCart.HibernateUtil.HibernateUtil;
+import ShoppingCart.Model.Entities.IndividualItem;
+import ShoppingCart.Model.Entities.Offer;
+import ShoppingCart.Model.Entities.Payment;
 
 @Service
 public class OfferDaoImp implements OfferDao {

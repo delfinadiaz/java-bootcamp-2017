@@ -4,12 +4,11 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-
-import ShoppingCart.Entities.Offer;
-import ShoppingCart.Entities.User;
 import ShoppingCart.Model.Item;
 import ShoppingCart.Model.MailingListReceiver;
 import ShoppingCart.Model.PaymentTransaction;
+import ShoppingCart.Model.Entities.Offer;
+import ShoppingCart.Model.Entities.User;
 
 
 public class Market {

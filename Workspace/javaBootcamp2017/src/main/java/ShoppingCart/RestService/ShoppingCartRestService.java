@@ -27,15 +27,17 @@ import ShoppingCart.Dto.CartDTO.ShoppingCartDTO;
 import ShoppingCart.Dto.CartDTO.StadisticShoppingCartDTO;
 import ShoppingCart.Dto.ItemDTO.InfoItemDTO;
 import ShoppingCart.Dto.ItemDTO.ItemCartDTO;
+import ShoppingCart.Dto.ItemDTO.ListItemDTO;
 import ShoppingCart.Dto.PaymentDTO.ListStadisticPaymentDTO;
 import ShoppingCart.Dto.PaymentDTO.PaymentDTO;
-import ShoppingCart.Entities.CartItem;
-import ShoppingCart.Entities.IndividualItem;
-import ShoppingCart.Entities.Payment;
-import ShoppingCart.Entities.ShoppingCartEntity;
-import ShoppingCart.Entities.User;
 import ShoppingCart.Mapper.CartMapper;
+import ShoppingCart.Mapper.ItemMapper;
 import ShoppingCart.Model.ShoppingCartStatus;
+import ShoppingCart.Model.Entities.CartItem;
+import ShoppingCart.Model.Entities.IndividualItem;
+import ShoppingCart.Model.Entities.Payment;
+import ShoppingCart.Model.Entities.ShoppingCartEntity;
+import ShoppingCart.Model.Entities.User;
 import ShoppingCart.Service.ItemService;
 import ShoppingCart.Service.UserService;
 import ShoppingCart.ServiceImp.ShoppingCartImp;
@@ -48,11 +50,6 @@ public class ShoppingCartRestService {
 	private ShoppingCartImp service;
 	private UserService userService;
 	private ItemService itemService;
-	
-    private CartMapper cartMapper;
-	
-	@Autowired
-	private DozerBeanMapperFactoryBean dozerBean;
 	
 	@Autowired
 	public ShoppingCartRestService(ShoppingCartImp service, UserService userService, ItemService itemService){
@@ -73,26 +70,19 @@ public class ShoppingCartRestService {
 			return new ResponseEntity("No cart found with id " + idShoppingCart, HttpStatus.NOT_FOUND);
 		}
 		List<IndividualItem> items = itemService.getItemsByCart(cart);
-		List<InfoItemDTO> itemsDTO = convertListItemsToListItemsDTO(items);
-		String username = cart.getUser().getUsername();
-		String status =cart.getStatus().toString();
-		StadisticShoppingCartDTO listDTO = new StadisticShoppingCartDTO(username,itemsDTO,status);
-		return new ResponseEntity(listDTO, HttpStatus.OK);
-		
-	}
-
-	
-	private List<InfoItemDTO> convertListItemsToListItemsDTO(List<IndividualItem> items) {
-		// TODO Auto-generated method stub
-		List<InfoItemDTO> itemsDto= new ArrayList<InfoItemDTO>();
-		for (IndividualItem item : items) {
-			int quantity = item.getCartItem().size();
-			InfoItemDTO itemDto = new InfoItemDTO(item.getName(),item.getPrice(),item.getCategory(),quantity);
-			itemsDto.add(itemDto);
+		StadisticShoppingCartDTO stadisticCarts = null;
+		try {
+			String username = cart.getUser().getUsername();
+			String status =cart.getStatus().toString();
+			stadisticCarts = CartMapper.convertToStadisticCartDTO(items,username,status);
+			return new ResponseEntity(stadisticCarts, HttpStatus.OK);
+			
+			
 		}
-		return itemsDto;
+		catch(Exception  e){
+			return new ResponseEntity("The operation could not be completed", HttpStatus.CONFLICT);
+		}
 	}
-
 	
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@RequestMapping(method = RequestMethod.GET, value = "/status/{status}")
@@ -137,15 +127,19 @@ public class ShoppingCartRestService {
         	return new ResponseEntity("The user does not exist", HttpStatus.NOT_FOUND);
         }
 		ShoppingCartEntity cart = new ShoppingCartEntity(user);
-		cart.setUser(user);
 		cart.setStatus(ShoppingCartStatus.Created);
 		List<ItemCartDTO> itemsdto=cartDTO.getItems();
 		for (ItemCartDTO itemDto : itemsdto) {
 			IndividualItem item = itemService.getItem(itemDto.getIdItem());
-			if (item.getStock() < itemDto.getQuantity()){
+            if (item.getStock() < itemDto.getQuantity()){
 	        	return new ResponseEntity("The stock of the item " + item.getIdItem() + " is not enough", HttpStatus.CONFLICT);
             }
+            int oldStock = item.getStock();
+			int newStock= oldStock - itemDto.getQuantity();
+			item.setStock(newStock);
+			itemService.updateItem(item);
 			cart.addItem(item,itemDto.getQuantity());
+
 		}
 		boolean created = service.createShoppingCart(cart);
 		if (created) {
@@ -154,7 +148,7 @@ public class ShoppingCartRestService {
 		else{
 			return new ResponseEntity("The Shopping Cart could not be created", HttpStatus.CONFLICT);
 		}
-	}
+    }
 	
     @Transactional
 	@SuppressWarnings({ "rawtypes", "unchecked" })
@@ -199,22 +193,22 @@ public class ShoppingCartRestService {
 				// If it was bought before then updates the quantity of the existing cart item
 				int quantityUpdated = cartItemOfItemBoughtBefore.getQuantity() + itemcartdto.getQuantity();
 				cartItemOfItemBoughtBefore.setQuantity(quantityUpdated);
-				service.updateCartItem(cartItemOfItemBoughtBefore);
-			} else {
+				boolean updated = service.updateCartItem(cartItemOfItemBoughtBefore);
+				if (!(updated)){
+					return new ResponseEntity("The items could not be added",HttpStatus.OK);
+				}
+				
+			} 
+			else {
 				// If it wasn't bought before then saves the association between the cart and the items
 				CartItem newCartItem = new CartItem(cart,item,itemcartdto.getQuantity());
-				service.createCartItem(newCartItem);
+				boolean created = service.createCartItem(newCartItem);
+				if (!(created)){
+					return new ResponseEntity("The items could not be added",HttpStatus.OK);
+				}
 			}
 		}
-		// Updates the shopping cart with the items added
-		boolean updated = service.updateShoppingCart(cart);
-		
-		if (updated) {
 			return new ResponseEntity("The items were successfully added",HttpStatus.OK);
-		}
-		else{
-			return new ResponseEntity("The items could not be added", HttpStatus.CONFLICT);
-		}
 	}
     
     
@@ -254,28 +248,31 @@ public class ShoppingCartRestService {
         	
         	//Updates the quantity of the item in CartItem
         	int newQuantity = cartItem.getQuantity() - itemcartdto.getQuantity();
-        	if (newQuantity==0){
+             if (newQuantity==0){
         		//If the quantity of items is 0 then removes the association between the cart and that item
         		cart.removeItem(item, itemcartdto.getQuantity());
-        		service.removeCartItem(cartItem);
+        		 boolean removed = service.removeCartItem(cartItem);
+        		 if (!(removed)){
+ 					return new ResponseEntity("The items could not be removed",HttpStatus.OK);
+ 				}
         	}
-        	cartItem.setQuantity(newQuantity);
-        	service.updateCartItem(cartItem);
-        	
-        }
-      //Updates the shopping cart with the items removed
-		boolean updated = service.updateShoppingCart(cart);
-		if (updated) {
-			return new ResponseEntity("The items were successfully removed",HttpStatus.OK);
-		}
-		else{
-			return new ResponseEntity("The items could not be removed", HttpStatus.CONFLICT);
-		}
+             else {
+	        	cartItem.setQuantity(newQuantity);
+	        	service.updateShoppingCart(cart);
+	        	boolean updated =service.updateCartItem(cartItem);
+	        	 if (!(updated)){
+	 					return new ResponseEntity("The items could not be removed",HttpStatus.OK);
+	 				}
+             }
+    }
+     
+	return new ResponseEntity("The items were successfully removed",HttpStatus.OK);
+	   
 	}
     
     @SuppressWarnings({ "rawtypes", "unchecked" })
 	@RequestMapping(method = RequestMethod.DELETE, value = "/{idShoppingCart}")
-	public ResponseEntity removeUser(@PathVariable int idShoppingCart) throws JsonProcessingException {
+	public ResponseEntity removeCart(@PathVariable int idShoppingCart) throws JsonProcessingException {
 
 		ShoppingCartEntity cart = service.getShoppingCart(idShoppingCart);
 		if (cart == null) {
@@ -284,9 +281,9 @@ public class ShoppingCartRestService {
 
 		boolean deleted = service.removeShoppingCart(cart);
 		if (deleted) {
-			return new ResponseEntity("The user was successfully deleted", HttpStatus.OK);
+			return new ResponseEntity("The cart was successfully deleted", HttpStatus.OK);
 		} else {
-			return new ResponseEntity("The user could not be deleted", HttpStatus.CONFLICT);
+			return new ResponseEntity("The cart could not be deleted", HttpStatus.CONFLICT);
 		}
 
 	}
@@ -309,28 +306,30 @@ public class ShoppingCartRestService {
    			return new ResponseEntity("The Shopping Cart is cancelled",HttpStatus.NOT_FOUND);
    		}
    		List<IndividualItem> items = itemService.getItemsByCart(cart);
-		double partialPrice =0;
+   		double partialPrice =0;
 		for (IndividualItem item : items){
 			int discount = itemService.getOfferItemWithGivenPaymentType(item.getIdItem(),paymentDTO.getPaymentType());
+			CartItem cartItem = service.getCartItem(cart, item);
 			if (discount == 0){
-				partialPrice += item.getPrice();
+				partialPrice += item.getPrice()*cartItem.getQuantity();
 			}
 			else{
-				double percentageDiscount = ((double) discount )/ 100;
-				double priceDiscount = item.getPrice() * percentageDiscount;
-                partialPrice += (item.getPrice()- priceDiscount);
+					double percentageDiscount = ((double) discount )/ 100;
+					double priceDiscount = item.getPrice() * percentageDiscount;
+	                partialPrice += ((item.getPrice()- priceDiscount)*cartItem.getQuantity());
+				
 			}
 		}
+		Payment payment = null;
 		try {
-			this.cartMapper = new CartMapper(dozerBean.getObject());
+			payment = CartMapper.createPaymentFromDTO(paymentDTO,paymentDTO.getPaymentType());
+			if (payment == null){
+				return new ResponseEntity("null", HttpStatus.CONFLICT);
+	          }
 		}
 		catch(Exception  e){
 			return new ResponseEntity("The operation could not be completed", HttpStatus.CONFLICT);
 		}
-		Payment payment = cartMapper.createPaymentFromDTO(paymentDTO,paymentDTO.getPaymentType());
-		if (payment == null){
-			return new ResponseEntity("null", HttpStatus.CONFLICT);
-          }
 		Boolean cartBought = payment.buy(cart.getUser(),items,partialPrice);
 		if (cartBought){
 			payment.setCart(cart);
@@ -356,15 +355,15 @@ public class ShoppingCartRestService {
 		if (payments.isEmpty()) {
 			return new ResponseEntity("No payments found for type " + type, HttpStatus.NOT_FOUND);
 		} else {
-			
+			ListStadisticPaymentDTO stadisticPayments = null;
 			try {
-				this.cartMapper = new CartMapper(dozerBean.getObject());
+				stadisticPayments = CartMapper.convertToListPaymentsDTO(payments);
+				 return new ResponseEntity(stadisticPayments, HttpStatus.OK);
 			}
 			catch(Exception  e){
 				return new ResponseEntity("The operation could not be completed", HttpStatus.CONFLICT);
 			}
-			ListStadisticPaymentDTO stadisticPayments = cartMapper.convertToListPaymentsDTO(payments);
-		     return new ResponseEntity(stadisticPayments, HttpStatus.OK);
+		    
 		}
 	}
     
@@ -398,5 +397,27 @@ public class ShoppingCartRestService {
    		}
    	}
        
-       
+    @SuppressWarnings({ "rawtypes", "unchecked" })
+	@RequestMapping(method = RequestMethod.GET, value = "/userPayments/{idUser}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public ResponseEntity getPaymentsByUser(@PathVariable int idUser) throws JsonProcessingException {
+    	User user= userService.getUser(idUser);
+        if (user == null){
+        	return new ResponseEntity("The user does not exist", HttpStatus.NOT_FOUND);
+        }
+		List<Payment> payments = service.getPaymentsByUser(user);
+		if (payments.isEmpty()) {
+			return new ResponseEntity("No payments found for the user " + user.getUsername(), HttpStatus.NOT_FOUND);
+		} else {
+			ListStadisticPaymentDTO stadisticPayments = null;
+			try {
+				stadisticPayments = CartMapper.convertToListPaymentsDTO(payments);
+				 return new ResponseEntity(stadisticPayments, HttpStatus.OK);
+			}
+			catch(Exception  e){
+				return new ResponseEntity("The operation could not be completed", HttpStatus.CONFLICT);
+			}
+		    
+		}
+	}
 }

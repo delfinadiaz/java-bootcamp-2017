@@ -7,11 +7,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import ShoppingCart.DaoImp.ShoppingCartDaoImp;
-import ShoppingCart.Entities.CartItem;
-import ShoppingCart.Entities.IndividualItem;
-import ShoppingCart.Entities.Payment;
-import ShoppingCart.Entities.ShoppingCartEntity;
 import ShoppingCart.Model.ShoppingCartStatus;
+import ShoppingCart.Model.Entities.CartItem;
+import ShoppingCart.Model.Entities.IndividualItem;
+import ShoppingCart.Model.Entities.Payment;
+import ShoppingCart.Model.Entities.ShoppingCartEntity;
+import ShoppingCart.Model.Entities.User;
 import ShoppingCart.Service.ShoppingCartAPI;
 
 @Service
@@ -114,6 +115,12 @@ public class ShoppingCartImp implements ShoppingCartAPI {
 	public List<Payment> getPaymentsByType(int paymentType) {
 		// TODO Auto-generated method stub
 		return shoppingcartDao.getPaymentsByType(paymentType);
+	}
+
+	@Override
+	public List<Payment> getPaymentsByUser(User anUser) {
+		// TODO Auto-generated method stub
+		return shoppingcartDao.getPaymentsByUser(anUser);
 	}
 
 	

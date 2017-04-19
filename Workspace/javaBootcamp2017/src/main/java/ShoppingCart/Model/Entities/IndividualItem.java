@@ -1,4 +1,4 @@
-package ShoppingCart.Entities;
+package ShoppingCart.Model.Entities;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -124,6 +124,7 @@ public class IndividualItem implements Item,Serializable  {
 		this.getOffers().remove(anOffer);
 	}
 	
+	@JsonIgnore
 	public Set<CartItem> getCartItem() {
 		return cartItem;
 	}
@@ -140,6 +141,7 @@ public class IndividualItem implements Item,Serializable  {
 		this.stock = stock;
 	}
 
+	@JsonIgnore
 	public Set<Offer> getOffers() {
 		return offers;
 	}
@@ -148,5 +150,19 @@ public class IndividualItem implements Item,Serializable  {
 		this.offers = offers;
 	}
 
-
+	public void removeItem(ShoppingCartEntity cart, int quantity) {
+		// TODO Auto-generated method stub
+		CartItem cartItem = getCartItem(cart, this);
+    	getCartItem().remove(cartItem);
+	}
+	
+	private CartItem getCartItem(ShoppingCartEntity cart, IndividualItem item) {
+		// TODO Auto-generated method stub
+		for (CartItem cartItem : getCartItem()){
+			if ((cartItem.getCart()==cart) && (cartItem.getItem()==item)){
+				return cartItem;
+			}
+		}
+		return null;
+	}
 }

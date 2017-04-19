@@ -2,6 +2,7 @@ package ShoppingCart.RestService;
 
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.ws.rs.Consumes;
@@ -21,8 +22,8 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 import ShoppingCart.Dto.UserDTO.ListUserDTO;
 import ShoppingCart.Dto.UserDTO.UserDTO;
-import ShoppingCart.Entities.User;
 import ShoppingCart.Mapper.UserMapper;
+import ShoppingCart.Model.Entities.User;
 import ShoppingCart.Service.UserService;
 
 @RestController
@@ -47,18 +48,18 @@ public class UserRestService {
 			return new ResponseEntity("No users found", HttpStatus.NOT_FOUND);
 		}
 		else{
-			ListUserDTO listUserDTO= null;
-			try {
-				listUserDTO = UserMapper.convertToListDTO(users);
+			List<UserDTO> listDto = new ArrayList<UserDTO>();
+			for (User user : users){
+				UserDTO userdto = new UserDTO(user.getName(),user.getUsername(),user.getPassword(),user.getEmail(),user.getCreditNumber());
+			    listDto.add(userdto);
 			}
-			catch(Exception  e){
-				return new ResponseEntity("The operation could not be completed", HttpStatus.CONFLICT);
-			}
-			return new ResponseEntity(listUserDTO, HttpStatus.OK);
+			ListUserDTO usersDTO= new ListUserDTO(listDto);
+			return new ResponseEntity(usersDTO, HttpStatus.OK);
 		}
+
 	}
 	
-	/*
+	
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@RequestMapping(method = RequestMethod.GET, value = "/{idUser}")
 	@Produces(MediaType.APPLICATION_JSON)
@@ -69,16 +70,11 @@ public class UserRestService {
 			return new ResponseEntity("No user found with id" + idUser, HttpStatus.NOT_FOUND);
 		}
 		else{
-			try {
-				this.setUserMapper(new UserMapper(dozerBean.getObject()));
-			}
-			catch(Exception  e){
-				return new ResponseEntity("The operation could not be completed", HttpStatus.CONFLICT);
-			}
-			UserDTO userDTO = getUserMapper().convertToDTO(user);			
+			userDTO = new UserDTO(user.getName(),user.getUsername(),user.getPassword(),user.getEmail(),user.getCreditNumber());
 			return new ResponseEntity(userDTO, HttpStatus.OK);
 		}
-	}*/
+
+	}
 	
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@RequestMapping(method = RequestMethod.GET, value = "/name/{name}")
@@ -156,7 +152,7 @@ public class UserRestService {
 			return new ResponseEntity("No user found with id " + idUser, HttpStatus.NOT_FOUND);
 		}
 		// If the user changed his username then the new one has to be unique
-		if (user.getUsername() != userDTOUpdated.getUsername()) {
+		if (!(user.getUsername().equals(userDTOUpdated.getUsername()))) {
 			User olduser = userService.userExists(userDTOUpdated.getUsername());
 			if (!(olduser == null)) {
 				return new ResponseEntity("The new username already exists, try again with a different one", HttpStatus.CONFLICT);
