@@ -1,41 +1,46 @@
-package ShoppingCart.Model.PaymentModel;
+package ShoppingCart.Entities;
 
+import java.io.Serializable;
 import java.util.Iterator;
 import java.util.List;
 
-import ShoppingCart.Entities.IndividualItem;
-import ShoppingCart.Entities.PaymentTransaction;
-import ShoppingCart.Entities.User;
-import ShoppingCart.Model.Payment;
-import ShoppingCart.Model.MarketModel.Market;
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
-public class PaypalPayment implements Payment{
+//import ShoppingCart.Model.Counter;
+import ShoppingCart.Model.PaymentException;
+//import ShoppingCart.Model.MarketModel.Market;
+
+@SuppressWarnings("serial")
+@Entity
+@Table(name = "paypal_payment")
+@DiscriminatorValue("3")
+public class PaypalPayment extends Payment implements Serializable{
 	
-	private static int paymentID;
-	private String email;
-	private String password;
-	private double amount;
-	
+	//@Transient
+	//private static int paymentID;
+
+	/*
 	public PaypalPayment(){
 		paymentID = new Counter().generateUniqueID();
+	}*/
+	
+	public PaypalPayment(){
 	}
 	
-	@Override
+/*	@Override
 	public int getPaymentID() {
 		// TODO Auto-generated method stub
 		return paymentID;
-	}
+	}*/
 	
-	@Override
+
 	public boolean buy(User user, List<IndividualItem> cart, double partialPrice) {
 		// TODO Auto-generated method stub
 		try {
-			setEmail(user.getEmail());
-			setPassword(user.getPassword());
 			applyDiscount(partialPrice, cart);
-			PaymentTransaction aPaymentTransaction= new PaymentTransaction(paymentID, amount,"Paypal",user);
-			savePaymentTransaction(aPaymentTransaction,user.getMarket());
-			System.out.printf( "Transaction Number %d - Amount paid by Paypal: $%f %n", paymentID,amount);
+			setUser(user);
 			return true;
 		}
 		catch (PaymentException e) {
@@ -70,38 +75,16 @@ public class PaypalPayment implements Payment{
 		return minPrice;
 	}
 
-	@Override
-	public double getAmount() {
-		// TODO Auto-generated method stub
-		return amount;
-	}
 
-	public void setAmount(double amount) {
-		this.amount = amount;
-	}
-	
-	public String getEmail() {
-		return email;
-	}
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
 
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
-	@Override
+	/*@Override
 	public void savePaymentTransaction(PaymentTransaction paymentTransaction, Market market) {
 		// TODO Auto-generated method stub
 		market.addPaymentTransaction(paymentTransaction);
 		
-	}
+	}*/
+
 
 
 }

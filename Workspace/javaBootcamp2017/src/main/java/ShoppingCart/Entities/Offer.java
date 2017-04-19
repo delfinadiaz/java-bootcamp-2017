@@ -1,5 +1,6 @@
 package ShoppingCart.Entities;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -7,29 +8,41 @@ import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
 import ShoppingCart.Model.Item;
 
+@SuppressWarnings("serial")
 @Entity
 @Table(name = "offer")
-public class Offer implements Item{
+public class Offer implements Item,Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "iditem_offer")
+	@Column(name = "idoffer")
 	private int idOffer;
 	
+	@Column(length = 45)
 	private String name;
+
+	private int paymentType;
+	
+	@Transient
 	private double price;
 	
-	@OneToMany(mappedBy = "offer")
-	private Set<ItemOffer> itemOffer= new HashSet<ItemOffer>(0);
+	private int discount;
+	
+
+	@ManyToMany(fetch = FetchType.EAGER, mappedBy = "offers")
+	private Set<IndividualItem> items= new HashSet<IndividualItem>(0);
 	
 	@Transient
     List<Item> components = new ArrayList<Item>();
@@ -37,9 +50,16 @@ public class Offer implements Item{
 	public Offer(){
 		
 	}
-	public Offer(String name, double price){
+	/*public Offer(String name, double price){
 		this.name= name;
 		this.price=price;
+	}*/
+	
+	public Offer(String name, int discount, int paymentType,Set<IndividualItem> items ){
+		this.name= name;
+		this.discount=discount;
+		this.setPaymentType(paymentType);
+		this.setItems(items);
 	}
 	@Override
 	public String getName() {
@@ -63,13 +83,13 @@ public class Offer implements Item{
 		this.price = aPrice;
 	}
 	
-	public void add(Item anItemOrOffer) {
+	/*public void add(Item anItemOrOffer) {
 		components.add(anItemOrOffer);
 	}
 
 	public void remove(Item anItemOrOffer) {
 		components.remove(anItemOrOffer);
-	}
+	}*/
 
 	public List<Item> getComponents() {
 		return components;
@@ -100,11 +120,40 @@ public class Offer implements Item{
 	public void setIdOffer(int idOffer) {
 		this.idOffer = idOffer;
 	}
-	public Set<ItemOffer> getItemOffer() {
-		return itemOffer;
+
+	public int getDiscount() {
+		return discount;
 	}
-	public void setItemOffer(Set<ItemOffer> itemOffer) {
-		this.itemOffer = itemOffer;
+	public void setDiscount(int discount) {
+		this.discount = discount;
 	}
+	
+	public void addItem(IndividualItem item){
+		getItems().add(item);
+	}
+	
+	public void removeItem(IndividualItem item){
+		getItems().remove(item);
+	}
+
+	public int getPaymentType() {
+		return paymentType;
+	}
+
+	public void setPaymentType(int paymentType) {
+		this.paymentType = paymentType;
+	}
+
+	public Set<IndividualItem> getItems() {
+		return items;
+	}
+
+	public void setItems(Set<IndividualItem> items) {
+		this.items = items;
+	}
+
+
+
+
 	
 }

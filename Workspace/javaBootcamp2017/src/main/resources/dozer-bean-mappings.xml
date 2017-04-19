@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mappings xmlns="http://dozer.sourceforge.net"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://dozer.sourceforge.net http://dozer.sourceforge.net/schema/beanmapping.xsd">
+ 
+      <mapping map-id="offer">
+        <class-a>ShoppingCart.Dto.OfferDTO.OfferDTO</class-a>
+        <class-b>ShoppingCart.Entities.Offer</class-b>
+        <field>
+            <a>name</a>
+            <b>name</b>
+        </field>
+        <field >
+            <a>discount</a>
+            <b>discount</b>
+        </field>
+    </mapping>
+    
+     <mapping map-id="item">
+        <class-a>ShoppingCart.Dto.ItemDTO.ItemDTO</class-a>
+        <class-b>ShoppingCart.Entities.IndividualItem</class-b>
+        <field>
+            <a>name</a>
+            <b>name</b>
+        </field>
+        <field >
+            <a>price</a>
+            <b>price</b>
+        </field>
+        <field >
+            <a>category</a>
+            <b>category</b>
+        </field>
+        <field >
+            <a>stock</a>
+            <b>stock</b>
+        </field>
+    </mapping>
+    
+    <mapping map-id="user">
+        <class-a>ShoppingCart.Dto.UserDTO.UserDTO</class-a>
+        <class-b>ShoppingCart.Entities.User</class-b>
+        <field>
+            <a>name</a>
+            <b>name</b>
+        </field>
+       <field >
+            <a>username</a>
+            <b>username</b>
+        </field>
+        <field >
+            <a>password</a>
+            <b>password</b>
+        </field>
+        <field >
+            <a>email</a>
+            <b>email</b>
+        </field>
+        <field >
+            <a>creditNumber</a>
+            <b>creditNumber</b>
+        </field>
+    </mapping>
+    
+    <mapping map-id="payment">
+        <class-a>ShoppingCart.Dto.PaymentDTO.StadisticPaymentDTO</class-a>
+        <class-b>ShoppingCart.Entities.Payment</class-b>
+        <field >
+            <a>idPayment</a>
+            <b>idPayment</b>
+        </field>
+        <field >
+            <a>amount</a>
+            <b>amount</b>
+        </field>
+    </mapping>
+    <mapping map-id="cartItem">
+        <class-a>ShoppingCart.Dto.ItemDTO.ItemCartDTO</class-a>
+        <class-b>ShoppingCart.Entities.CartItem</class-b>
+        <field>
+            <a>quantity</a>
+            <b>quantity</b>
+        </field>
+    </mapping>
+  
+  
+</mappings>

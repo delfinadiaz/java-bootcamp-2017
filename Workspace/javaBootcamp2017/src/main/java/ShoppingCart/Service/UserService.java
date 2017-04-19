@@ -1,13 +1,19 @@
 package ShoppingCart.Service;
 
+import java.util.List;
+
 import ShoppingCart.Entities.User;
-import ShoppingCart.Model.MarketModel.Market;
 
 public interface UserService {
 	
-	public boolean logUser(User anUser, String anUsername, String aPassword);
-	public boolean userExists(User anUser);
-	public void createUser(String anUsername, String aPassword,String anEmail, Market aMarket);
-	public void removeUser(User anUser);
-	public void changeUserPassword(User anUser, String oldPassword,String newPassword);
+	public boolean createUser(User anUser);
+	public User getUser(int idUser);
+	public User getUserByName(String aName);
+	public List<User> getUsers();
+	public User userExists(String anUsername);
+	public boolean logInUser(int idUser, String anUsername, String aPassword);
+	public boolean updateUser(User anUser);
+	public int getAmountOfTransactions(User anUser);
+	public void logOutUser(int IdUser);
+	public boolean removeUser(User anUser);
 }

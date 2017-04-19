@@ -24,7 +24,7 @@ public class TeacherDaoImp implements TeacherDao {
         try {
             transaction = session.beginTransaction();
             Teacher teacher = new Teacher(firstName,lastName,birthDate);
-            idTeacher= (int) session.save(teacher);
+            idTeacher= (Integer) session.save(teacher);
             transaction.commit();
         }catch (HibernateException e) {
             transaction.rollback();

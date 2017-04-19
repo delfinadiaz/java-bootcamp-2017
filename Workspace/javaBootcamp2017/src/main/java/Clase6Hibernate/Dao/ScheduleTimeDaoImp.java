@@ -26,7 +26,7 @@ public class ScheduleTimeDaoImp implements ScheduleTimeDao{
         try {
             transaction = session.beginTransaction();
             ScheduleTime schedule = new ScheduleTime(day,from_hour, to_hour,aCourse);
-            idSchedule= (int) session.save(schedule);
+            idSchedule= (Integer) session.save(schedule);
             transaction.commit();
         }catch (HibernateException e) {
             transaction.rollback();

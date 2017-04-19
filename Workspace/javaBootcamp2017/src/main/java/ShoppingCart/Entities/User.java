@@ -1,38 +1,42 @@
 package ShoppingCart.Entities;
 
-import java.util.ArrayList;
-import java.util.List;
 
-import javax.persistence.CascadeType;
+import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import ShoppingCart.Model.MarketModel.Market;
-import ShoppingCart.ServiceImp.ShoppingCartImp;
 
 
+@SuppressWarnings("serial")
 @Entity
 @Table(name = "user")
-public class User{
+public class User implements Serializable {
 	    
 		@Id
 		@GeneratedValue(strategy = GenerationType.IDENTITY)
 		@Column(name = "iduser")
 		private int idUser;
 	
+		@Column(length = 45)
 	    private String name;
+	    @Column(length = 45)
 		private String username;
+		@Column(length = 45)
 		private String password;
+		@Column(length = 45)
 		private String email;
 		
 		@Transient
@@ -41,14 +45,21 @@ public class User{
 		@Column(name = "credit_number")
 		private int creditNumber;
 	
-		@OneToMany(fetch = FetchType.LAZY, mappedBy="user")
-		private List<PaymentTransaction> transactions= new ArrayList<PaymentTransaction>();
+		@OneToMany(fetch = FetchType.EAGER, mappedBy="user")
+		private Set<Payment> transactions= new HashSet<Payment>(0);
 		
-		@OneToOne(fetch = FetchType.LAZY, mappedBy = "user", cascade = CascadeType.ALL)
-		private ShoppingCartEntity shoppingCart;
+		@OneToMany(fetch = FetchType.EAGER, mappedBy="user")
+		private Set<ShoppingCartEntity> carts= new HashSet<ShoppingCartEntity>(0);
 		
 		public User(){
 					
+		}
+		public User(String name,String username, String password, String email, int creditNumber){
+			this.name=name;
+			this.username = username;
+			this.password = password;
+			this.email = email;
+			this.creditNumber = creditNumber;
 		}
 		
 		public User(String username, String password, String email, Market market) {
@@ -94,19 +105,23 @@ public class User{
 		public void setIdUser(int idUser) {
 			this.idUser = idUser;
 		}
-		public ShoppingCartEntity getShoppingCart() {
-			return shoppingCart;
-		}
-		public void setShoppingCart(ShoppingCartEntity shoppingCart) {
-			this.shoppingCart = shoppingCart;
-		}
+		
 
+		@JsonIgnore
 		public Market getMarket() {
 			return market;
 		}
 
 		public void setMarket(Market market) {
 			this.market = market;
+		}
+
+		@JsonIgnore
+		public Set<ShoppingCartEntity> getCarts() {
+			return carts;
+		}
+		public void setCarts(Set<ShoppingCartEntity> carts) {
+			this.carts = carts;
 		}
 		
 		

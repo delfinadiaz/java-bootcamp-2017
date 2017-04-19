@@ -7,10 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import ShoppingCart.DaoImp.ShoppingCartDaoImp;
+import ShoppingCart.Entities.CartItem;
 import ShoppingCart.Entities.IndividualItem;
+import ShoppingCart.Entities.Payment;
 import ShoppingCart.Entities.ShoppingCartEntity;
-import ShoppingCart.Entities.User;
-import ShoppingCart.Model.Payment;
+import ShoppingCart.Model.ShoppingCartStatus;
 import ShoppingCart.Service.ShoppingCartAPI;
 
 @Service
@@ -25,33 +26,28 @@ public class ShoppingCartImp implements ShoppingCartAPI {
 	}
 
 	@Override
-	public void createShoppingCart(User anUser) {
+	public boolean createShoppingCart(ShoppingCartEntity cart) {
 		// TODO Auto-generated method stub
-		
+		return shoppingcartDao.createShoppingCart(cart);
 	}
 
 	@Override
-	public void addItem(int idShoppingCart, IndividualItem anItem) {
+	public boolean updateShoppingCart(ShoppingCartEntity cart) {
 		// TODO Auto-generated method stub
-		
+		return shoppingcartDao.updateShoppingCart(cart);
 	}
+	
 
 	@Override
-	public void removeItem(int idShoppingCart, IndividualItem anItem) {
+	public boolean removeItems(ShoppingCartEntity cart) {
 		// TODO Auto-generated method stub
-		
+		return shoppingcartDao.removeItems(cart);
 	}
 
 	@Override
 	public ShoppingCartEntity getShoppingCart(int idShoppingCart) {
 		// TODO Auto-generated method stub
 		return shoppingcartDao.getShoppingCart(idShoppingCart);
-	}
-	
-	@Override
-	public List<IndividualItem> getItemsShoppingCart(int idShoppingCart) {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 	@Override
@@ -67,10 +63,59 @@ public class ShoppingCartImp implements ShoppingCartAPI {
 	}
 
 	@Override
-	public void removeShoppingCart(int idShoppingCart) {
+	public boolean removeShoppingCart(ShoppingCartEntity cart) {
 		// TODO Auto-generated method stub
-		
+		return shoppingcartDao.removeShoppingCart(cart);
 	}
+
+	@Override
+	public CartItem getCartItem(ShoppingCartEntity cart, IndividualItem item) {
+		// TODO Auto-generated method stub
+		return shoppingcartDao.getCartItem(cart, item);
+	}
+
+	@Override
+	public boolean createCartItem(CartItem cartItem) {
+		// TODO Auto-generated method stub
+		return shoppingcartDao.createCartItem(cartItem);
+	}
+
+	@Override
+	public boolean updateCartItem(CartItem cartItem) {
+		// TODO Auto-generated method stub
+		return shoppingcartDao.updateCartItem(cartItem);
+	}
+
+	@Override
+	public boolean removeCartItem(CartItem cartItem) {
+		// TODO Auto-generated method stub
+		return shoppingcartDao.removeCartItem(cartItem);
+	}
+
+	@Override
+	public List<ShoppingCartEntity> getShoppingCartsByStatus(ShoppingCartStatus status) {
+		// TODO Auto-generated method stub
+		return shoppingcartDao.getShoppingCartsByStatus(status);
+	}
+
+	@Override
+	public Payment getPayment(int idPayment) {
+		// TODO Auto-generated method stub
+		return shoppingcartDao.getPayment(idPayment);
+	}
+
+	@Override
+	public boolean createPayment(Payment aPayment) {
+		// TODO Auto-generated method stub
+		return shoppingcartDao.createPayment(aPayment);
+	}
+
+	@Override
+	public List<Payment> getPaymentsByType(int paymentType) {
+		// TODO Auto-generated method stub
+		return shoppingcartDao.getPaymentsByType(paymentType);
+	}
+
 	
 	
 	

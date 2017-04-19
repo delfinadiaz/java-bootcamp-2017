@@ -1,40 +1,50 @@
-package ShoppingCart.Model.PaymentModel;
+package ShoppingCart.Entities;
 
+import java.io.Serializable;
 import java.util.List;
 
-import ShoppingCart.Entities.IndividualItem;
-import ShoppingCart.Entities.PaymentTransaction;
-import ShoppingCart.Entities.User;
-import ShoppingCart.Model.Payment;
-import ShoppingCart.Model.MarketModel.Market;
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import javax.persistence.Transient;
 
+//import ShoppingCart.Model.Counter;
+import ShoppingCart.Model.PaymentException;
+//import ShoppingCart.Model.MarketModel.Market;
 
-public class CreditCardPayment implements Payment {
+@SuppressWarnings("serial")
+@Entity
+@Table(name = "creditcard_payment")
+@DiscriminatorValue("2")
+public class CreditCardPayment extends Payment implements Serializable {
 
-	private static int paymentID;
+	//@Transient
+	//private static int paymentID;
+	@Transient
 	private String name;
+	@Transient
 	private int creditNumber; 
+	@Transient
 	private double amount;
 	
 	
 	public CreditCardPayment(){
-		paymentID = new Counter().generateUniqueID();
 	}
-	@Override
+	/*
+	public CreditCardPayment(){
+		paymentID = new Counter().generateUniqueID();
+	}*/
+/*	@Override
 	public int getPaymentID() {
 		// TODO Auto-generated method stub
 		return paymentID;
-	}
+	}*/
 	
 	@Override
 	public boolean buy(User user, List<IndividualItem> cart, double partialPrice) {
 		try { 
-			setName(user.getName());
-			setCreditNumber(user.getCreditNumber());
 			applyDiscount(partialPrice);
-			PaymentTransaction aPaymentTransaction= new PaymentTransaction(paymentID, amount,"Credit Card",user);
-			savePaymentTransaction(aPaymentTransaction,user.getMarket());
-			System.out.printf( "Transaction Number %d - Amount paid by Credit Card: $%f %n",paymentID,amount);
+			setUser(user);
 			return true;
 		}
 		catch (PaymentException e) {
@@ -69,11 +79,15 @@ public class CreditCardPayment implements Payment {
 	public void setAmount(double amount) {
 		this.amount = amount;
 	}
-	@Override
+
+
+	/*@Override
 	public void savePaymentTransaction(PaymentTransaction paymentTransaction, Market market) {
 		// TODO Auto-generated method stub
 		market.addPaymentTransaction(paymentTransaction);
-	}
+		
+	}*/
+	
 	
 
 }

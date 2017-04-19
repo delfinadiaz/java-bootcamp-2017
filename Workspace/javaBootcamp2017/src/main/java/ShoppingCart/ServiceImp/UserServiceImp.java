@@ -1,67 +1,89 @@
 package ShoppingCart.ServiceImp;
 
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import ShoppingCart.DaoImp.UserDaoImp;
 import ShoppingCart.Entities.User;
-import ShoppingCart.Model.MarketModel.Market;
 import ShoppingCart.Service.UserService;
 
+@Service
 public class UserServiceImp implements UserService{
 	
-	private User user;
-
-	@Override
-	public boolean logUser(User anUser, String anUsername, String aPassword) {
-		// TODO Auto-generated method stub
-		if ((anUser.getUsername() == anUsername) && (anUser.getPassword()== aPassword)){
-			//Log in the user
-			return true;
-		}
-		return false;
+	private UserDaoImp userDao;
+	
+	@Autowired
+	public UserServiceImp(UserDaoImp userDao){
+		this.userDao = userDao;
 	}
 
 	@Override
-	public boolean userExists(User anUser) {
+	public boolean createUser(User anUser) {
 		// TODO Auto-generated method stub
-		return anUser.getMarket().getUsers().contains(anUser);
+		return userDao.createUser(anUser);
+		
+	}
+
+
+	@Override
+	public boolean logInUser(int idUser, String anUsername, String aPassword) {
+		// TODO Auto-generated method stub
+		return userDao.logInUser(idUser, anUsername, aPassword);
 	}
 
 	@Override
-	public void createUser(String anUsername, String aPassword, String anEmail, Market aMarket) {
+	public User getUser(int idUser) {
 		// TODO Auto-generated method stub
-		setUser(new User(anUsername,aPassword,anEmail,aMarket));
-		aMarket.addUser(user);
+		return userDao.getUser(idUser);
+	}
+
+	@Override
+	public User userExists(String anUsername) {
+		// TODO Auto-generated method stub
+		return userDao.userExists(anUsername);
+	}
+
+	@Override
+	public void logOutUser(int idUser) {
+		// TODO Auto-generated method stub
+		userDao.logOutUser(idUser);
 		
 	}
 
 	@Override
-	public void removeUser(User anUser) {
+	public boolean removeUser(User anUser) {
 		// TODO Auto-generated method stub
-		if (userExists(anUser)){ 
-			anUser.getMarket().getUsers().remove(anUser);
-		}
-		System.out.println("The user doesn't exist");
+		return userDao.removeUser(anUser);
 		
 	}
 
 	@Override
-	public void changeUserPassword(User anUser, String oldPassword, String newPassword) {
+	public List<User> getUsers() {
 		// TODO Auto-generated method stub
-		if (anUser.getPassword() == oldPassword){
-			anUser.setPassword(newPassword);
-		}
-		else {
-			System.out.println("The old password is incorrect, plase try again");
-		}
-		
+		return userDao.getUsers();
 	}
 
-	public User getUser() {
-		return user;
+	@Override
+	public boolean updateUser(User anUser) {
+		// TODO Auto-generated method stub
+		return userDao.updateUser(anUser);
 	}
 
-	public void setUser(User user) {
-		this.user = user;
+	@Override
+	public int getAmountOfTransactions(User anUser) {
+		// TODO Auto-generated method stub
+		return userDao.getAmountOfTransactions(anUser);
 	}
 
+	@Override
+	public User getUserByName(String aName) {
+		// TODO Auto-generated method stub
+		return userDao.getUserByName(aName);
+	}
+	
+	
 	
 
 

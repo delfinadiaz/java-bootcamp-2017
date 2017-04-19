@@ -30,7 +30,7 @@ public class CourseDaoImp implements CourseDao {
 	        try {
 	            transaction = session.beginTransaction();
 	            Course course = new Course(name,teacherAssigned, hoursByWeek);
-	            idCourse= (int) session.save(course);
+	            idCourse= (Integer) session.save(course);
 	            transaction.commit();
 	        }catch (HibernateException e) {
 	            transaction.rollback();

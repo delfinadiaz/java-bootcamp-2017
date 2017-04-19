@@ -1,4 +1,4 @@
-package ShoppingCart.Model.PaymentModel;
+package ShoppingCart.Model;
 
 public class Counter {
 

@@ -1,18 +1,20 @@
 package ShoppingCart.Dao;
 
-import ShoppingCart.Entities.ShoppingCartEntity;
+import java.util.List;
+
+
 import ShoppingCart.Entities.User;
-import ShoppingCart.Model.MarketModel.Market;
 
 public interface UserDao {
 
-	public void createUser(String anUsername, String aPassword,String anEmail, Market aMarket);
-	public void setCreditNumber(int idUser, int aCreditNumber);
-	public boolean logInUser(int idUser, String anUsername, String aPassword);
-	public void changePassword(int idUser, String oldPassword,String newPassword);
-	public void changeEmail(int idUser, String newEmail);
+	public boolean createUser(User anUser);
 	public User getUser(int idUser);
-	public ShoppingCartEntity getShoppingCartUser(int idUser);
+	public User getUserByName(String aName);
+	public List<User> getUsers();
+	public User userExists(String anUsername);
+	public boolean logInUser(int idUser, String anUsername, String aPassword);
+	public boolean updateUser(User anUser);
+	public int getAmountOfTransactions(User anUser);
 	public void logOutUser(int IdUser);
-	public void removeUser(int idUser);
+	public boolean removeUser(User anUser);
 }

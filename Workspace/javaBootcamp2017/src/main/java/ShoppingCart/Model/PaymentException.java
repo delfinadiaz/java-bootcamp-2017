@@ -1,4 +1,4 @@
-package ShoppingCart.Model.PaymentModel;
+package ShoppingCart.Model;
 
 @SuppressWarnings("serial")
 public class PaymentException extends RuntimeException {

@@ -6,10 +6,10 @@ import java.util.List;
 
 
 import ShoppingCart.Entities.Offer;
-import ShoppingCart.Entities.PaymentTransaction;
 import ShoppingCart.Entities.User;
 import ShoppingCart.Model.Item;
 import ShoppingCart.Model.MailingListReceiver;
+import ShoppingCart.Model.PaymentTransaction;
 
 
 public class Market {

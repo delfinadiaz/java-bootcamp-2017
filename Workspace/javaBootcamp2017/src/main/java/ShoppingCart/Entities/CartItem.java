@@ -19,11 +19,11 @@ public class CartItem {
 	private int idCartItem;
 	
 	@ManyToOne()
-    @JoinColumn(name = "idShoppingCart",nullable=false) 
+    @JoinColumn(name = "cart",nullable=false) 
 	private ShoppingCartEntity cart;
 	
 	@ManyToOne()
-    @JoinColumn(name = "idItem",nullable=false) 
+    @JoinColumn(name = "item",nullable=false) 
 	private IndividualItem item;
 	
 	private int quantity;
@@ -32,6 +32,12 @@ public class CartItem {
 		
 	}
 	
+	public CartItem(ShoppingCartEntity cart, IndividualItem item, int quantity) {
+		this.cart = cart;
+		this.item = item;
+		this.quantity = quantity;
+	}
+
 	public int getIdCartItem() {
 		return idCartItem;
 	}

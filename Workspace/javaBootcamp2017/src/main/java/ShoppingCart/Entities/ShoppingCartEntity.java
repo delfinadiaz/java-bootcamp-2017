@@ -1,65 +1,90 @@
 package ShoppingCart.Entities;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
-import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
 
-import ShoppingCart.Model.Payment;
-import ShoppingCart.Model.PaymentModel.PaymentException;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import ShoppingCart.Model.ShoppingCartStatus;
+
+@SuppressWarnings("serial")
 @Entity
 @Table(name = "cart")
-public class ShoppingCartEntity {
+public class ShoppingCartEntity implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "idcart")
 	private int idShoppingCart;
 	
-	@OneToOne(fetch = FetchType.LAZY)
-	@PrimaryKeyJoinColumn
+	@ManyToOne
+	@JoinColumn(name="user",nullable=false)
 	private User user;
 	
-	@OneToMany(mappedBy = "cart")
-	private Set<CartItem> cartItem= new HashSet<CartItem>(0);
+	@OneToMany(fetch = FetchType.EAGER,mappedBy = "cart",cascade=CascadeType.ALL)
+	private Set<CartItem> cartItems= new HashSet<CartItem>(0);
 	
 	@Transient
-	private List<IndividualItem> cart = new ArrayList<IndividualItem>();
+	private List<IndividualItem> items = new ArrayList<IndividualItem>();
 	
+	
+	private ShoppingCartStatus status;
+	
+	public ShoppingCartEntity(User anUser){
+		this.user = anUser;
+	}
+
 	public ShoppingCartEntity(){
 	}
-	
 
-	public void initialize(User anUser) {
-		this.setUser(anUser);
-		
-	}
-
-	public void addItem(IndividualItem anItem) {
+	public void addItem(IndividualItem anItem, int quantity) {
 		// TODO Auto-generated method stub
-		cart.add(anItem);
+		CartItem newcartItem = new CartItem(this, anItem,quantity);
+		getCartItems().add(newcartItem);
 	}
 
+	public void removeItem(IndividualItem item, int quantity) {
+		// TODO Auto-generated method stub
+		CartItem cartItem = getCartItem(this, item);
+    	getCartItems().remove(cartItem);
+	}
+	
+	private CartItem getCartItem(ShoppingCartEntity cart, IndividualItem item) {
+		// TODO Auto-generated method stub
+		for (CartItem cartItem : getCartItems()){
+			if ((cartItem.getCart()==cart) && (cartItem.getItem()==item)){
+				return cartItem;
+			}
+		}
+		return null;
+	}
+
+	public void addItem(IndividualItem anItem){
+		items.add(anItem);
+	}
 
 	public boolean removeItem(IndividualItem anItem) {
 		// TODO Auto-generated method stub
-		if (cart.contains(anItem)){
-			cart.remove(anItem);
+		if (items.contains(anItem)){
+			items.remove(anItem);
 			return true;
 		}
 		System.out.println("The item to remove wasn't in the cart");
@@ -67,13 +92,12 @@ public class ShoppingCartEntity {
 		
 	}
 
-
 	public List<IndividualItem> getItems() {
 		// TODO Auto-generated method stub
-		return cart;
+		return items;
 	}
 
-
+	
 	public double getPartialPrice(){
 		// TODO Auto-generated method stub
 		double sumPrice=0;
@@ -85,28 +109,28 @@ public class ShoppingCartEntity {
 		return sumPrice;
 	}
 	
-
+/*
 	public void buy(Payment aPaymentOption) {
 		// TODO Auto-generated method stub
 		double partialPrice = getPartialPrice();
-		boolean purchaseMade = aPaymentOption.buy(getUser(),cart,partialPrice);
+		boolean purchaseMade = aPaymentOption.buy(getUser(),items,partialPrice);
 		if (purchaseMade){
 			emptyCart();
 		}
 		else {
 			throw new PaymentException();
 		}	
-	}
+	}*/
 
 
 	public void emptyCart() {
-		cart.clear();
+		items.clear();
 	}	
 	
 
 	public String showItems() {
 		// TODO Auto-generated method stub
-		Iterator<IndividualItem> it = cart.listIterator();
+		Iterator<IndividualItem> it = items.listIterator();
 		String message = null;
 		StringBuilder sb = new StringBuilder();
 		while (it.hasNext()) {
@@ -131,7 +155,7 @@ public class ShoppingCartEntity {
 		this.idShoppingCart = idShoppingCart;
 	}
 
-
+	@JsonIgnore
 	public User getUser() {
 		return user;
 	}
@@ -140,5 +164,22 @@ public class ShoppingCartEntity {
 	public void setUser(User user) {
 		this.user = user;
 	}
+
+	public ShoppingCartStatus getStatus() {
+		return status;
+	}
+
+	public void setStatus(ShoppingCartStatus status) {
+		this.status = status;
+	}
+
+	public Set<CartItem> getCartItems() {
+		return cartItems;
+	}
+
+	public void setCartItems(Set<CartItem> cartItems) {
+		this.cartItems = cartItems;
+	}
+
 	
 }

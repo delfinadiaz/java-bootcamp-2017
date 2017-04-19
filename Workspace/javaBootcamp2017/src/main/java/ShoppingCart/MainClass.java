@@ -1,17 +1,16 @@
 package ShoppingCart;
 
-import org.springframework.boot.SpringApplication;
+/*import org.springframework.boot.SpringApplication;
 
+import ShoppingCart.Entities.CashPayment;
+import ShoppingCart.Entities.CreditCardPayment;
 import ShoppingCart.Entities.IndividualItem;
 import ShoppingCart.Entities.Offer;
+import ShoppingCart.Entities.PaypalPayment;
 import ShoppingCart.Entities.User;
 import ShoppingCart.Model.MarketModel.Market;
 import ShoppingCart.Model.MarketModel.MarketManager;
-import ShoppingCart.Model.PaymentModel.CashPayment;
-import ShoppingCart.Model.PaymentModel.CreditCardPayment;
-import ShoppingCart.Model.PaymentModel.PaypalPayment;
-import ShoppingCart.RestService.ExampleRest;
-import ShoppingCart.ServiceImp.ShoppingCartImp;
+import ShoppingCart.ServiceImp.ShoppingCartImp;*/
 
 public class MainClass {
 	

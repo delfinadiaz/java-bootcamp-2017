@@ -1,8 +1,5 @@
 package ShoppingCart.Model;
 
-public interface Category {
-
-	public String getName();
-
-	public void setName(String aName);
+public enum Category {
+	Music, Entertainment, Home, Clothing, Electronic, Food
 }

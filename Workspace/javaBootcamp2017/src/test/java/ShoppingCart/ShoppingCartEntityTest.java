@@ -1,5 +1,5 @@
 package ShoppingCart;
-
+/*
 import static org.junit.Assert.*;
 
 import java.util.ArrayList;
@@ -12,17 +12,17 @@ import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 
 import ShoppingCart.ShoppingCartFactory;
+import ShoppingCart.Entities.CashPayment;
+import ShoppingCart.Entities.CreditCardPayment;
 import ShoppingCart.Entities.IndividualItem;
 import ShoppingCart.Entities.Offer;
+import ShoppingCart.Entities.PaypalPayment;
 import ShoppingCart.Entities.User;
 import ShoppingCart.Model.MarketModel.Market;
 import ShoppingCart.Model.MarketModel.MarketManager;
-import ShoppingCart.Model.PaymentModel.CashPayment;
-import ShoppingCart.Model.PaymentModel.CreditCardPayment;
-import ShoppingCart.Model.PaymentModel.PaypalPayment;
 import ShoppingCart.ServiceImp.ShoppingCartImp;
-
-public class ShoppingCartImpTest {
+*/
+public class ShoppingCartEntityTest {
 	/*
 	@Mock
 	IndividualItem item;

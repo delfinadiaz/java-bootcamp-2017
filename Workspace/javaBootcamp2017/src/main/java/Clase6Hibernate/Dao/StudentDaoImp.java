@@ -27,7 +27,7 @@ public class StudentDaoImp implements StudentDao {
         try {
             transaction = session.beginTransaction();
             Student student = new Student(aFirstName,aLastName,aRegNumber,aDate);
-            idStudent= (int) session.save(student);
+            idStudent= (Integer) session.save(student);
             transaction.commit();
         }catch (HibernateException e) {
             transaction.rollback();

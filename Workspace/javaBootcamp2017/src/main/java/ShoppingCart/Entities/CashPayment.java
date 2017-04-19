@@ -1,38 +1,45 @@
-package ShoppingCart.Model.PaymentModel;
+package ShoppingCart.Entities;
 
+import java.io.Serializable;
 import java.util.Iterator;
+
 import java.util.List;
 
-import ShoppingCart.Entities.IndividualItem;
-import ShoppingCart.Entities.PaymentTransaction;
-import ShoppingCart.Entities.User;
-import ShoppingCart.Model.Payment;
-import ShoppingCart.Model.MarketModel.Market;
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
-public class CashPayment implements Payment{
+//import ShoppingCart.Model.Counter;
+import ShoppingCart.Model.PaymentException;
+//import ShoppingCart.Model.MarketModel.Market;
 
-	private static int paymentID;
-    private double amount;
+@SuppressWarnings("serial")
+@Entity
+@Table(name = "cash_payment")
+@DiscriminatorValue("1")
+public class CashPayment extends Payment implements Serializable{
+	
+
+	/*
+	 * @Transient private static int paymentID;
+	 * 
+	 * public CashPayment(){ paymentID = new Counter().generateUniqueID(); }
+	 */
     
-    public CashPayment(){
-    	paymentID = new Counter().generateUniqueID();
+	public CashPayment(){
     }
     
-    
-    @Override
-	public int getPaymentID() {
-		// TODO Auto-generated method stub
-		return paymentID;
-	}
+	/*
+	 * @Override public int getPaymentID() { // TODO Auto-generated method stub
+	 * return paymentID; }
+	 */
     
 	@Override
 	public boolean buy(User user, List<IndividualItem> cart, double partialPrice) {
 		// TODO Auto-generated method stub
 		try { 
 			applyDiscount(partialPrice, cart);
-			PaymentTransaction aPaymentTransaction= new PaymentTransaction(paymentID, amount,"Cash",user);
-			savePaymentTransaction(aPaymentTransaction,user.getMarket());
-			System.out.printf( "Transaction Number %d - Amount paid in cash: $%f %n",paymentID,amount);
+			setUser(user);
 			return true;
 		}
 		catch (PaymentException e) {
@@ -68,21 +75,13 @@ public class CashPayment implements Payment{
 		return maxPrice;
 	}
 
-	@Override
-	public double getAmount() {
-		// TODO Auto-generated method stub
-		return amount;
-	}
 
-	public void setAmount(double amount) {
-		this.amount = amount;
-	}
-
-
+/*
 	@Override
 	public void savePaymentTransaction(PaymentTransaction paymentTransaction, Market market) {
 		market.addPaymentTransaction(paymentTransaction);
 		
-	}
+	}*/
+
 
 }
