@@ -11,6 +11,7 @@ import org.dozer.inject.Inject;
 import org.dozer.spring.DozerBeanMapperFactoryBean;
 import org.springframework.test.context.ContextConfiguration;
 
+import ShoppingCart.AppConfig;
 import ShoppingCart.Dto.OfferDTO.OfferDTO;
 import ShoppingCart.Dto.UserDTO.ListUserDTO;
 import ShoppingCart.Dto.UserDTO.UserDTO;
@@ -19,9 +20,8 @@ import ShoppingCart.Model.Entities.Offer;
 import ShoppingCart.Model.Entities.User;
 
 
-
-
-@ContextConfiguration(locations={"classpath*:dozer-bean-mappings.xml"})
+@ContextConfiguration(
+	    classes = { AppConfig.class })
 public class UserMapper {
 
 	

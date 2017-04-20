@@ -344,7 +344,7 @@ public class UserRestServiceTest {
 	@Test
 	public void whenUserCantBeUpdatedThenReturnsStatus409() throws Exception {
 		UserDTO userdto = new UserDTO("delfina", "del", "123456", "delfi@gmail.com", 32113);
-		User anUser = new User("delfina","del","123456","delfi@gmail.com",32113);
+		User anUser = new User("delfina","delfi","123456","delfi@gmail.com",32113);
 		Mockito.when(service.getUser(1)).thenReturn(anUser);
 		Mockito.when(service.userExists("del")).thenReturn(null);
 		Mockito.when(service.updateUser(refEq(anUser))).thenReturn(false);
@@ -359,7 +359,7 @@ public class UserRestServiceTest {
 	@Test
 	public void whenUserIsSuccessfullyUpdatedThenReturnsStatus200() throws Exception {
 		UserDTO userdto = new UserDTO("delfina", "del", "123456", "delfi@gmail.com", 32113);
-		User anUser = new User("delfina","del","123456","delfi@gmail.com",32113);
+		User anUser = new User("delfina","delfi","123456","delfi@gmail.com",32113);
 		Mockito.when(service.getUser(1)).thenReturn(anUser);
 		Mockito.when(service.userExists("del")).thenReturn(null);
 		Mockito.when(service.updateUser(refEq(anUser))).thenReturn(true);

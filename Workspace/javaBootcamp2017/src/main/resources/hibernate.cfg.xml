@@ -13,14 +13,14 @@
     <property name="show_sql">true</property>
     <property name="format_sql">true</property>
     <property name="hibernate.hbm2ddl.auto">update</property> 
-    <mapping class="ShoppingCart.Entities.IndividualItem" />
-    <mapping class="ShoppingCart.Entities.Offer" />
-    <mapping class="ShoppingCart.Entities.Payment" />
-    <mapping class="ShoppingCart.Entities.CashPayment" />
-    <mapping class="ShoppingCart.Entities.CreditCardPayment" />
-    <mapping class="ShoppingCart.Entities.PaypalPayment" />
-    <mapping class="ShoppingCart.Entities.ShoppingCartEntity" />
-    <mapping class="ShoppingCart.Entities.User" />
-    <mapping class="ShoppingCart.Entities.CartItem" />
+    <mapping class="ShoppingCart.Model.Entities.IndividualItem" />
+    <mapping class="ShoppingCart.Model.Entities.Offer" />
+    <mapping class="ShoppingCart.Model.Entities.Payment" />
+    <mapping class="ShoppingCart.Model.Entities.CashPayment" />
+    <mapping class="ShoppingCart.Model.Entities.CreditCardPayment" />
+    <mapping class="ShoppingCart.Model.Entities.PaypalPayment" />
+    <mapping class="ShoppingCart.Model.Entities.ShoppingCartEntity" />
+    <mapping class="ShoppingCart.Model.Entities.User" />
+    <mapping class="ShoppingCart.Model.Entities.CartItem" />
 </session-factory>
 </hibernate-configuration>

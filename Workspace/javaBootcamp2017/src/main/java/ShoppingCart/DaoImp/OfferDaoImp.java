@@ -124,32 +124,7 @@ public class OfferDaoImp implements OfferDao {
 		return success;
 	}
 
-	@Override
-	public Offer getOffersByItem(int idItem,Payment aPayment) {
-		// TODO Auto-generated method stub
-		Session session = HibernateUtil.getSessionFactory().openSession();
-        Transaction transaction = null;
-        Offer offer = null;
-        try {
-              
-            transaction = session.beginTransaction();
-			TypedQuery<Offer> query = session.createQuery(
-					        "select  o " +
-							"from Offer o join o.items i " +
-							"where i.id= :item and o.payment = :payment",Offer.class )
-					        .setParameter("item", idItem)
-			 				.setParameter("payment",  aPayment);
-            offer = query.getSingleResult();
-            transaction.commit();
-            return offer;
-        } catch (NoResultException nre) {
-            transaction.rollback();
-           return null;
-        } finally {
-            session.close();
-        }
-
-	}
+	
 
 
 }

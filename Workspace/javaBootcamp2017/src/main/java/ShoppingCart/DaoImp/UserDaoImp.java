@@ -37,11 +37,6 @@ public class UserDaoImp implements UserDao {
 	}
 
 
-	@Override
-	public boolean logInUser(int idUser, String anUsername, String aPassword) {
-		// TODO Auto-generated method stub
-		return false;
-	}
 
 	@Override
 	public User getUser(int idUser) {
@@ -54,12 +49,6 @@ public class UserDaoImp implements UserDao {
 		return user;
 	}
 
-
-    @Override
-	public void logOutUser(int IdUser) {
-		// TODO Auto-generated method stub
-		
-	}
 
 	@Override
 	public boolean removeUser(User anUser) {
@@ -129,23 +118,6 @@ public class UserDaoImp implements UserDao {
 	    transaction.commit();
 	    session.close();
 		return success;	
-	}
-
-
-	@Override
-	public int getAmountOfTransactions(User anUser) {
-		// TODO Auto-generated method stub
-		Session session = HibernateUtil.getSessionFactory().openSession();
-		Transaction transaction=null;
-		transaction = session.beginTransaction();
-		TypedQuery<PaymentTransaction> query = session.createQuery(
-				"FROM PaymentTransaction p WHERE p.user = :user",PaymentTransaction.class )
-				.setParameter("user", anUser);
-		List<PaymentTransaction> transactions = query.getResultList();
-		transaction.commit();
-		session.close();
-		return transactions.size();
-				
 	}
 
 

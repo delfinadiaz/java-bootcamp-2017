@@ -28,12 +28,6 @@ public class UserServiceImp implements UserService{
 
 
 	@Override
-	public boolean logInUser(int idUser, String anUsername, String aPassword) {
-		// TODO Auto-generated method stub
-		return userDao.logInUser(idUser, anUsername, aPassword);
-	}
-
-	@Override
 	public User getUser(int idUser) {
 		// TODO Auto-generated method stub
 		return userDao.getUser(idUser);
@@ -45,12 +39,6 @@ public class UserServiceImp implements UserService{
 		return userDao.userExists(anUsername);
 	}
 
-	@Override
-	public void logOutUser(int idUser) {
-		// TODO Auto-generated method stub
-		userDao.logOutUser(idUser);
-		
-	}
 
 	@Override
 	public boolean removeUser(User anUser) {
@@ -71,11 +59,6 @@ public class UserServiceImp implements UserService{
 		return userDao.updateUser(anUser);
 	}
 
-	@Override
-	public int getAmountOfTransactions(User anUser) {
-		// TODO Auto-generated method stub
-		return userDao.getAmountOfTransactions(anUser);
-	}
 
 	@Override
 	public User getUserByName(String aName) {

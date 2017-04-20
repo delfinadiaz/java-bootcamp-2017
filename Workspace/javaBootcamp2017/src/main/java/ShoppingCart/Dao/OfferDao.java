@@ -11,7 +11,6 @@ public interface OfferDao {
 	public Offer getOffer(int idOffer);
 	public List<Offer> getOffers();
 	public List<Offer> getOffersByPayment(int paymentType);
-	public Offer getOffersByItem(int idItem,Payment aPayment);
 	public boolean updateOffer(Offer anOffer);
 	public boolean removeOffer(Offer anOffer);
 }

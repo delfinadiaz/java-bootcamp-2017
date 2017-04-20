@@ -56,10 +56,5 @@ public class OfferServiceImp implements OfferService {
 		return offerDao.removeOffer(anOffer);
 	}
 
-	@Override
-	public Offer getOffersByItem(int idItem,Payment aPayment) {
-		// TODO Auto-generated method stub
-		return offerDao.getOffersByItem(idItem,aPayment);
-	}
 
 }

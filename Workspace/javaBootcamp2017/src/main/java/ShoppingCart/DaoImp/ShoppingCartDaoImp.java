@@ -66,12 +66,6 @@ public class ShoppingCartDaoImp implements ShoppingCartDao{
 
 
 	@Override
-	public boolean removeItems(ShoppingCartEntity cart) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
 	public ShoppingCartEntity getShoppingCart(int idShoppingCart) {
 		// TODO Auto-generated method stub
 		Session session = HibernateUtil.getSessionFactory().openSession();
@@ -83,18 +77,6 @@ public class ShoppingCartDaoImp implements ShoppingCartDao{
         
 	}
 
-
-	@Override
-	public double getPartialPrice(int idShoppingCart) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public void buy(Payment aPaymentMethod) {
-		// TODO Auto-generated method stub
-		
-	}
 
 	@Override
 	public boolean removeShoppingCart(ShoppingCartEntity cart) {

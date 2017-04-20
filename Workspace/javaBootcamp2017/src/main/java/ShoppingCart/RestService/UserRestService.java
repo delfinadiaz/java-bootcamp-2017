@@ -1,7 +1,6 @@
 package ShoppingCart.RestService;
 
 
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,14 +19,15 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 
+import ShoppingCart.JWTTokenNeeded;
 import ShoppingCart.Dto.UserDTO.ListUserDTO;
 import ShoppingCart.Dto.UserDTO.UserDTO;
-import ShoppingCart.Mapper.UserMapper;
 import ShoppingCart.Model.Entities.User;
 import ShoppingCart.Service.UserService;
 
 @RestController
 @RequestMapping("/user")
+@JWTTokenNeeded
 public class UserRestService {
 	
     private UserService userService;
@@ -37,10 +37,11 @@ public class UserRestService {
 	public UserRestService(UserService userService){
 		this.userService=userService;
 	}
-
+	
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@RequestMapping(method = RequestMethod.GET)
 	@Produces(MediaType.APPLICATION_JSON)
+	@JWTTokenNeeded
 	public ResponseEntity getAllUsers() throws JsonProcessingException {
         
 		List<User> users = userService.getUsers();
@@ -67,7 +68,7 @@ public class UserRestService {
         
 		User user = userService.getUser(idUser);
 		if (user == null) {
-			return new ResponseEntity("No user found with id" + idUser, HttpStatus.NOT_FOUND);
+			return new ResponseEntity("No user found with id " + idUser, HttpStatus.NOT_FOUND);
 		}
 		else{
 			userDTO = new UserDTO(user.getName(),user.getUsername(),user.getPassword(),user.getEmail(),user.getCreditNumber());

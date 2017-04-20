@@ -26,7 +26,8 @@ import ShoppingCart.Model.Entities.Payment;
 import ShoppingCart.Model.Entities.PaypalPayment;
 import ShoppingCart.Model.Entities.ShoppingCartEntity;
 
-@ContextConfiguration(locations={"classpath*:dozer-bean-mappings.xml"})
+@ContextConfiguration(
+	    classes = { AppConfig.class })
 public class CartMapper {
 	
 	 	private static Mapper  mapper;

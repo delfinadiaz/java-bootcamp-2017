@@ -40,28 +40,11 @@ public class ShoppingCartImp implements ShoppingCartAPI {
 	
 
 	@Override
-	public boolean removeItems(ShoppingCartEntity cart) {
-		// TODO Auto-generated method stub
-		return shoppingcartDao.removeItems(cart);
-	}
-
-	@Override
 	public ShoppingCartEntity getShoppingCart(int idShoppingCart) {
 		// TODO Auto-generated method stub
 		return shoppingcartDao.getShoppingCart(idShoppingCart);
 	}
 
-	@Override
-	public double getPartialPrice(int idShoppingCart) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public void buy(Payment aPaymentMethod) {
-		// TODO Auto-generated method stub
-		
-	}
 
 	@Override
 	public boolean removeShoppingCart(ShoppingCartEntity cart) {

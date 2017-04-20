@@ -18,7 +18,8 @@ import ShoppingCart.Model.Entities.IndividualItem;
 import ShoppingCart.Model.Entities.Offer;
 import ShoppingCart.Model.Entities.Payment;
 
-@ContextConfiguration(locations={"classpath*:dozer-bean-mappings.xml"})
+@ContextConfiguration(
+	    classes = { AppConfig.class })
 public class OfferMapper {
 	
 	

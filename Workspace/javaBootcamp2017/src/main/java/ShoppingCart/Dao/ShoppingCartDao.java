@@ -14,10 +14,7 @@ public interface ShoppingCartDao {
    public ShoppingCartEntity getShoppingCart(int idShoppingCart);
    public boolean createShoppingCart(ShoppingCartEntity cart);
    public boolean updateShoppingCart(ShoppingCartEntity cart);
-   public boolean removeItems(ShoppingCartEntity cart);
-   public double getPartialPrice(int idShoppingCart);
    public List<ShoppingCartEntity> getShoppingCartsByStatus(ShoppingCartStatus status);
-   public void buy(Payment aPaymentMethod);
    public CartItem getCartItem(ShoppingCartEntity cart, IndividualItem item);
    public boolean removeShoppingCart(ShoppingCartEntity cart);
    public boolean createCartItem(CartItem cartItem);

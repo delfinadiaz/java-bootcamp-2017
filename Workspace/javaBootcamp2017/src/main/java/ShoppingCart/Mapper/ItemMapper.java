@@ -16,7 +16,8 @@ import ShoppingCart.Dto.ItemDTO.ItemDTO;
 import ShoppingCart.Dto.ItemDTO.ListItemDTO;
 import ShoppingCart.Model.Entities.IndividualItem;
 
-@ContextConfiguration(locations={"classpath*:dozer-bean-mappings.xml"})
+@ContextConfiguration(
+	    classes = { AppConfig.class })
 public class ItemMapper {
 	
 	private static Mapper  mapper;
